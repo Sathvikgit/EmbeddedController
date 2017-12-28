@@ -656,7 +656,7 @@ public static void removeDevice(){
         telentClientTerminal.setEditable(false);
         telentClientTerminal.setBackground(new java.awt.Color(0, 0, 0));
         telentClientTerminal.setColumns(20);
-        telentClientTerminal.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        telentClientTerminal.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         telentClientTerminal.setForeground(new java.awt.Color(255, 255, 255));
         telentClientTerminal.setRows(5);
         telnetServerResp.setViewportView(telentClientTerminal);
