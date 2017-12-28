@@ -6,6 +6,7 @@ import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 import javax.swing.JFileChooser;
+import model.EmailClient;
 import model.FTPserver;
 import model.MyTelnetClient;
 import model.SystemDefinitions.*;
@@ -169,6 +170,19 @@ public static void removeDevice(){
         SerialTermainal = new javax.swing.JPanel();
         HTTPserver = new javax.swing.JPanel();
         EmailClient = new javax.swing.JPanel();
+        jPanel10 = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
+        contactInfopanel = new javax.swing.JPanel();
+        mail_nameLabel = new javax.swing.JLabel();
+        mail_emailLable = new javax.swing.JLabel();
+        mail_phoneLable = new javax.swing.JLabel();
+        email_userName = new javax.swing.JTextField();
+        email_userEmail = new javax.swing.JTextField();
+        email_userPhone = new javax.swing.JTextField();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        email_userMessage = new javax.swing.JTextArea();
+        jPanel11 = new javax.swing.JPanel();
+        email_send = new javax.swing.JButton();
         tabs_Logs = new javax.swing.JPanel();
         Logs = new javax.swing.JTabbedPane();
         log_Output_panel = new javax.swing.JPanel();
@@ -222,7 +236,7 @@ public static void removeDevice(){
         );
         DevicePropertiesLayout.setVerticalGroup(
             DevicePropertiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 579, Short.MAX_VALUE)
+            .addGap(0, 1034, Short.MAX_VALUE)
         );
 
         hsTabs.addTab("Details", DeviceProperties);
@@ -235,7 +249,7 @@ public static void removeDevice(){
         );
         DeviceControlsLayout.setVerticalGroup(
             DeviceControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 579, Short.MAX_VALUE)
+            .addGap(0, 1034, Short.MAX_VALUE)
         );
 
         hsTabs.addTab("Controls", DeviceControls);
@@ -618,7 +632,7 @@ public static void removeDevice(){
         );
         PacketSenderLayout.setVerticalGroup(
             PacketSenderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 579, Short.MAX_VALUE)
+            .addGap(0, 1034, Short.MAX_VALUE)
         );
 
         hsTabs.addTab("Packet Sender ", PacketSender);
@@ -631,7 +645,7 @@ public static void removeDevice(){
         );
         TCPserverLayout.setVerticalGroup(
             TCPserverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 579, Short.MAX_VALUE)
+            .addGap(0, 1034, Short.MAX_VALUE)
         );
 
         hsTabs.addTab("TCP Server", TCPserver);
@@ -644,7 +658,7 @@ public static void removeDevice(){
         );
         UDPserverLayout.setVerticalGroup(
             UDPserverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 579, Short.MAX_VALUE)
+            .addGap(0, 1034, Short.MAX_VALUE)
         );
 
         hsTabs.addTab("UDP Server", UDPserver);
@@ -786,7 +800,7 @@ public static void removeDevice(){
         );
         SerialTermainalLayout.setVerticalGroup(
             SerialTermainalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 579, Short.MAX_VALUE)
+            .addGap(0, 1034, Short.MAX_VALUE)
         );
 
         hsTabs.addTab("Serial Termainal", SerialTermainal);
@@ -799,21 +813,106 @@ public static void removeDevice(){
         );
         HTTPserverLayout.setVerticalGroup(
             HTTPserverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 579, Short.MAX_VALUE)
+            .addGap(0, 1034, Short.MAX_VALUE)
         );
 
         hsTabs.addTab("HTTP Server", HTTPserver);
 
-        javax.swing.GroupLayout EmailClientLayout = new javax.swing.GroupLayout(EmailClient);
-        EmailClient.setLayout(EmailClientLayout);
-        EmailClientLayout.setHorizontalGroup(
-            EmailClientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 654, Short.MAX_VALUE)
+        EmailClient.setLayout(new javax.swing.BoxLayout(EmailClient, javax.swing.BoxLayout.LINE_AXIS));
+
+        jPanel10.setLayout(new java.awt.BorderLayout());
+
+        contactInfopanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Contact Info"));
+
+        mail_nameLabel.setText("Name");
+
+        mail_emailLable.setText("Email");
+
+        mail_phoneLable.setText("Phone");
+
+        javax.swing.GroupLayout contactInfopanelLayout = new javax.swing.GroupLayout(contactInfopanel);
+        contactInfopanel.setLayout(contactInfopanelLayout);
+        contactInfopanelLayout.setHorizontalGroup(
+            contactInfopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contactInfopanelLayout.createSequentialGroup()
+                .addContainerGap(26, Short.MAX_VALUE)
+                .addGroup(contactInfopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(mail_nameLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(mail_phoneLable, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(mail_emailLable, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(18, 18, 18)
+                .addGroup(contactInfopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(email_userName, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(email_userEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(email_userPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(223, 223, 223))
         );
-        EmailClientLayout.setVerticalGroup(
-            EmailClientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 579, Short.MAX_VALUE)
+        contactInfopanelLayout.setVerticalGroup(
+            contactInfopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contactInfopanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(contactInfopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(mail_nameLabel)
+                    .addComponent(email_userName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
+                .addGroup(contactInfopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(mail_emailLable)
+                    .addComponent(email_userEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(contactInfopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(mail_phoneLable)
+                    .addComponent(email_userPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(contactInfopanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(contactInfopanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
+        jPanel10.add(jPanel9, java.awt.BorderLayout.PAGE_START);
+
+        jScrollPane5.setBorder(javax.swing.BorderFactory.createTitledBorder("Message"));
+
+        email_userMessage.setColumns(20);
+        email_userMessage.setRows(5);
+        jScrollPane5.setViewportView(email_userMessage);
+
+        jPanel10.add(jScrollPane5, java.awt.BorderLayout.CENTER);
+
+        email_send.setText("Send");
+        email_send.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                email_sendActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
+                .addContainerGap(569, Short.MAX_VALUE)
+                .addComponent(email_send, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(email_send, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+                .addGap(22, 22, 22))
+        );
+
+        jPanel10.add(jPanel11, java.awt.BorderLayout.PAGE_END);
+
+        EmailClient.add(jPanel10);
 
         hsTabs.addTab("Support", EmailClient);
 
@@ -1056,6 +1155,19 @@ public static void removeDevice(){
         }
     }//GEN-LAST:event_telentCMDKeyReleased
 
+    private void email_sendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_email_sendActionPerformed
+               
+           emailClient = new EmailClient();
+           String subject = "Support For : "+email_userName.getText();
+           String message = "User Info\r\n ---------- \r\n Name:"+
+                                    email_userName.getText()+
+                                    "\r\n Email: "+email_userEmail.getText()+
+                                    "\r\n Phone: "+email_userPhone.getText()+
+                                    "\r\n \r\n Message: \r\n ------------- \r\n"+ 
+                                    email_userMessage.getText();
+           emailClient.send(subject, message);       
+    }//GEN-LAST:event_email_sendActionPerformed
+
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton BrowseFTPPath;
@@ -1108,6 +1220,12 @@ public static void removeDevice(){
     private javax.swing.JPanel TransferCotrolPanel;
     private javax.swing.JPanel UDPserver;
     private javax.swing.JToggleButton browseLocalFile;
+    private javax.swing.JPanel contactInfopanel;
+    private javax.swing.JButton email_send;
+    private javax.swing.JTextField email_userEmail;
+    private javax.swing.JTextArea email_userMessage;
+    private javax.swing.JTextField email_userName;
+    private javax.swing.JTextField email_userPhone;
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler10;
     private javax.swing.Box.Filler filler11;
@@ -1146,6 +1264,8 @@ public static void removeDevice(){
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1153,10 +1273,12 @@ public static void removeDevice(){
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTree jTree1;
@@ -1168,6 +1290,9 @@ public static void removeDevice(){
     private javax.swing.JLabel lable_username;
     private javax.swing.JTextField localFilePath;
     private javax.swing.JPanel log_Output_panel;
+    private javax.swing.JLabel mail_emailLable;
+    private javax.swing.JLabel mail_nameLabel;
+    private javax.swing.JLabel mail_phoneLable;
     private javax.swing.JSplitPane mainUI;
     private javax.swing.JLabel maxLogin_lable;
     private javax.swing.JLabel maxLoginperIP_lable;
