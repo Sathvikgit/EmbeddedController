@@ -6,6 +6,8 @@ package embeddedcontroller;
 
 import java.io.IOException;
 import java.util.logging.*;
+import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
 import model.FTPserver;
 import model.MyTelnetClient;
 import model.TCPServer;
@@ -39,9 +41,17 @@ public class EmbeddedController {
     public static MyTelnetClient myTelnetClient;
     public static HomeScreen hs;
     
+    public static String DEF_LOOKANDFEEL ="Nimbus"; // this runs in all the platforms
+  
+    
+    
     public static void main(String[] args) {
         // create Logger 
         createLogger();
+        
+        // Set the GUI look and Feel
+        SetLookandFeel(DEF_LOOKANDFEEL);
+        
         // Start HomeScreen
         java.awt.EventQueue.invokeLater(() -> {
             hs = new HomeScreen();
@@ -54,4 +64,18 @@ public class EmbeddedController {
         
     }
     
+    public static void SetLookandFeel(String LF){       
+        try {
+            for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+                if (LF.equals(info.getName())) {
+                    UIManager.setLookAndFeel(info.getClassName());
+                    DEBUG.log(Level.INFO,"look and Feel set to : {0}", LF);
+                    break;
+                }
+            }
+        } catch (Exception e) {
+            // If lF is not available, you can set the GUI to another look and feel.
+            DEBUG.log(Level.INFO,"This L&F: {0}", LF+" is not available"+e.getMessage());
+        }
+    }
 }
