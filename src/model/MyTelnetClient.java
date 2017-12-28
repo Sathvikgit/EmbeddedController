@@ -1,21 +1,18 @@
 
 package model;
 
-import com.sun.org.apache.regexp.internal.recompile;
 import static embeddedcontroller.EmbeddedController.DEBUG;
 import static embeddedcontroller.EmbeddedController.hs;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.apache.commons.net.telnet.EchoOptionHandler;
 import org.apache.commons.net.telnet.InvalidTelnetOptionException;
 import org.apache.commons.net.telnet.SuppressGAOptionHandler;
 import org.apache.commons.net.telnet.TelnetClient;
 import org.apache.commons.net.telnet.TelnetInputListener;
 import org.apache.commons.net.telnet.TelnetNotificationHandler;
-import org.apache.commons.net.telnet.TelnetOptionHandler;
 import org.apache.commons.net.telnet.TerminalTypeOptionHandler;
 
 
@@ -214,7 +211,7 @@ public class MyTelnetClient implements Runnable, TelnetNotificationHandler, Teln
         try {
                 ret_read = inputStream.read(buff);
                 if (ret_read > 0) {
-                    DEBUG.log(Level.INFO,"TelentServer: {0}", new String(buff, 0, ret_read));
+                   // DEBUG.log(Level.INFO,"TelentServer: {0}", new String(buff, 0, ret_read));
                     if(hs.telentClientTerminal != null){
                         hs.telentClientTerminal.append(new String(buff, 0, ret_read));
                     }
