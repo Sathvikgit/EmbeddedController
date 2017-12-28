@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.logging.*;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
+import model.EmailClient;
 import model.FTPserver;
 import model.MyTelnetClient;
 import model.TCPServer;
@@ -37,8 +38,10 @@ public class EmbeddedController {
      */
     
     
+    // Applications 
     public static FTPserver myFTPServer;
     public static MyTelnetClient myTelnetClient;
+    public static  EmailClient emailClient;
     public static HomeScreen hs;
     
     public static String DEF_LOOKANDFEEL ="Nimbus"; // this runs in all the platforms
