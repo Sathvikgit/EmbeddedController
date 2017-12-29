@@ -17,7 +17,7 @@ public class TCPServer implements Runnable{
     
     public BufferedReader reader = null;
     public BufferedWriter writer = null;
-   
+    
     public TCPServer(int port, int maxClient) {
         this.serverPort = port;
         this.maxClient = maxClient;
@@ -28,7 +28,8 @@ public class TCPServer implements Runnable{
              new Thread(this).start();
           
         } catch (IOException e) {
-            DEBUG.log(Level.WARNING,"Faield to open server: {0}",port);
+            DEBUG.log(Level.WARNING,"Failed to open server: {0}",port);
+            
         }
     }
 

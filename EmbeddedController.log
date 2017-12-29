@@ -63498,3 +63498,419 @@
   <message>Home Bounds: java.awt.Rectangle[x=0,y=30,width=859,height=1036]</message>
 </record>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-12-29T10:37:55</date>
+  <millis>1514572675834</millis>
+  <sequence>0</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.EmbeddedController</class>
+  <method>createLogger</method>
+  <thread>1</thread>
+  <message>Log File created</message>
+</record>
+<record>
+  <date>2017-12-29T10:37:55</date>
+  <millis>1514572675949</millis>
+  <sequence>1</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.EmbeddedController</class>
+  <method>SetLookandFeel</method>
+  <thread>1</thread>
+  <message>look and Feel set to : Nimbus</message>
+</record>
+<record>
+  <date>2017-12-29T10:37:55</date>
+  <millis>1514572675952</millis>
+  <sequence>2</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>model.TCPServer</class>
+  <method>&lt;init&gt;</method>
+  <thread>1</thread>
+  <message>Creating TCPserver: 5,555</message>
+</record>
+<record>
+  <date>2017-12-29T10:37:55</date>
+  <millis>1514572675959</millis>
+  <sequence>3</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>model.TCPServer</class>
+  <method>run</method>
+  <thread>17</thread>
+  <message>listening...</message>
+</record>
+<record>
+  <date>2017-12-29T10:37:58</date>
+  <millis>1514572678001</millis>
+  <sequence>4</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>&lt;init&gt;</method>
+  <thread>16</thread>
+  <message>Home Screen initialized</message>
+</record>
+<record>
+  <date>2017-12-29T10:37:58</date>
+  <millis>1514572678002</millis>
+  <sequence>5</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>&lt;init&gt;</method>
+  <thread>16</thread>
+  <message>DefaultCloseOperation= 3</message>
+</record>
+<record>
+  <date>2017-12-29T10:37:58</date>
+  <millis>1514572678002</millis>
+  <sequence>6</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>Rearrage</method>
+  <thread>16</thread>
+  <message>ScreeSize java.awt.Dimension[width=1280,height=1024]</message>
+</record>
+<record>
+  <date>2017-12-29T10:37:58</date>
+  <millis>1514572678003</millis>
+  <sequence>7</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>Rearrage</method>
+  <thread>16</thread>
+  <message>Home Bounds: java.awt.Rectangle[x=0,y=30,width=859,height=1036]</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-12-29T11:05:03</date>
+  <millis>1514574303132</millis>
+  <sequence>0</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.EmbeddedController</class>
+  <method>createLogger</method>
+  <thread>1</thread>
+  <message>Log File created</message>
+</record>
+<record>
+  <date>2017-12-29T11:05:03</date>
+  <millis>1514574303244</millis>
+  <sequence>1</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.EmbeddedController</class>
+  <method>SetLookandFeel</method>
+  <thread>1</thread>
+  <message>look and Feel set to : Nimbus</message>
+</record>
+<record>
+  <date>2017-12-29T11:05:03</date>
+  <millis>1514574303246</millis>
+  <sequence>2</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>model.TCPServer</class>
+  <method>&lt;init&gt;</method>
+  <thread>1</thread>
+  <message>Creating TCPserver: 5,555</message>
+</record>
+<record>
+  <date>2017-12-29T11:05:03</date>
+  <millis>1514574303254</millis>
+  <sequence>3</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>model.TCPServer</class>
+  <method>run</method>
+  <thread>17</thread>
+  <message>listening...</message>
+</record>
+<record>
+  <date>2017-12-29T11:05:03</date>
+  <millis>1514574303552</millis>
+  <sequence>4</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>&lt;init&gt;</method>
+  <thread>16</thread>
+  <message>Home Screen initialized</message>
+</record>
+<record>
+  <date>2017-12-29T11:05:03</date>
+  <millis>1514574303553</millis>
+  <sequence>5</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>&lt;init&gt;</method>
+  <thread>16</thread>
+  <message>DefaultCloseOperation= 3</message>
+</record>
+<record>
+  <date>2017-12-29T11:05:03</date>
+  <millis>1514574303554</millis>
+  <sequence>6</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>Rearrage</method>
+  <thread>16</thread>
+  <message>ScreeSize java.awt.Dimension[width=1280,height=1024]</message>
+</record>
+<record>
+  <date>2017-12-29T11:05:03</date>
+  <millis>1514574303554</millis>
+  <sequence>7</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>Rearrage</method>
+  <thread>16</thread>
+  <message>Home Bounds: java.awt.Rectangle[x=0,y=30,width=859,height=1036]</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-12-29T11:54:53</date>
+  <millis>1514577293147</millis>
+  <sequence>0</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.EmbeddedController</class>
+  <method>createLogger</method>
+  <thread>1</thread>
+  <message>Log File created</message>
+</record>
+<record>
+  <date>2017-12-29T11:54:53</date>
+  <millis>1514577293255</millis>
+  <sequence>1</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.EmbeddedController</class>
+  <method>SetLookandFeel</method>
+  <thread>1</thread>
+  <message>look and Feel set to : Nimbus</message>
+</record>
+<record>
+  <date>2017-12-29T11:54:53</date>
+  <millis>1514577293574</millis>
+  <sequence>2</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>&lt;init&gt;</method>
+  <thread>16</thread>
+  <message>Home Screen initialized</message>
+</record>
+<record>
+  <date>2017-12-29T11:54:53</date>
+  <millis>1514577293574</millis>
+  <sequence>3</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>&lt;init&gt;</method>
+  <thread>16</thread>
+  <message>DefaultCloseOperation= 3</message>
+</record>
+<record>
+  <date>2017-12-29T11:54:53</date>
+  <millis>1514577293575</millis>
+  <sequence>4</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>Rearrage</method>
+  <thread>16</thread>
+  <message>ScreeSize java.awt.Dimension[width=1280,height=1024]</message>
+</record>
+<record>
+  <date>2017-12-29T11:54:53</date>
+  <millis>1514577293575</millis>
+  <sequence>5</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>Rearrage</method>
+  <thread>16</thread>
+  <message>Home Bounds: java.awt.Rectangle[x=0,y=30,width=860,height=1036]</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-12-29T12:00:40</date>
+  <millis>1514577640028</millis>
+  <sequence>0</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.EmbeddedController</class>
+  <method>createLogger</method>
+  <thread>1</thread>
+  <message>Log File created</message>
+</record>
+<record>
+  <date>2017-12-29T12:00:40</date>
+  <millis>1514577640141</millis>
+  <sequence>1</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.EmbeddedController</class>
+  <method>SetLookandFeel</method>
+  <thread>1</thread>
+  <message>look and Feel set to : Nimbus</message>
+</record>
+<record>
+  <date>2017-12-29T12:00:40</date>
+  <millis>1514577640431</millis>
+  <sequence>2</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>&lt;init&gt;</method>
+  <thread>16</thread>
+  <message>Home Screen initialized</message>
+</record>
+<record>
+  <date>2017-12-29T12:00:40</date>
+  <millis>1514577640432</millis>
+  <sequence>3</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>&lt;init&gt;</method>
+  <thread>16</thread>
+  <message>DefaultCloseOperation= 3</message>
+</record>
+<record>
+  <date>2017-12-29T12:00:40</date>
+  <millis>1514577640432</millis>
+  <sequence>4</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>Rearrage</method>
+  <thread>16</thread>
+  <message>ScreeSize java.awt.Dimension[width=1280,height=1024]</message>
+</record>
+<record>
+  <date>2017-12-29T12:00:40</date>
+  <millis>1514577640433</millis>
+  <sequence>5</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>Rearrage</method>
+  <thread>16</thread>
+  <message>Home Bounds: java.awt.Rectangle[x=0,y=30,width=860,height=1036]</message>
+</record>
+<record>
+  <date>2017-12-29T12:01:04</date>
+  <millis>1514577664319</millis>
+  <sequence>6</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>model.TCPServer</class>
+  <method>&lt;init&gt;</method>
+  <thread>16</thread>
+  <message>Creating TCPserver: 0</message>
+</record>
+<record>
+  <date>2017-12-29T12:01:04</date>
+  <millis>1514577664331</millis>
+  <sequence>7</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>model.TCPServer</class>
+  <method>run</method>
+  <thread>21</thread>
+  <message>listening...</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-12-29T12:14:32</date>
+  <millis>1514578472672</millis>
+  <sequence>0</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.EmbeddedController</class>
+  <method>createLogger</method>
+  <thread>1</thread>
+  <message>Log File created</message>
+</record>
+<record>
+  <date>2017-12-29T12:14:32</date>
+  <millis>1514578472795</millis>
+  <sequence>1</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.EmbeddedController</class>
+  <method>SetLookandFeel</method>
+  <thread>1</thread>
+  <message>look and Feel set to : Nimbus</message>
+</record>
+<record>
+  <date>2017-12-29T12:14:33</date>
+  <millis>1514578473109</millis>
+  <sequence>2</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>&lt;init&gt;</method>
+  <thread>16</thread>
+  <message>Home Screen initialized</message>
+</record>
+<record>
+  <date>2017-12-29T12:14:33</date>
+  <millis>1514578473110</millis>
+  <sequence>3</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>&lt;init&gt;</method>
+  <thread>16</thread>
+  <message>DefaultCloseOperation= 3</message>
+</record>
+<record>
+  <date>2017-12-29T12:14:33</date>
+  <millis>1514578473111</millis>
+  <sequence>4</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>Rearrage</method>
+  <thread>16</thread>
+  <message>ScreeSize java.awt.Dimension[width=1280,height=1024]</message>
+</record>
+<record>
+  <date>2017-12-29T12:14:33</date>
+  <millis>1514578473111</millis>
+  <sequence>5</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>Rearrage</method>
+  <thread>16</thread>
+  <message>Home Bounds: java.awt.Rectangle[x=0,y=30,width=860,height=1036]</message>
+</record>
+</log>

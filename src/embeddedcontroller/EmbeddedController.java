@@ -42,6 +42,8 @@ public class EmbeddedController {
     public static FTPserver myFTPServer;
     public static MyTelnetClient myTelnetClient;
     public static  EmailClient emailClient;
+    public static TCPServer myTCPServer;
+    
     public static HomeScreen hs;
     
     public static String DEF_LOOKANDFEEL ="Nimbus"; // this runs in all the platforms
@@ -62,9 +64,7 @@ public class EmbeddedController {
             hs.setVisible(true);
         });
         
-        // start TCP server
-        TCPServer echoServer = new TCPServer(5555, 15);
-        
+          
     }
     
     public static void SetLookandFeel(String LF){       
