@@ -17,9 +17,6 @@ import model.TCPServer;
 public class HomeScreen extends javax.swing.JFrame {
 
     // browser is implemented using JAVAFX
-    
-    public static JFXPanel browser = new JFXPanel();
-    
     public HomeScreen() {
         initComponents();
         DEBUG.log(Level.INFO,"Home Screen initialized");
