@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.util.logging.Level;
+import javafx.embed.swing.JFXPanel;
 import javax.swing.JFileChooser;
 import model.EmailClient;
 import model.FTPserver;
@@ -12,8 +13,13 @@ import model.MyTelnetClient;
 import model.SystemDefinitions.*;
 import model.TCPServer;
 
+ 
 public class HomeScreen extends javax.swing.JFrame {
 
+    // browser is implemented using JAVAFX
+    
+    public static JFXPanel browser = new JFXPanel();
+    
     public HomeScreen() {
         initComponents();
         DEBUG.log(Level.INFO,"Home Screen initialized");
@@ -350,7 +356,7 @@ public static void removeDevice(){
         );
         DevicePropertiesLayout.setVerticalGroup(
             DevicePropertiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1034, Short.MAX_VALUE)
+            .addGap(0, 1008, Short.MAX_VALUE)
         );
 
         hsTabs.addTab("Details", DeviceProperties);
@@ -363,7 +369,7 @@ public static void removeDevice(){
         );
         DeviceControlsLayout.setVerticalGroup(
             DeviceControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1034, Short.MAX_VALUE)
+            .addGap(0, 1008, Short.MAX_VALUE)
         );
 
         hsTabs.addTab("Controls", DeviceControls);
@@ -746,7 +752,7 @@ public static void removeDevice(){
         );
         PacketSenderLayout.setVerticalGroup(
             PacketSenderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1034, Short.MAX_VALUE)
+            .addGap(0, 1008, Short.MAX_VALUE)
         );
 
         hsTabs.addTab("Packet Sender ", PacketSender);
@@ -855,7 +861,7 @@ public static void removeDevice(){
         );
         UDPserverLayout.setVerticalGroup(
             UDPserverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1034, Short.MAX_VALUE)
+            .addGap(0, 1008, Short.MAX_VALUE)
         );
 
         hsTabs.addTab("UDP Server", UDPserver);
@@ -997,7 +1003,7 @@ public static void removeDevice(){
         );
         SerialTermainalLayout.setVerticalGroup(
             SerialTermainalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1034, Short.MAX_VALUE)
+            .addGap(0, 1008, Short.MAX_VALUE)
         );
 
         hsTabs.addTab("Serial Termainal", SerialTermainal);
@@ -1010,7 +1016,7 @@ public static void removeDevice(){
         );
         HTTPserverLayout.setVerticalGroup(
             HTTPserverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1034, Short.MAX_VALUE)
+            .addGap(0, 1008, Short.MAX_VALUE)
         );
 
         hsTabs.addTab("HTTP Server", HTTPserver);
