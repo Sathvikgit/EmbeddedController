@@ -1649,3 +1649,63 @@
 
 [ INFO] 2017-12-25 22:38:00,158 [admin] [192.168.1.151] CLOSED
 [ INFO] 2017-12-25 22:38:06,627 [admin] [192.168.1.151] CLOSED
+[ INFO] 2017-12-28 14:30:52,044 [] [] FTP server started
+[ INFO] 2017-12-28 14:31:50,484 [] [192.168.1.115] CREATED
+[ INFO] 2017-12-28 14:31:50,588 [] [192.168.1.115] OPENED
+[ INFO] 2017-12-28 14:31:50,612 [] [192.168.1.115] SENT: 220 Service ready for new user.
+
+[ INFO] 2017-12-28 14:31:50,618 [] [192.168.1.115] RECEIVED: AUTH TLS
+[ INFO] 2017-12-28 14:31:50,620 [] [192.168.1.115] SENT: 431 Service is unavailable.
+
+[ INFO] 2017-12-28 14:31:50,620 [] [192.168.1.115] RECEIVED: AUTH SSL
+[ INFO] 2017-12-28 14:31:50,622 [] [192.168.1.115] SENT: 431 Service is unavailable.
+
+[ INFO] 2017-12-28 14:31:50,623 [] [192.168.1.115] RECEIVED: USER admin
+[ INFO] 2017-12-28 14:31:50,625 [admin] [192.168.1.115] SENT: 331 User name okay, need password for admin.
+
+[ INFO] 2017-12-28 14:31:50,625 [admin] [192.168.1.115] RECEIVED: PASS *****
+[ INFO] 2017-12-28 14:31:50,629 [admin] [192.168.1.115] Login success - admin
+[ INFO] 2017-12-28 14:31:50,629 [admin] [192.168.1.115] SENT: 230 User logged in, proceed.
+
+[ INFO] 2017-12-28 14:31:50,629 [admin] [192.168.1.115] RECEIVED: SYST
+[ INFO] 2017-12-28 14:31:50,630 [admin] [192.168.1.115] SENT: 215 UNIX Type: Apache FtpServer
+
+[ INFO] 2017-12-28 14:31:50,630 [admin] [192.168.1.115] RECEIVED: FEAT
+[ INFO] 2017-12-28 14:31:50,630 [admin] [192.168.1.115] SENT: 211-Extensions supported
+ SIZE
+ MDTM
+ REST STREAM
+ LANG en;zh-tw;ja;is
+ MLST Size;Modify;Type;Perm
+ AUTH SSL
+ AUTH TLS
+ MODE Z
+ UTF8
+ TVFS
+ MD5
+ MMD5
+ MFMT
+211 End
+
+[ INFO] 2017-12-28 14:31:50,630 [admin] [192.168.1.115] RECEIVED: OPTS UTF8 ON
+[ INFO] 2017-12-28 14:31:50,631 [admin] [192.168.1.115] SENT: 200 Command OPTS okay.
+
+[ INFO] 2017-12-28 14:31:50,631 [admin] [192.168.1.115] RECEIVED: OPTS MLST size;modify;type;
+[ INFO] 2017-12-28 14:31:50,631 [admin] [192.168.1.115] SENT: 200 Command OPTS okay.
+
+[ INFO] 2017-12-28 14:31:50,632 [admin] [192.168.1.115] RECEIVED: PWD
+[ INFO] 2017-12-28 14:31:50,633 [admin] [192.168.1.115] SENT: 257 "/" is current directory.
+
+[ INFO] 2017-12-28 14:31:50,635 [admin] [192.168.1.115] RECEIVED: TYPE I
+[ INFO] 2017-12-28 14:31:50,636 [admin] [192.168.1.115] SENT: 200 Command TYPE okay.
+
+[ INFO] 2017-12-28 14:31:50,636 [admin] [192.168.1.115] RECEIVED: PASV
+[ INFO] 2017-12-28 14:31:50,639 [admin] [192.168.1.115] SENT: 227 Entering Passive Mode (192,168,1,115,228,9)
+
+[ INFO] 2017-12-28 14:31:50,639 [admin] [192.168.1.115] RECEIVED: MLSD
+[ WARN] 2017-12-28 14:31:50,648 [admin] [192.168.1.115] Releasing unreserved passive port: 58377
+[ INFO] 2017-12-28 14:31:50,649 [admin] [192.168.1.115] SENT: 150 File status okay; about to open data connection.
+
+[ INFO] 2017-12-28 14:31:50,649 [admin] [192.168.1.115] SENT: 226 Closing data connection.
+
+[ INFO] 2017-12-28 14:32:05,626 [admin] [192.168.1.115] CLOSED
