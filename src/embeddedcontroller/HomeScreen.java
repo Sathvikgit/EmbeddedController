@@ -5,14 +5,18 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.util.logging.Level;
+import javafx.embed.swing.JFXPanel;
 import javax.swing.JFileChooser;
 import model.EmailClient;
 import model.FTPserver;
 import model.MyTelnetClient;
 import model.SystemDefinitions.*;
+import model.TCPServer;
 
+ 
 public class HomeScreen extends javax.swing.JFrame {
 
+    // browser is implemented using JAVAFX
     public HomeScreen() {
         initComponents();
         DEBUG.log(Level.INFO,"Home Screen initialized");
@@ -55,6 +59,17 @@ public static void removeDevice(){
         terminalPOPUpmenu = new javax.swing.JPopupMenu();
         FontSize = new javax.swing.JMenuItem();
         Clear = new javax.swing.JMenuItem();
+        TCPServerAdvancedSettingsDialog = new javax.swing.JDialog();
+        jPanel15 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        tcpServerBind = new javax.swing.JComboBox<>();
+        tcpServerTimeout = new javax.swing.JTextField();
+        tcpServerReceiveBufferSize = new javax.swing.JTextField();
+        jPanel16 = new javax.swing.JPanel();
+        save_tcpServerAdvSett = new javax.swing.JButton();
+        cancel_tcpServerAdvSett = new javax.swing.JButton();
         mainUI = new javax.swing.JSplitPane();
         split_DeviceProp = new javax.swing.JPanel();
         horizontalSplit = new javax.swing.JSplitPane();
@@ -142,6 +157,18 @@ public static void removeDevice(){
         FTPClientTableData = new javax.swing.JTable();
         PacketSender = new javax.swing.JPanel();
         TCPserver = new javax.swing.JPanel();
+        jPanel12 = new javax.swing.JPanel();
+        tcpserverPortLable = new javax.swing.JLabel();
+        tcpServerPort = new javax.swing.JSpinner();
+        tcpserver_maxconnLable = new javax.swing.JLabel();
+        tcpServerMaxConnections = new javax.swing.JSpinner();
+        tcpServerAdvancedSettings = new javax.swing.JButton();
+        startTCPServer = new javax.swing.JButton();
+        jPanel13 = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        TCPServerLog = new javax.swing.JTable();
+        jPanel14 = new javax.swing.JPanel();
+        clearTCPLog = new javax.swing.JToggleButton();
         UDPserver = new javax.swing.JPanel();
         TelnetTerminal = new javax.swing.JPanel();
         telnetTermainal = new javax.swing.JPanel();
@@ -210,6 +237,96 @@ public static void removeDevice(){
         Clear.setText("Clear");
         terminalPOPUpmenu.add(Clear);
 
+        TCPServerAdvancedSettingsDialog.setTitle("TCP Server Advanced Settings");
+        TCPServerAdvancedSettingsDialog.setAlwaysOnTop(true);
+
+        jPanel15.setBorder(javax.swing.BorderFactory.createTitledBorder("TCP Server Advanced Settings"));
+
+        jLabel1.setText("Receive Buffer Size");
+
+        jLabel3.setText("Time Out (milli Sec)");
+
+        jLabel4.setText("Bind");
+
+        tcpServerTimeout.setText("0");
+        tcpServerTimeout.setToolTipText("The timeout must be > 0. A timeout of zero is interpreted as an infinite timeout.");
+
+        tcpServerReceiveBufferSize.setToolTipText("The value of BUFFER SIZE is used both to set the size of the internal socket receive buffer, and to set the size of the TCP receive window that is advertized to the remote peer");
+
+        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
+        jPanel15.setLayout(jPanel15Layout);
+        jPanel15Layout.setHorizontalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tcpServerBind, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tcpServerTimeout, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tcpServerReceiveBufferSize, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(216, Short.MAX_VALUE))
+        );
+        jPanel15Layout.setVerticalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(tcpServerReceiveBufferSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(3, 3, 3)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(tcpServerBind, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tcpServerTimeout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        TCPServerAdvancedSettingsDialog.getContentPane().add(jPanel15, java.awt.BorderLayout.CENTER);
+
+        save_tcpServerAdvSett.setText("Save");
+        save_tcpServerAdvSett.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                save_tcpServerAdvSettActionPerformed(evt);
+            }
+        });
+
+        cancel_tcpServerAdvSett.setText("Cancel");
+        cancel_tcpServerAdvSett.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancel_tcpServerAdvSettActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
+        jPanel16.setLayout(jPanel16Layout);
+        jPanel16Layout.setHorizontalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
+                .addContainerGap(390, Short.MAX_VALUE)
+                .addComponent(cancel_tcpServerAdvSett)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(save_tcpServerAdvSett)
+                .addContainerGap())
+        );
+        jPanel16Layout.setVerticalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(save_tcpServerAdvSett)
+                    .addComponent(cancel_tcpServerAdvSett))
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+
+        TCPServerAdvancedSettingsDialog.getContentPane().add(jPanel16, java.awt.BorderLayout.PAGE_END);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Embedded Controller");
 
@@ -236,7 +353,7 @@ public static void removeDevice(){
         );
         DevicePropertiesLayout.setVerticalGroup(
             DevicePropertiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1034, Short.MAX_VALUE)
+            .addGap(0, 1008, Short.MAX_VALUE)
         );
 
         hsTabs.addTab("Details", DeviceProperties);
@@ -249,7 +366,7 @@ public static void removeDevice(){
         );
         DeviceControlsLayout.setVerticalGroup(
             DeviceControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1034, Short.MAX_VALUE)
+            .addGap(0, 1008, Short.MAX_VALUE)
         );
 
         hsTabs.addTab("Controls", DeviceControls);
@@ -632,21 +749,104 @@ public static void removeDevice(){
         );
         PacketSenderLayout.setVerticalGroup(
             PacketSenderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1034, Short.MAX_VALUE)
+            .addGap(0, 1008, Short.MAX_VALUE)
         );
 
         hsTabs.addTab("Packet Sender ", PacketSender);
 
-        javax.swing.GroupLayout TCPserverLayout = new javax.swing.GroupLayout(TCPserver);
-        TCPserver.setLayout(TCPserverLayout);
-        TCPserverLayout.setHorizontalGroup(
-            TCPserverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 654, Short.MAX_VALUE)
+        TCPserver.setLayout(new java.awt.BorderLayout());
+
+        jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder("TCP Server"));
+
+        tcpserverPortLable.setText("Port");
+
+        tcpserver_maxconnLable.setText("Max Connections");
+
+        tcpServerAdvancedSettings.setText("Advanced Settings");
+        tcpServerAdvancedSettings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tcpServerAdvancedSettingsActionPerformed(evt);
+            }
+        });
+
+        startTCPServer.setText("Start");
+        startTCPServer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                startTCPServerActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(tcpserverPortLable)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tcpServerPort, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(tcpserver_maxconnLable)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(tcpServerMaxConnections, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tcpServerAdvancedSettings)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 186, Short.MAX_VALUE)
+                .addComponent(startTCPServer, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
         );
-        TCPserverLayout.setVerticalGroup(
-            TCPserverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1034, Short.MAX_VALUE)
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(startTCPServer, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                    .addComponent(tcpServerPort, javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(tcpserver_maxconnLable, javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(tcpserverPortLable, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tcpServerMaxConnections, javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(tcpServerAdvancedSettings, javax.swing.GroupLayout.Alignment.CENTER))
+                .addContainerGap())
         );
+
+        TCPserver.add(jPanel12, java.awt.BorderLayout.PAGE_START);
+
+        jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder("Log"));
+        jPanel13.setLayout(new java.awt.BorderLayout());
+
+        TCPServerLog.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Time", "From IP", "To IP", "To Port", "Method", "Error", "ASCII", "Hex"
+            }
+        ));
+        jScrollPane6.setViewportView(TCPServerLog);
+
+        jPanel13.add(jScrollPane6, java.awt.BorderLayout.CENTER);
+
+        TCPserver.add(jPanel13, java.awt.BorderLayout.CENTER);
+
+        clearTCPLog.setText("Clear");
+
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(clearTCPLog))
+        );
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(clearTCPLog, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        TCPserver.add(jPanel14, java.awt.BorderLayout.PAGE_END);
 
         hsTabs.addTab("TCP Server", TCPserver);
 
@@ -658,7 +858,7 @@ public static void removeDevice(){
         );
         UDPserverLayout.setVerticalGroup(
             UDPserverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1034, Short.MAX_VALUE)
+            .addGap(0, 1008, Short.MAX_VALUE)
         );
 
         hsTabs.addTab("UDP Server", UDPserver);
@@ -800,7 +1000,7 @@ public static void removeDevice(){
         );
         SerialTermainalLayout.setVerticalGroup(
             SerialTermainalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1034, Short.MAX_VALUE)
+            .addGap(0, 1008, Short.MAX_VALUE)
         );
 
         hsTabs.addTab("Serial Termainal", SerialTermainal);
@@ -813,7 +1013,7 @@ public static void removeDevice(){
         );
         HTTPserverLayout.setVerticalGroup(
             HTTPserverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1034, Short.MAX_VALUE)
+            .addGap(0, 1008, Short.MAX_VALUE)
         );
 
         hsTabs.addTab("HTTP Server", HTTPserver);
@@ -1168,6 +1368,28 @@ public static void removeDevice(){
            emailClient.send(subject, message);       
     }//GEN-LAST:event_email_sendActionPerformed
 
+    private void startTCPServerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startTCPServerActionPerformed
+        // start TCP server
+         int port = (int)tcpServerPort.getValue();
+         int maxConn = (int)tcpServerMaxConnections.getValue();
+         
+         // validate the port
+         myTCPServer = new TCPServer(port,maxConn);          
+    }//GEN-LAST:event_startTCPServerActionPerformed
+
+    private void tcpServerAdvancedSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tcpServerAdvancedSettingsActionPerformed
+        TCPServerAdvancedSettingsDialog.setVisible(true);
+    }//GEN-LAST:event_tcpServerAdvancedSettingsActionPerformed
+
+    private void cancel_tcpServerAdvSettActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel_tcpServerAdvSettActionPerformed
+         TCPServerAdvancedSettingsDialog.setVisible(false);
+         
+    }//GEN-LAST:event_cancel_tcpServerAdvSettActionPerformed
+
+    private void save_tcpServerAdvSettActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save_tcpServerAdvSettActionPerformed
+        TCPServerAdvancedSettingsDialog.setVisible(false);
+    }//GEN-LAST:event_save_tcpServerAdvSettActionPerformed
+
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton BrowseFTPPath;
@@ -1213,6 +1435,8 @@ public static void removeDevice(){
     private javax.swing.JMenu SetupMenu;
     private javax.swing.JToggleButton ShowFTPPassword;
     private javax.swing.JPanel StatusPanel;
+    private javax.swing.JDialog TCPServerAdvancedSettingsDialog;
+    private javax.swing.JTable TCPServerLog;
     private javax.swing.JPanel TCPserver;
     private javax.swing.JPanel TelnetTerminal;
     private javax.swing.JMenuBar Toolbar;
@@ -1220,6 +1444,8 @@ public static void removeDevice(){
     private javax.swing.JPanel TransferCotrolPanel;
     private javax.swing.JPanel UDPserver;
     private javax.swing.JToggleButton browseLocalFile;
+    private javax.swing.JButton cancel_tcpServerAdvSett;
+    private javax.swing.JToggleButton clearTCPLog;
     private javax.swing.JPanel contactInfopanel;
     private javax.swing.JButton email_send;
     private javax.swing.JTextField email_userEmail;
@@ -1261,11 +1487,19 @@ public static void removeDevice(){
     private javax.swing.JMenuItem item_udpClient;
     private javax.swing.JMenuItem item_udpServer;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1279,6 +1513,7 @@ public static void removeDevice(){
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTree jTree1;
@@ -1298,10 +1533,20 @@ public static void removeDevice(){
     private javax.swing.JLabel maxLoginperIP_lable;
     private javax.swing.JPanel myFTPclient;
     private javax.swing.JPanel myFTPserver;
+    private javax.swing.JButton save_tcpServerAdvSett;
     private javax.swing.JPanel split_DeviceList;
     private javax.swing.JPanel split_DeviceProp;
+    private javax.swing.JButton startTCPServer;
     private javax.swing.JPanel tabs_Logs;
     private javax.swing.JPanel tabs_Tools;
+    private javax.swing.JButton tcpServerAdvancedSettings;
+    private javax.swing.JComboBox<String> tcpServerBind;
+    private javax.swing.JSpinner tcpServerMaxConnections;
+    private javax.swing.JSpinner tcpServerPort;
+    private javax.swing.JTextField tcpServerReceiveBufferSize;
+    private javax.swing.JTextField tcpServerTimeout;
+    private javax.swing.JLabel tcpserverPortLable;
+    private javax.swing.JLabel tcpserver_maxconnLable;
     private javax.swing.JTextField telentCMD;
     public javax.swing.JTextArea telentClientTerminal;
     private javax.swing.JButton telneClientConnect;
