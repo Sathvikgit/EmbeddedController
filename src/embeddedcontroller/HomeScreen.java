@@ -32,7 +32,7 @@ public void Rearrage(){
     Toolkit tk = Toolkit.getDefaultToolkit();
     screenSize=tk.getScreenSize();
     DEBUG.log(Level.INFO, "ScreeSize {0}",screenSize.toString());
-    // Open Applciation Maximized
+    // Open Application Maximized
     this.setExtendedState(MAXIMIZED_BOTH);
     DEBUG.log(Level.INFO, "Home Bounds: {0}", getBounds().toString());
     
@@ -73,64 +73,52 @@ public static void removeDevice(){
         cancel_tcpServerAdvSett = new javax.swing.JButton();
         mainUI = new javax.swing.JSplitPane();
         split_DeviceProp = new javax.swing.JPanel();
-        horizontalSplit = new javax.swing.JSplitPane();
-        tabs_Tools = new javax.swing.JPanel();
         hsTabs = new javax.swing.JTabbedPane();
         DeviceProperties = new javax.swing.JPanel();
         DeviceControls = new javax.swing.JPanel();
         myFTPclient = new javax.swing.JPanel();
-        filler4 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 20), new java.awt.Dimension(20, 20), new java.awt.Dimension(20, 20));
+        jPanel17 = new javax.swing.JPanel();
+        FTPServerConfigPanel = new javax.swing.JPanel();
         FTPConnectionControl = new javax.swing.JPanel();
         lable_serverIP = new javax.swing.JLabel();
         ftp_serverIP = new javax.swing.JTextField();
-        filler6 = new javax.swing.Box.Filler(new java.awt.Dimension(10, 10), new java.awt.Dimension(10, 10), new java.awt.Dimension(10, 10));
         lable_port = new javax.swing.JLabel();
         ftp_port = new javax.swing.JTextField();
-        filler7 = new javax.swing.Box.Filler(new java.awt.Dimension(10, 10), new java.awt.Dimension(10, 10), new java.awt.Dimension(10, 10));
         lable_username = new javax.swing.JLabel();
         ftp_userName = new javax.swing.JTextField();
-        filler8 = new javax.swing.Box.Filler(new java.awt.Dimension(10, 10), new java.awt.Dimension(10, 10), new java.awt.Dimension(10, 10));
         lable_password = new javax.swing.JLabel();
         ftp_password = new javax.swing.JPasswordField();
-        filler9 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 20), new java.awt.Dimension(20, 20), new java.awt.Dimension(20, 20));
         ftp_connect = new javax.swing.JButton();
-        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 20), new java.awt.Dimension(20, 20), new java.awt.Dimension(20, 20));
         FTPserverLogPane = new javax.swing.JScrollPane();
         FTPserverCMDLog = new javax.swing.JTextArea();
-        filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 20), new java.awt.Dimension(20, 20), new java.awt.Dimension(20, 20));
         FileMangerPanel = new javax.swing.JPanel();
         Localside = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        jPanel18 = new javax.swing.JPanel();
         browseLocalFile = new javax.swing.JToggleButton();
-        filler15 = new javax.swing.Box.Filler(new java.awt.Dimension(10, 10), new java.awt.Dimension(10, 10), new java.awt.Dimension(10, 10));
         RefreshLocalFile = new javax.swing.JButton();
-        filler16 = new javax.swing.Box.Filler(new java.awt.Dimension(10, 10), new java.awt.Dimension(10, 10), new java.awt.Dimension(10, 10));
         jPanel3 = new javax.swing.JPanel();
         lablePath = new javax.swing.JLabel();
         filler14 = new javax.swing.Box.Filler(new java.awt.Dimension(10, 10), new java.awt.Dimension(10, 10), new java.awt.Dimension(10, 10));
         localFilePath = new javax.swing.JTextField();
-        filler13 = new javax.swing.Box.Filler(new java.awt.Dimension(10, 10), new java.awt.Dimension(10, 10), new java.awt.Dimension(10, 10));
         jScrollPane4 = new javax.swing.JScrollPane();
         jTree2 = new javax.swing.JTree();
-        filler11 = new javax.swing.Box.Filler(new java.awt.Dimension(10, 10), new java.awt.Dimension(10, 10), new java.awt.Dimension(10, 10));
         TransferCotrolPanel = new javax.swing.JPanel();
         uploadClientToServer = new javax.swing.JButton();
-        filler12 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 20), new java.awt.Dimension(20, 20), new java.awt.Dimension(20, 20));
         uploadServerToClient = new javax.swing.JButton();
-        filler10 = new javax.swing.Box.Filler(new java.awt.Dimension(10, 10), new java.awt.Dimension(10, 10), new java.awt.Dimension(10, 10));
         RemoteSide = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
+        jPanel19 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         filler18 = new javax.swing.Box.Filler(new java.awt.Dimension(10, 10), new java.awt.Dimension(10, 10), new java.awt.Dimension(10, 10));
         jTextField2 = new javax.swing.JTextField();
-        filler17 = new javax.swing.Box.Filler(new java.awt.Dimension(10, 10), new java.awt.Dimension(10, 10), new java.awt.Dimension(10, 10));
         jScrollPane1 = new javax.swing.JScrollPane();
         jTree1 = new javax.swing.JTree();
-        filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 20), new java.awt.Dimension(20, 20), new java.awt.Dimension(20, 20));
-        FileUploadStatus = new javax.swing.JScrollPane();
-        FilesStatus = new javax.swing.JTable();
+        jPanel20 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         myFTPserver = new javax.swing.JPanel();
         FTPserverPropPanel = new javax.swing.JPanel();
         FTPservernameLable = new javax.swing.JLabel();
@@ -172,6 +160,12 @@ public static void removeDevice(){
         clearTCPLog = new javax.swing.JButton();
         UDPserver = new javax.swing.JPanel();
         TelnetTerminal = new javax.swing.JPanel();
+        telnetConnectionsPannel = new javax.swing.JPanel();
+        telneClientConnect = new javax.swing.JButton();
+        hostAddressLable = new javax.swing.JLabel();
+        telnetHostAddress = new javax.swing.JTextField();
+        telnetHostPortLable = new javax.swing.JLabel();
+        telnetPort = new javax.swing.JSpinner();
         telnetTermainal = new javax.swing.JPanel();
         telnetServerResp = new javax.swing.JScrollPane();
         telentClientTerminal = new javax.swing.JTextArea();
@@ -179,22 +173,14 @@ public static void removeDevice(){
         jPanel1 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         telentCMD = new javax.swing.JTextField();
-        filler20 = new javax.swing.Box.Filler(new java.awt.Dimension(10, 10), new java.awt.Dimension(10, 10), new java.awt.Dimension(10, 10));
         telnetCMDSend = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         telnetEnableLocalEcho = new javax.swing.JCheckBox();
-        filler19 = new javax.swing.Box.Filler(new java.awt.Dimension(10, 10), new java.awt.Dimension(10, 10), new java.awt.Dimension(10, 10));
         telnetDeleteCMDAfterSend = new javax.swing.JCheckBox();
         jPanel6 = new javax.swing.JPanel();
         telnetAddCR = new javax.swing.JCheckBox();
         telnetAddLF = new javax.swing.JCheckBox();
         telnetAddCRLF = new javax.swing.JCheckBox();
-        telnetConnectionsPannel = new javax.swing.JPanel();
-        telneClientConnect = new javax.swing.JButton();
-        hostAddressLable = new javax.swing.JLabel();
-        telnetHostAddress = new javax.swing.JTextField();
-        telnetHostPortLable = new javax.swing.JLabel();
-        telnetPort = new javax.swing.JSpinner();
         SerialTermainal = new javax.swing.JPanel();
         HTTPserver = new javax.swing.JPanel();
         EmailClient = new javax.swing.JPanel();
@@ -211,11 +197,6 @@ public static void removeDevice(){
         email_userMessage = new javax.swing.JTextArea();
         jPanel11 = new javax.swing.JPanel();
         email_send = new javax.swing.JButton();
-        tabs_Logs = new javax.swing.JPanel();
-        Logs = new javax.swing.JTabbedPane();
-        log_Output_panel = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         split_DeviceList = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         DeviceList = new javax.swing.JTree();
@@ -336,10 +317,6 @@ public static void removeDevice(){
 
         split_DeviceProp.setLayout(new java.awt.BorderLayout(10, 0));
 
-        horizontalSplit.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
-
-        tabs_Tools.setLayout(new javax.swing.BoxLayout(tabs_Tools, javax.swing.BoxLayout.LINE_AXIS));
-
         hsTabs.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         hsTabs.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
 
@@ -347,11 +324,11 @@ public static void removeDevice(){
         DeviceProperties.setLayout(DevicePropertiesLayout);
         DevicePropertiesLayout.setHorizontalGroup(
             DevicePropertiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 696, Short.MAX_VALUE)
+            .addGap(0, 655, Short.MAX_VALUE)
         );
         DevicePropertiesLayout.setVerticalGroup(
             DevicePropertiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 597, Short.MAX_VALUE)
+            .addGap(0, 579, Short.MAX_VALUE)
         );
 
         hsTabs.addTab("Details", DeviceProperties);
@@ -360,18 +337,21 @@ public static void removeDevice(){
         DeviceControls.setLayout(DeviceControlsLayout);
         DeviceControlsLayout.setHorizontalGroup(
             DeviceControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 696, Short.MAX_VALUE)
+            .addGap(0, 655, Short.MAX_VALUE)
         );
         DeviceControlsLayout.setVerticalGroup(
             DeviceControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 597, Short.MAX_VALUE)
+            .addGap(0, 579, Short.MAX_VALUE)
         );
 
         hsTabs.addTab("Controls", DeviceControls);
 
         myFTPclient.setMaximumSize(new java.awt.Dimension(300, 200));
-        myFTPclient.setLayout(new javax.swing.BoxLayout(myFTPclient, javax.swing.BoxLayout.Y_AXIS));
-        myFTPclient.add(filler4);
+        myFTPclient.setLayout(new java.awt.BorderLayout(0, 10));
+
+        jPanel17.setLayout(new java.awt.BorderLayout(0, 10));
+
+        FTPServerConfigPanel.setLayout(new java.awt.BorderLayout(0, 10));
 
         FTPConnectionControl.setLayout(new javax.swing.BoxLayout(FTPConnectionControl, javax.swing.BoxLayout.LINE_AXIS));
 
@@ -380,32 +360,27 @@ public static void removeDevice(){
 
         ftp_serverIP.setText("IP");
         FTPConnectionControl.add(ftp_serverIP);
-        FTPConnectionControl.add(filler6);
 
         lable_port.setText("Port");
         FTPConnectionControl.add(lable_port);
         FTPConnectionControl.add(ftp_port);
-        FTPConnectionControl.add(filler7);
 
         lable_username.setText("Username");
         FTPConnectionControl.add(lable_username);
 
         ftp_userName.setText("USERNAME");
         FTPConnectionControl.add(ftp_userName);
-        FTPConnectionControl.add(filler8);
 
         lable_password.setText("Password");
         FTPConnectionControl.add(lable_password);
 
         ftp_password.setText("jPasswordField1");
         FTPConnectionControl.add(ftp_password);
-        FTPConnectionControl.add(filler9);
 
         ftp_connect.setText("Connect");
         FTPConnectionControl.add(ftp_connect);
 
-        myFTPclient.add(FTPConnectionControl);
-        myFTPclient.add(filler1);
+        FTPServerConfigPanel.add(FTPConnectionControl, java.awt.BorderLayout.PAGE_START);
 
         FTPserverLogPane.setMinimumSize(new java.awt.Dimension(23, 75));
 
@@ -414,26 +389,29 @@ public static void removeDevice(){
         FTPserverCMDLog.setPreferredSize(new java.awt.Dimension(164, 110));
         FTPserverLogPane.setViewportView(FTPserverCMDLog);
 
-        myFTPclient.add(FTPserverLogPane);
-        myFTPclient.add(filler2);
+        FTPServerConfigPanel.add(FTPserverLogPane, java.awt.BorderLayout.CENTER);
+
+        jPanel17.add(FTPServerConfigPanel, java.awt.BorderLayout.PAGE_START);
 
         FileMangerPanel.setLayout(new javax.swing.BoxLayout(FileMangerPanel, javax.swing.BoxLayout.LINE_AXIS));
 
         Localside.setBorder(javax.swing.BorderFactory.createTitledBorder("Local"));
-        Localside.setLayout(new javax.swing.BoxLayout(Localside, javax.swing.BoxLayout.Y_AXIS));
+        Localside.setMinimumSize(new java.awt.Dimension(150, 100));
+        Localside.setPreferredSize(new java.awt.Dimension(229, 388));
+        Localside.setLayout(new java.awt.BorderLayout());
 
         jPanel2.setAlignmentX(1.0F);
-        jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.LINE_AXIS));
+        jPanel2.setLayout(new java.awt.BorderLayout());
+
+        jPanel18.setLayout(new javax.swing.BoxLayout(jPanel18, javax.swing.BoxLayout.LINE_AXIS));
 
         browseLocalFile.setText("Bowse");
-        jPanel2.add(browseLocalFile);
-        jPanel2.add(filler15);
+        jPanel18.add(browseLocalFile);
 
         RefreshLocalFile.setText("Refresh");
-        jPanel2.add(RefreshLocalFile);
+        jPanel18.add(RefreshLocalFile);
 
-        Localside.add(jPanel2);
-        Localside.add(filler16);
+        jPanel2.add(jPanel18, java.awt.BorderLayout.CENTER);
 
         jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.LINE_AXIS));
 
@@ -444,35 +422,57 @@ public static void removeDevice(){
         localFilePath.setText("jTextField1");
         jPanel3.add(localFilePath);
 
-        Localside.add(jPanel3);
-        Localside.add(filler13);
+        jPanel2.add(jPanel3, java.awt.BorderLayout.PAGE_END);
+
+        Localside.add(jPanel2, java.awt.BorderLayout.PAGE_START);
 
         jScrollPane4.setViewportView(jTree2);
 
-        Localside.add(jScrollPane4);
+        Localside.add(jScrollPane4, java.awt.BorderLayout.CENTER);
 
         FileMangerPanel.add(Localside);
-        FileMangerPanel.add(filler11);
-
-        TransferCotrolPanel.setLayout(new javax.swing.BoxLayout(TransferCotrolPanel, javax.swing.BoxLayout.Y_AXIS));
 
         uploadClientToServer.setText("=>");
-        TransferCotrolPanel.add(uploadClientToServer);
-        TransferCotrolPanel.add(filler12);
+        uploadClientToServer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                uploadClientToServerActionPerformed(evt);
+            }
+        });
 
         uploadServerToClient.setText("<=");
-        TransferCotrolPanel.add(uploadServerToClient);
+
+        javax.swing.GroupLayout TransferCotrolPanelLayout = new javax.swing.GroupLayout(TransferCotrolPanel);
+        TransferCotrolPanel.setLayout(TransferCotrolPanelLayout);
+        TransferCotrolPanelLayout.setHorizontalGroup(
+            TransferCotrolPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(uploadClientToServer, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(uploadServerToClient, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        TransferCotrolPanelLayout.setVerticalGroup(
+            TransferCotrolPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TransferCotrolPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(uploadClientToServer)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(uploadServerToClient)
+                .addContainerGap())
+        );
 
         FileMangerPanel.add(TransferCotrolPanel);
-        FileMangerPanel.add(filler10);
 
         RemoteSide.setBorder(javax.swing.BorderFactory.createTitledBorder("Remote"));
-        RemoteSide.setLayout(new javax.swing.BoxLayout(RemoteSide, javax.swing.BoxLayout.Y_AXIS));
+        RemoteSide.setMinimumSize(new java.awt.Dimension(150, 100));
+        RemoteSide.setPreferredSize(new java.awt.Dimension(229, 388));
+        RemoteSide.setLayout(new java.awt.BorderLayout());
+
+        jPanel4.setLayout(new java.awt.BorderLayout());
+
+        jPanel19.setLayout(new javax.swing.BoxLayout(jPanel19, javax.swing.BoxLayout.LINE_AXIS));
 
         jButton2.setText("Refresh");
-        jPanel4.add(jButton2);
+        jPanel19.add(jButton2);
 
-        RemoteSide.add(jPanel4);
+        jPanel4.add(jPanel19, java.awt.BorderLayout.PAGE_START);
 
         jPanel5.setLayout(new javax.swing.BoxLayout(jPanel5, javax.swing.BoxLayout.LINE_AXIS));
 
@@ -483,32 +483,45 @@ public static void removeDevice(){
         jTextField2.setText("jTextField1");
         jPanel5.add(jTextField2);
 
-        RemoteSide.add(jPanel5);
-        RemoteSide.add(filler17);
+        jPanel4.add(jPanel5, java.awt.BorderLayout.PAGE_END);
+
+        RemoteSide.add(jPanel4, java.awt.BorderLayout.PAGE_START);
 
         jScrollPane1.setViewportView(jTree1);
 
-        RemoteSide.add(jScrollPane1);
+        RemoteSide.add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
         FileMangerPanel.add(RemoteSide);
 
-        myFTPclient.add(FileMangerPanel);
-        myFTPclient.add(filler3);
+        jPanel17.add(FileMangerPanel, java.awt.BorderLayout.CENTER);
 
-        FilesStatus.setModel(new javax.swing.table.DefaultTableModel(
+        myFTPclient.add(jPanel17, java.awt.BorderLayout.CENTER);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "File Name", "Local Path", "Direction", "Remote Path", "Status"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        FileUploadStatus.setViewportView(FilesStatus);
+        jScrollPane3.setViewportView(jTable1);
 
-        myFTPclient.add(FileUploadStatus);
+        javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
+        jPanel20.setLayout(jPanel20Layout);
+        jPanel20Layout.setHorizontalGroup(
+            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 655, Short.MAX_VALUE)
+        );
+        jPanel20Layout.setVerticalGroup(
+            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+        );
+
+        myFTPclient.add(jPanel20, java.awt.BorderLayout.PAGE_END);
 
         hsTabs.addTab("FTP Client", myFTPclient);
 
@@ -743,11 +756,11 @@ public static void removeDevice(){
         PacketSender.setLayout(PacketSenderLayout);
         PacketSenderLayout.setHorizontalGroup(
             PacketSenderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 696, Short.MAX_VALUE)
+            .addGap(0, 655, Short.MAX_VALUE)
         );
         PacketSenderLayout.setVerticalGroup(
             PacketSenderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 597, Short.MAX_VALUE)
+            .addGap(0, 579, Short.MAX_VALUE)
         );
 
         hsTabs.addTab("Packet Sender ", PacketSender);
@@ -797,7 +810,7 @@ public static void removeDevice(){
                 .addComponent(tcpServerMaxConnections, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tcpServerAdvancedSettings)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 212, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 171, Short.MAX_VALUE)
                 .addComponent(startTCPServer, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
         );
@@ -855,7 +868,7 @@ public static void removeDevice(){
         jPanel14Layout.setHorizontalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
-                .addContainerGap(609, Short.MAX_VALUE)
+                .addContainerGap(568, Short.MAX_VALUE)
                 .addComponent(clearTCPLog)
                 .addContainerGap())
         );
@@ -875,91 +888,16 @@ public static void removeDevice(){
         UDPserver.setLayout(UDPserverLayout);
         UDPserverLayout.setHorizontalGroup(
             UDPserverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 696, Short.MAX_VALUE)
+            .addGap(0, 655, Short.MAX_VALUE)
         );
         UDPserverLayout.setVerticalGroup(
             UDPserverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 597, Short.MAX_VALUE)
+            .addGap(0, 579, Short.MAX_VALUE)
         );
 
         hsTabs.addTab("UDP Server", UDPserver);
 
-        TelnetTerminal.setLayout(new java.awt.BorderLayout());
-
-        telnetTermainal.setLayout(new java.awt.BorderLayout());
-
-        telentClientTerminal.setEditable(false);
-        telentClientTerminal.setBackground(new java.awt.Color(0, 0, 0));
-        telentClientTerminal.setColumns(20);
-        telentClientTerminal.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        telentClientTerminal.setForeground(new java.awt.Color(255, 255, 255));
-        telentClientTerminal.setRows(5);
-        telnetServerResp.setViewportView(telentClientTerminal);
-
-        telnetTermainal.add(telnetServerResp, java.awt.BorderLayout.CENTER);
-
-        telnetCMDSendPanel.setLayout(new javax.swing.BoxLayout(telnetCMDSendPanel, javax.swing.BoxLayout.LINE_AXIS));
-
-        jPanel1.setMinimumSize(new java.awt.Dimension(100, 23));
-        jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.Y_AXIS));
-
-        jPanel7.setLayout(new javax.swing.BoxLayout(jPanel7, javax.swing.BoxLayout.X_AXIS));
-
-        telentCMD.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        telentCMD.setMinimumSize(new java.awt.Dimension(100, 23));
-        telentCMD.setPreferredSize(new java.awt.Dimension(100, 23));
-        telentCMD.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                telentCMDKeyReleased(evt);
-            }
-        });
-        jPanel7.add(telentCMD);
-        jPanel7.add(filler20);
-
-        telnetCMDSend.setText("Send");
-        telnetCMDSend.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                telnetCMDSendActionPerformed(evt);
-            }
-        });
-        jPanel7.add(telnetCMDSend);
-
-        jPanel1.add(jPanel7);
-
-        jPanel8.setLayout(new javax.swing.BoxLayout(jPanel8, javax.swing.BoxLayout.LINE_AXIS));
-
-        telnetEnableLocalEcho.setText("Local Echo");
-        jPanel8.add(telnetEnableLocalEcho);
-        jPanel8.add(filler19);
-
-        telnetDeleteCMDAfterSend.setSelected(true);
-        telnetDeleteCMDAfterSend.setText("Delete command after send");
-        jPanel8.add(telnetDeleteCMDAfterSend);
-
-        jPanel1.add(jPanel8);
-
-        telnetCMDSendPanel.add(jPanel1);
-
-        jPanel6.setLayout(new javax.swing.BoxLayout(jPanel6, javax.swing.BoxLayout.Y_AXIS));
-
-        telnetAddCR.setText("CR");
-        telnetAddCR.setToolTipText("Carriage Return");
-        jPanel6.add(telnetAddCR);
-
-        telnetAddLF.setText("LF");
-        telnetAddLF.setToolTipText("Line Feed");
-        jPanel6.add(telnetAddLF);
-
-        telnetAddCRLF.setSelected(true);
-        telnetAddCRLF.setText("CR+LF");
-        telnetAddCRLF.setToolTipText("Carriage Return + Line Feed");
-        jPanel6.add(telnetAddCRLF);
-
-        telnetCMDSendPanel.add(jPanel6);
-
-        telnetTermainal.add(telnetCMDSendPanel, java.awt.BorderLayout.PAGE_END);
-
-        TelnetTerminal.add(telnetTermainal, java.awt.BorderLayout.CENTER);
+        TelnetTerminal.setLayout(new java.awt.BorderLayout(0, 10));
 
         telnetConnectionsPannel.setBorder(javax.swing.BorderFactory.createTitledBorder("Telnet Server"));
 
@@ -994,7 +932,7 @@ public static void removeDevice(){
                 .addComponent(telnetPort, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(telneClientConnect, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(139, Short.MAX_VALUE))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
         telnetConnectionsPannelLayout.setVerticalGroup(
             telnetConnectionsPannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1011,17 +949,127 @@ public static void removeDevice(){
 
         TelnetTerminal.add(telnetConnectionsPannel, java.awt.BorderLayout.PAGE_START);
 
+        telnetTermainal.setLayout(new java.awt.BorderLayout(0, 10));
+
+        telentClientTerminal.setEditable(false);
+        telentClientTerminal.setBackground(new java.awt.Color(0, 0, 0));
+        telentClientTerminal.setColumns(20);
+        telentClientTerminal.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        telentClientTerminal.setForeground(new java.awt.Color(255, 255, 255));
+        telentClientTerminal.setRows(5);
+        telnetServerResp.setViewportView(telentClientTerminal);
+
+        telnetTermainal.add(telnetServerResp, java.awt.BorderLayout.CENTER);
+
+        telnetCMDSendPanel.setPreferredSize(new java.awt.Dimension(301, 100));
+        telnetCMDSendPanel.setLayout(new java.awt.BorderLayout(10, 0));
+
+        jPanel1.setMinimumSize(new java.awt.Dimension(100, 23));
+        jPanel1.setLayout(new java.awt.BorderLayout());
+
+        jPanel7.setLayout(new java.awt.BorderLayout(10, 0));
+
+        telentCMD.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        telentCMD.setMinimumSize(new java.awt.Dimension(100, 23));
+        telentCMD.setPreferredSize(new java.awt.Dimension(100, 23));
+        telentCMD.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                telentCMDKeyReleased(evt);
+            }
+        });
+        jPanel7.add(telentCMD, java.awt.BorderLayout.CENTER);
+
+        telnetCMDSend.setText("Send");
+        telnetCMDSend.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                telnetCMDSendActionPerformed(evt);
+            }
+        });
+        jPanel7.add(telnetCMDSend, java.awt.BorderLayout.LINE_END);
+
+        jPanel1.add(jPanel7, java.awt.BorderLayout.CENTER);
+
+        telnetEnableLocalEcho.setText("Local Echo");
+
+        telnetDeleteCMDAfterSend.setSelected(true);
+        telnetDeleteCMDAfterSend.setText("Delete command after send");
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap(245, Short.MAX_VALUE)
+                .addComponent(telnetEnableLocalEcho)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(telnetDeleteCMDAfterSend)
+                .addContainerGap())
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(telnetDeleteCMDAfterSend)
+                    .addComponent(telnetEnableLocalEcho))
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel8, java.awt.BorderLayout.PAGE_END);
+
+        telnetCMDSendPanel.add(jPanel1, java.awt.BorderLayout.CENTER);
+
+        telnetAddCR.setText("CR");
+        telnetAddCR.setToolTipText("Carriage Return");
+
+        telnetAddLF.setText("LF");
+        telnetAddLF.setToolTipText("Line Feed");
+
+        telnetAddCRLF.setSelected(true);
+        telnetAddCRLF.setText("CR+LF");
+        telnetAddCRLF.setToolTipText("Carriage Return + Line Feed");
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(telnetAddCR)
+                    .addComponent(telnetAddLF)
+                    .addComponent(telnetAddCRLF))
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(telnetAddCR)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(telnetAddLF)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(telnetAddCRLF)
+                .addContainerGap(17, Short.MAX_VALUE))
+        );
+
+        telnetCMDSendPanel.add(jPanel6, java.awt.BorderLayout.LINE_END);
+
+        telnetTermainal.add(telnetCMDSendPanel, java.awt.BorderLayout.PAGE_END);
+
+        TelnetTerminal.add(telnetTermainal, java.awt.BorderLayout.CENTER);
+
         hsTabs.addTab("Telnet Terminal", TelnetTerminal);
 
         javax.swing.GroupLayout SerialTermainalLayout = new javax.swing.GroupLayout(SerialTermainal);
         SerialTermainal.setLayout(SerialTermainalLayout);
         SerialTermainalLayout.setHorizontalGroup(
             SerialTermainalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 696, Short.MAX_VALUE)
+            .addGap(0, 655, Short.MAX_VALUE)
         );
         SerialTermainalLayout.setVerticalGroup(
             SerialTermainalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 597, Short.MAX_VALUE)
+            .addGap(0, 579, Short.MAX_VALUE)
         );
 
         hsTabs.addTab("Serial Termainal", SerialTermainal);
@@ -1030,11 +1078,11 @@ public static void removeDevice(){
         HTTPserver.setLayout(HTTPserverLayout);
         HTTPserverLayout.setHorizontalGroup(
             HTTPserverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 696, Short.MAX_VALUE)
+            .addGap(0, 655, Short.MAX_VALUE)
         );
         HTTPserverLayout.setVerticalGroup(
             HTTPserverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 597, Short.MAX_VALUE)
+            .addGap(0, 579, Short.MAX_VALUE)
         );
 
         hsTabs.addTab("HTTP Server", HTTPserver);
@@ -1119,7 +1167,7 @@ public static void removeDevice(){
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                .addContainerGap(611, Short.MAX_VALUE)
+                .addContainerGap(570, Short.MAX_VALUE)
                 .addComponent(email_send, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1137,29 +1185,7 @@ public static void removeDevice(){
 
         hsTabs.addTab("Support", EmailClient);
 
-        tabs_Tools.add(hsTabs);
-
-        horizontalSplit.setLeftComponent(tabs_Tools);
-
-        tabs_Logs.setLayout(new java.awt.BorderLayout());
-
-        Logs.setAutoscrolls(true);
-
-        log_Output_panel.setLayout(new java.awt.BorderLayout());
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane3.setViewportView(jTextArea1);
-
-        log_Output_panel.add(jScrollPane3, java.awt.BorderLayout.CENTER);
-
-        Logs.addTab("Output", log_Output_panel);
-
-        tabs_Logs.add(Logs, java.awt.BorderLayout.CENTER);
-
-        horizontalSplit.setRightComponent(tabs_Logs);
-
-        split_DeviceProp.add(horizontalSplit, java.awt.BorderLayout.CENTER);
+        split_DeviceProp.add(hsTabs, java.awt.BorderLayout.CENTER);
 
         mainUI.setRightComponent(split_DeviceProp);
 
@@ -1425,6 +1451,10 @@ public static void removeDevice(){
         myTCPServer.TCPserverModel.setRowCount(0);
     }//GEN-LAST:event_clearTCPLogActionPerformed
 
+    private void uploadClientToServerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uploadClientToServerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_uploadClientToServerActionPerformed
+
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton BrowseFTPPath;
@@ -1442,6 +1472,7 @@ public static void removeDevice(){
     private javax.swing.JPasswordField FTPPassword;
     private javax.swing.JLabel FTPPathLable;
     private javax.swing.JPanel FTPServerClientStatus;
+    private javax.swing.JPanel FTPServerConfigPanel;
     private javax.swing.JTextField FTPServerName;
     private javax.swing.JTextField FTPServerPath;
     private javax.swing.JSpinner FTPServerPort;
@@ -1457,12 +1488,9 @@ public static void removeDevice(){
     private javax.swing.JLabel FTPservernameLable;
     private javax.swing.JLabel FTPusernameLabel;
     private javax.swing.JPanel FileMangerPanel;
-    private javax.swing.JScrollPane FileUploadStatus;
-    private javax.swing.JTable FilesStatus;
     private javax.swing.JMenuItem FontSize;
     private javax.swing.JPanel HTTPserver;
     private javax.swing.JPanel Localside;
-    private javax.swing.JTabbedPane Logs;
     private javax.swing.JPanel PacketSender;
     private javax.swing.JButton RefreshLocalFile;
     private javax.swing.JPanel RemoteSide;
@@ -1487,31 +1515,13 @@ public static void removeDevice(){
     private javax.swing.JTextArea email_userMessage;
     private javax.swing.JTextField email_userName;
     private javax.swing.JTextField email_userPhone;
-    private javax.swing.Box.Filler filler1;
-    private javax.swing.Box.Filler filler10;
-    private javax.swing.Box.Filler filler11;
-    private javax.swing.Box.Filler filler12;
-    private javax.swing.Box.Filler filler13;
     private javax.swing.Box.Filler filler14;
-    private javax.swing.Box.Filler filler15;
-    private javax.swing.Box.Filler filler16;
-    private javax.swing.Box.Filler filler17;
     private javax.swing.Box.Filler filler18;
-    private javax.swing.Box.Filler filler19;
-    private javax.swing.Box.Filler filler2;
-    private javax.swing.Box.Filler filler20;
-    private javax.swing.Box.Filler filler3;
-    private javax.swing.Box.Filler filler4;
-    private javax.swing.Box.Filler filler6;
-    private javax.swing.Box.Filler filler7;
-    private javax.swing.Box.Filler filler8;
-    private javax.swing.Box.Filler filler9;
     private javax.swing.JButton ftp_connect;
     private javax.swing.JPasswordField ftp_password;
     private javax.swing.JTextField ftp_port;
     private javax.swing.JTextField ftp_serverIP;
     private javax.swing.JTextField ftp_userName;
-    private javax.swing.JSplitPane horizontalSplit;
     private javax.swing.JLabel hostAddressLable;
     private javax.swing.JTabbedPane hsTabs;
     private javax.swing.JMenuItem item_packetSender;
@@ -1535,7 +1545,11 @@ public static void removeDevice(){
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -1549,7 +1563,7 @@ public static void removeDevice(){
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTree jTree1;
     private javax.swing.JTree jTree2;
@@ -1559,7 +1573,6 @@ public static void removeDevice(){
     private javax.swing.JLabel lable_serverIP;
     private javax.swing.JLabel lable_username;
     private javax.swing.JTextField localFilePath;
-    private javax.swing.JPanel log_Output_panel;
     private javax.swing.JLabel mail_emailLable;
     private javax.swing.JLabel mail_nameLabel;
     private javax.swing.JLabel mail_phoneLable;
@@ -1572,8 +1585,6 @@ public static void removeDevice(){
     private javax.swing.JPanel split_DeviceList;
     private javax.swing.JPanel split_DeviceProp;
     private javax.swing.JButton startTCPServer;
-    private javax.swing.JPanel tabs_Logs;
-    private javax.swing.JPanel tabs_Tools;
     public javax.swing.JButton tcpServerAdvancedSettings;
     private javax.swing.JComboBox<String> tcpServerBind;
     public javax.swing.JSpinner tcpServerMaxConnections;
