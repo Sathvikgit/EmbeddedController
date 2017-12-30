@@ -75569,3 +75569,73 @@
   <message>Home Bounds: java.awt.Rectangle[x=0,y=30,width=859,height=788]</message>
 </record>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-12-30T02:27:53</date>
+  <millis>1514629673031</millis>
+  <sequence>0</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.EmbeddedController</class>
+  <method>createLogger</method>
+  <thread>1</thread>
+  <message>Log File created</message>
+</record>
+<record>
+  <date>2017-12-30T02:27:53</date>
+  <millis>1514629673373</millis>
+  <sequence>1</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.EmbeddedController</class>
+  <method>SetLookandFeel</method>
+  <thread>1</thread>
+  <message>look and Feel set to : Nimbus</message>
+</record>
+<record>
+  <date>2017-12-30T02:27:54</date>
+  <millis>1514629674176</millis>
+  <sequence>2</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>&lt;init&gt;</method>
+  <thread>15</thread>
+  <message>Home Screen initialized</message>
+</record>
+<record>
+  <date>2017-12-30T02:27:54</date>
+  <millis>1514629674177</millis>
+  <sequence>3</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>&lt;init&gt;</method>
+  <thread>15</thread>
+  <message>DefaultCloseOperation= 3</message>
+</record>
+<record>
+  <date>2017-12-30T02:27:54</date>
+  <millis>1514629674178</millis>
+  <sequence>4</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>Rearrage</method>
+  <thread>15</thread>
+  <message>ScreeSize java.awt.Dimension[width=1366,height=768]</message>
+</record>
+<record>
+  <date>2017-12-30T02:27:54</date>
+  <millis>1514629674180</millis>
+  <sequence>5</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>Rearrage</method>
+  <thread>15</thread>
+  <message>Home Bounds: java.awt.Rectangle[x=0,y=30,width=859,height=788]</message>
+</record>
+</log>
