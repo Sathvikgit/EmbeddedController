@@ -412,9 +412,9 @@
                                     <Property name="text" type="java.lang.String" value="Server IP"/>
                                   </Properties>
                                 </Component>
-                                <Component class="javax.swing.JTextField" name="ftp_serverIP">
+                                <Component class="javax.swing.JTextField" name="ftpClient_serverIP">
                                   <Properties>
-                                    <Property name="text" type="java.lang.String" value="IP"/>
+                                    <Property name="text" type="java.lang.String" value="192.168.1.151"/>
                                   </Properties>
                                 </Component>
                                 <Component class="javax.swing.JLabel" name="lable_port">
@@ -422,16 +422,21 @@
                                     <Property name="text" type="java.lang.String" value="Port"/>
                                   </Properties>
                                 </Component>
-                                <Component class="javax.swing.JTextField" name="ftp_port">
+                                <Component class="javax.swing.JSpinner" name="ftpClient_serverPort">
+                                  <Properties>
+                                    <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                                      <SpinnerModel initial="21" maximum="50" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                                    </Property>
+                                  </Properties>
                                 </Component>
                                 <Component class="javax.swing.JLabel" name="lable_username">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Username"/>
                                   </Properties>
                                 </Component>
-                                <Component class="javax.swing.JTextField" name="ftp_userName">
+                                <Component class="javax.swing.JTextField" name="ftpClient_ServerName">
                                   <Properties>
-                                    <Property name="text" type="java.lang.String" value="USERNAME"/>
+                                    <Property name="text" type="java.lang.String" value="admin"/>
                                   </Properties>
                                 </Component>
                                 <Component class="javax.swing.JLabel" name="lable_password">
@@ -439,15 +444,18 @@
                                     <Property name="text" type="java.lang.String" value="Password"/>
                                   </Properties>
                                 </Component>
-                                <Component class="javax.swing.JPasswordField" name="ftp_password">
+                                <Component class="javax.swing.JPasswordField" name="ftpClient_ServerPass">
                                   <Properties>
-                                    <Property name="text" type="java.lang.String" value="jPasswordField1"/>
+                                    <Property name="text" type="java.lang.String" value="pass"/>
                                   </Properties>
                                 </Component>
-                                <Component class="javax.swing.JButton" name="ftp_connect">
+                                <Component class="javax.swing.JButton" name="ftpClient_ServerConnect">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Connect"/>
                                   </Properties>
+                                  <Events>
+                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ftpClient_ServerConnectActionPerformed"/>
+                                  </Events>
                                 </Component>
                               </SubComponents>
                             </Container>
@@ -476,6 +484,9 @@
                                       <Dimension value="[164, 110]"/>
                                     </Property>
                                   </Properties>
+                                  <AuxValues>
+                                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                                  </AuxValues>
                                 </Component>
                               </SubComponents>
                             </Container>

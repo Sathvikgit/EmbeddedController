@@ -75639,3 +75639,628 @@
   <message>Home Bounds: java.awt.Rectangle[x=0,y=30,width=859,height=788]</message>
 </record>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-12-30T12:33:35</date>
+  <millis>1514666015752</millis>
+  <sequence>0</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.EmbeddedController</class>
+  <method>createLogger</method>
+  <thread>1</thread>
+  <message>Log File created</message>
+</record>
+<record>
+  <date>2017-12-30T12:33:35</date>
+  <millis>1514666015953</millis>
+  <sequence>1</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.EmbeddedController</class>
+  <method>SetLookandFeel</method>
+  <thread>1</thread>
+  <message>look and Feel set to : Nimbus</message>
+</record>
+<record>
+  <date>2017-12-30T12:33:36</date>
+  <millis>1514666016527</millis>
+  <sequence>2</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>&lt;init&gt;</method>
+  <thread>15</thread>
+  <message>Home Screen initialized</message>
+</record>
+<record>
+  <date>2017-12-30T12:33:36</date>
+  <millis>1514666016530</millis>
+  <sequence>3</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>&lt;init&gt;</method>
+  <thread>15</thread>
+  <message>DefaultCloseOperation= 3</message>
+</record>
+<record>
+  <date>2017-12-30T12:33:36</date>
+  <millis>1514666016531</millis>
+  <sequence>4</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>Rearrage</method>
+  <thread>15</thread>
+  <message>ScreeSize java.awt.Dimension[width=1366,height=768]</message>
+</record>
+<record>
+  <date>2017-12-30T12:33:36</date>
+  <millis>1514666016533</millis>
+  <sequence>5</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>Rearrage</method>
+  <thread>15</thread>
+  <message>Home Bounds: java.awt.Rectangle[x=0,y=30,width=859,height=788]</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-12-31T01:00:10</date>
+  <millis>1514710810838</millis>
+  <sequence>0</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.EmbeddedController</class>
+  <method>createLogger</method>
+  <thread>1</thread>
+  <message>Log File created</message>
+</record>
+<record>
+  <date>2017-12-31T01:00:11</date>
+  <millis>1514710811135</millis>
+  <sequence>1</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.EmbeddedController</class>
+  <method>SetLookandFeel</method>
+  <thread>1</thread>
+  <message>look and Feel set to : Nimbus</message>
+</record>
+<record>
+  <date>2017-12-31T01:00:11</date>
+  <millis>1514710811603</millis>
+  <sequence>2</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>&lt;init&gt;</method>
+  <thread>15</thread>
+  <message>Home Screen initialized</message>
+</record>
+<record>
+  <date>2017-12-31T01:00:11</date>
+  <millis>1514710811604</millis>
+  <sequence>3</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>&lt;init&gt;</method>
+  <thread>15</thread>
+  <message>DefaultCloseOperation= 3</message>
+</record>
+<record>
+  <date>2017-12-31T01:00:11</date>
+  <millis>1514710811605</millis>
+  <sequence>4</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>Rearrage</method>
+  <thread>15</thread>
+  <message>ScreeSize java.awt.Dimension[width=1366,height=768]</message>
+</record>
+<record>
+  <date>2017-12-31T01:00:11</date>
+  <millis>1514710811606</millis>
+  <sequence>5</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>Rearrage</method>
+  <thread>15</thread>
+  <message>Home Bounds: java.awt.Rectangle[x=0,y=30,width=859,height=788]</message>
+</record>
+<record>
+  <date>2017-12-31T01:00:20</date>
+  <millis>1514710820464</millis>
+  <sequence>6</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>BrowseFTPPathActionPerformed</method>
+  <thread>15</thread>
+  <message>FTPServer : Choosing Directory</message>
+</record>
+<record>
+  <date>2017-12-31T01:00:27</date>
+  <millis>1514710827819</millis>
+  <sequence>7</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>BrowseFTPPathActionPerformed</method>
+  <thread>15</thread>
+  <message>FTPServer : Dir Path C:\Users\gsath\Desktop\MyFTPServer</message>
+</record>
+<record>
+  <date>2017-12-31T01:00:33</date>
+  <millis>1514710833406</millis>
+  <sequence>8</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>FTPServerStartActionPerformed</method>
+  <thread>15</thread>
+  <message>FTPServer : Start</message>
+</record>
+<record>
+  <date>2017-12-31T01:00:33</date>
+  <millis>1514710833407</millis>
+  <sequence>9</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>FTPServerStartActionPerformed</method>
+  <thread>15</thread>
+  <message>FTPServer : Starting the server in port = 21</message>
+</record>
+<record>
+  <date>2017-12-31T01:00:33</date>
+  <millis>1514710833408</millis>
+  <sequence>10</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>FTPServerStartActionPerformed</method>
+  <thread>15</thread>
+  <message>FTPServer : Name = MyFTPServer path= C:\Users\gsath\Desktop\MyFTPServer Username= admin Pass= pass</message>
+</record>
+<record>
+  <date>2017-12-31T01:00:33</date>
+  <millis>1514710833902</millis>
+  <sequence>11</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.SystemStatus</class>
+  <method>update_FTPServerStatus</method>
+  <thread>29</thread>
+  <message>SystemStatus: Updating FTP Server</message>
+</record>
+<record>
+  <date>2017-12-31T01:01:57</date>
+  <millis>1514710917176</millis>
+  <sequence>12</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>model.FTPclient</class>
+  <method>&lt;init&gt;</method>
+  <thread>15</thread>
+  <message>FTPClient Creatted FTPClient: noNameFTPClient{server=192.168.1.151, port=21, user=user, pass=pass}</message>
+</record>
+<record>
+  <date>2017-12-31T01:01:57</date>
+  <millis>1514710917177</millis>
+  <sequence>13</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>model.FTPclient</class>
+  <method>&lt;init&gt;</method>
+  <thread>15</thread>
+  <message>Total number of FTP clients : 1</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-12-31T01:05:01</date>
+  <millis>1514711101420</millis>
+  <sequence>0</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.EmbeddedController</class>
+  <method>createLogger</method>
+  <thread>1</thread>
+  <message>Log File created</message>
+</record>
+<record>
+  <date>2017-12-31T01:05:01</date>
+  <millis>1514711101633</millis>
+  <sequence>1</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.EmbeddedController</class>
+  <method>SetLookandFeel</method>
+  <thread>1</thread>
+  <message>look and Feel set to : Nimbus</message>
+</record>
+<record>
+  <date>2017-12-31T01:05:02</date>
+  <millis>1514711102088</millis>
+  <sequence>2</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>&lt;init&gt;</method>
+  <thread>15</thread>
+  <message>Home Screen initialized</message>
+</record>
+<record>
+  <date>2017-12-31T01:05:02</date>
+  <millis>1514711102089</millis>
+  <sequence>3</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>&lt;init&gt;</method>
+  <thread>15</thread>
+  <message>DefaultCloseOperation= 3</message>
+</record>
+<record>
+  <date>2017-12-31T01:05:02</date>
+  <millis>1514711102091</millis>
+  <sequence>4</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>Rearrage</method>
+  <thread>15</thread>
+  <message>ScreeSize java.awt.Dimension[width=1366,height=768]</message>
+</record>
+<record>
+  <date>2017-12-31T01:05:02</date>
+  <millis>1514711102092</millis>
+  <sequence>5</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>Rearrage</method>
+  <thread>15</thread>
+  <message>Home Bounds: java.awt.Rectangle[x=0,y=30,width=859,height=788]</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-12-31T01:32:06</date>
+  <millis>1514712726527</millis>
+  <sequence>0</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.EmbeddedController</class>
+  <method>createLogger</method>
+  <thread>1</thread>
+  <message>Log File created</message>
+</record>
+<record>
+  <date>2017-12-31T01:32:06</date>
+  <millis>1514712726730</millis>
+  <sequence>1</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.EmbeddedController</class>
+  <method>SetLookandFeel</method>
+  <thread>1</thread>
+  <message>look and Feel set to : Nimbus</message>
+</record>
+<record>
+  <date>2017-12-31T01:32:07</date>
+  <millis>1514712727186</millis>
+  <sequence>2</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>&lt;init&gt;</method>
+  <thread>15</thread>
+  <message>Home Screen initialized</message>
+</record>
+<record>
+  <date>2017-12-31T01:32:07</date>
+  <millis>1514712727187</millis>
+  <sequence>3</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>&lt;init&gt;</method>
+  <thread>15</thread>
+  <message>DefaultCloseOperation= 3</message>
+</record>
+<record>
+  <date>2017-12-31T01:32:07</date>
+  <millis>1514712727189</millis>
+  <sequence>4</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>Rearrage</method>
+  <thread>15</thread>
+  <message>ScreeSize java.awt.Dimension[width=1366,height=768]</message>
+</record>
+<record>
+  <date>2017-12-31T01:32:07</date>
+  <millis>1514712727190</millis>
+  <sequence>5</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>Rearrage</method>
+  <thread>15</thread>
+  <message>Home Bounds: java.awt.Rectangle[x=0,y=30,width=859,height=788]</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-12-31T01:35:14</date>
+  <millis>1514712914710</millis>
+  <sequence>0</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.EmbeddedController</class>
+  <method>createLogger</method>
+  <thread>1</thread>
+  <message>Log File created</message>
+</record>
+<record>
+  <date>2017-12-31T01:35:14</date>
+  <millis>1514712914914</millis>
+  <sequence>1</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.EmbeddedController</class>
+  <method>SetLookandFeel</method>
+  <thread>1</thread>
+  <message>look and Feel set to : Nimbus</message>
+</record>
+<record>
+  <date>2017-12-31T01:35:15</date>
+  <millis>1514712915372</millis>
+  <sequence>2</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>&lt;init&gt;</method>
+  <thread>15</thread>
+  <message>Home Screen initialized</message>
+</record>
+<record>
+  <date>2017-12-31T01:35:15</date>
+  <millis>1514712915373</millis>
+  <sequence>3</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>&lt;init&gt;</method>
+  <thread>15</thread>
+  <message>DefaultCloseOperation= 3</message>
+</record>
+<record>
+  <date>2017-12-31T01:35:15</date>
+  <millis>1514712915374</millis>
+  <sequence>4</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>Rearrage</method>
+  <thread>15</thread>
+  <message>ScreeSize java.awt.Dimension[width=1366,height=768]</message>
+</record>
+<record>
+  <date>2017-12-31T01:35:15</date>
+  <millis>1514712915375</millis>
+  <sequence>5</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>Rearrage</method>
+  <thread>15</thread>
+  <message>Home Bounds: java.awt.Rectangle[x=0,y=30,width=859,height=788]</message>
+</record>
+<record>
+  <date>2017-12-31T01:35:21</date>
+  <millis>1514712921009</millis>
+  <sequence>6</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>SEVERE</level>
+  <class>model.FTPclient</class>
+  <method>userLog</method>
+  <thread>15</thread>
+  <message>FtpCleint: Failed to connect: Connection refused: connect</message>
+</record>
+<record>
+  <date>2017-12-31T01:35:21</date>
+  <millis>1514712921012</millis>
+  <sequence>7</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>WARNING</level>
+  <class>model.FTPclient</class>
+  <method>userLog</method>
+  <thread>15</thread>
+  <message>FtpCleint: Failed to set file type: Connection is not open</message>
+</record>
+<record>
+  <date>2017-12-31T01:35:21</date>
+  <millis>1514712921013</millis>
+  <sequence>8</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>model.FTPclient</class>
+  <method>userLog</method>
+  <thread>15</thread>
+  <message>FtpCleint Userlog: Atempting to connect192.168.1.151....</message>
+</record>
+<record>
+  <date>2017-12-31T01:36:18</date>
+  <millis>1514712978404</millis>
+  <sequence>9</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>SEVERE</level>
+  <class>model.FTPclient</class>
+  <method>userLog</method>
+  <thread>15</thread>
+  <message>FtpCleint: Failed to connect: Connection refused: connect</message>
+</record>
+<record>
+  <date>2017-12-31T01:36:18</date>
+  <millis>1514712978405</millis>
+  <sequence>10</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>WARNING</level>
+  <class>model.FTPclient</class>
+  <method>userLog</method>
+  <thread>15</thread>
+  <message>FtpCleint: Failed to set file type: Connection is not open</message>
+</record>
+<record>
+  <date>2017-12-31T01:36:18</date>
+  <millis>1514712978406</millis>
+  <sequence>11</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>model.FTPclient</class>
+  <method>userLog</method>
+  <thread>15</thread>
+  <message>FtpCleint Userlog: Atempting to connect192.168.1.151....</message>
+</record>
+<record>
+  <date>2017-12-31T01:36:30</date>
+  <millis>1514712990750</millis>
+  <sequence>12</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>BrowseFTPPathActionPerformed</method>
+  <thread>15</thread>
+  <message>FTPServer : Choosing Directory</message>
+</record>
+<record>
+  <date>2017-12-31T01:36:38</date>
+  <millis>1514712998011</millis>
+  <sequence>13</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>BrowseFTPPathActionPerformed</method>
+  <thread>15</thread>
+  <message>FTPServer : Dir Path C:\Users\gsath\Desktop\MyFTPServer</message>
+</record>
+<record>
+  <date>2017-12-31T01:36:41</date>
+  <millis>1514713001821</millis>
+  <sequence>14</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>FTPServerStartActionPerformed</method>
+  <thread>15</thread>
+  <message>FTPServer : Start</message>
+</record>
+<record>
+  <date>2017-12-31T01:36:41</date>
+  <millis>1514713001822</millis>
+  <sequence>15</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>FTPServerStartActionPerformed</method>
+  <thread>15</thread>
+  <message>FTPServer : Starting the server in port = 21</message>
+</record>
+<record>
+  <date>2017-12-31T01:36:41</date>
+  <millis>1514713001823</millis>
+  <sequence>16</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>FTPServerStartActionPerformed</method>
+  <thread>15</thread>
+  <message>FTPServer : Name = MyFTPServer path= C:\Users\gsath\Desktop\MyFTPServer Username= admin Pass= pass</message>
+</record>
+<record>
+  <date>2017-12-31T01:36:42</date>
+  <millis>1514713002230</millis>
+  <sequence>17</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.SystemStatus</class>
+  <method>update_FTPServerStatus</method>
+  <thread>29</thread>
+  <message>SystemStatus: Updating FTP Server</message>
+</record>
+<record>
+  <date>2017-12-31T01:36:46</date>
+  <millis>1514713006147</millis>
+  <sequence>18</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>model.FTPclient</class>
+  <method>userLog</method>
+  <thread>15</thread>
+  <message>FtpCleint:  Server Connected</message>
+</record>
+<record>
+  <date>2017-12-31T01:36:46</date>
+  <millis>1514713006159</millis>
+  <sequence>19</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>model.FTPclient</class>
+  <method>userLog</method>
+  <thread>15</thread>
+  <message>FtpCleint:  Login Sucessesful</message>
+</record>
+<record>
+  <date>2017-12-31T01:36:46</date>
+  <millis>1514713006161</millis>
+  <sequence>20</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>model.FTPclient</class>
+  <method>userLog</method>
+  <thread>15</thread>
+  <message>FtpCleint: Tranfer file type set to binary</message>
+</record>
+<record>
+  <date>2017-12-31T01:36:46</date>
+  <millis>1514713006162</millis>
+  <sequence>21</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>model.FTPclient</class>
+  <method>userLog</method>
+  <thread>15</thread>
+  <message>FtpCleint Userlog: Atempting to connect192.168.1.151....</message>
+</record>
+<record>
+  <date>2017-12-31T01:38:08</date>
+  <millis>1514713088310</millis>
+  <sequence>22</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>model.FTPclient</class>
+  <method>userLog</method>
+  <thread>15</thread>
+  <message>FtpCleint Userlog: dis connecting ... </message>
+</record>
+</log>

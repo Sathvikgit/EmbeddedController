@@ -8,6 +8,8 @@ import java.util.logging.Level;
 import javafx.embed.swing.JFXPanel;
 import javax.swing.JFileChooser;
 import model.EmailClient;
+import model.FTPclient;
+import static model.FTPclient.userLog;
 import model.FTPserver;
 import model.MyTelnetClient;
 import model.SystemDefinitions.*;
@@ -81,14 +83,14 @@ public static void removeDevice(){
         FTPServerConfigPanel = new javax.swing.JPanel();
         FTPConnectionControl = new javax.swing.JPanel();
         lable_serverIP = new javax.swing.JLabel();
-        ftp_serverIP = new javax.swing.JTextField();
+        ftpClient_serverIP = new javax.swing.JTextField();
         lable_port = new javax.swing.JLabel();
-        ftp_port = new javax.swing.JTextField();
+        ftpClient_serverPort = new javax.swing.JSpinner();
         lable_username = new javax.swing.JLabel();
-        ftp_userName = new javax.swing.JTextField();
+        ftpClient_ServerName = new javax.swing.JTextField();
         lable_password = new javax.swing.JLabel();
-        ftp_password = new javax.swing.JPasswordField();
-        ftp_connect = new javax.swing.JButton();
+        ftpClient_ServerPass = new javax.swing.JPasswordField();
+        ftpClient_ServerConnect = new javax.swing.JButton();
         FTPserverLogPane = new javax.swing.JScrollPane();
         FTPserverCMDLog = new javax.swing.JTextArea();
         FileMangerPanel = new javax.swing.JPanel();
@@ -358,27 +360,34 @@ public static void removeDevice(){
         lable_serverIP.setText("Server IP");
         FTPConnectionControl.add(lable_serverIP);
 
-        ftp_serverIP.setText("IP");
-        FTPConnectionControl.add(ftp_serverIP);
+        ftpClient_serverIP.setText("192.168.1.151");
+        FTPConnectionControl.add(ftpClient_serverIP);
 
         lable_port.setText("Port");
         FTPConnectionControl.add(lable_port);
-        FTPConnectionControl.add(ftp_port);
+
+        ftpClient_serverPort.setModel(new javax.swing.SpinnerNumberModel(21, 0, 50, 1));
+        FTPConnectionControl.add(ftpClient_serverPort);
 
         lable_username.setText("Username");
         FTPConnectionControl.add(lable_username);
 
-        ftp_userName.setText("USERNAME");
-        FTPConnectionControl.add(ftp_userName);
+        ftpClient_ServerName.setText("admin");
+        FTPConnectionControl.add(ftpClient_ServerName);
 
         lable_password.setText("Password");
         FTPConnectionControl.add(lable_password);
 
-        ftp_password.setText("jPasswordField1");
-        FTPConnectionControl.add(ftp_password);
+        ftpClient_ServerPass.setText("pass");
+        FTPConnectionControl.add(ftpClient_ServerPass);
 
-        ftp_connect.setText("Connect");
-        FTPConnectionControl.add(ftp_connect);
+        ftpClient_ServerConnect.setText("Connect");
+        ftpClient_ServerConnect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ftpClient_ServerConnectActionPerformed(evt);
+            }
+        });
+        FTPConnectionControl.add(ftpClient_ServerConnect);
 
         FTPServerConfigPanel.add(FTPConnectionControl, java.awt.BorderLayout.PAGE_START);
 
@@ -1455,6 +1464,25 @@ public static void removeDevice(){
         // TODO add your handling code here:
     }//GEN-LAST:event_uploadClientToServerActionPerformed
 
+    private void ftpClient_ServerConnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ftpClient_ServerConnectActionPerformed
+        if("Connect".equals(ftpClient_ServerConnect.getActionCommand())){
+        // validate the server IP
+        String serverIP  = ftpClient_serverIP.getText();
+        int port = (int)ftpClient_serverPort.getValue();
+        String userName = ftpClient_ServerName.getText();
+        String userPass = new String(ftpClient_ServerPass.getPassword());
+         myFtpClient = new FTPclient(serverIP, port, userName, userPass);
+         // show some log to the user 
+         userLog("Atempting to connect"+ serverIP+"....");
+         if(myFtpClient.isConnected()){
+             ftpClient_ServerConnect.setText("Dis Connect");
+         }
+        }else {
+            userLog("dis connecting ... ");
+            ftpClient_ServerConnect.setText("Connect");
+        }
+    }//GEN-LAST:event_ftpClient_ServerConnectActionPerformed
+
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton BrowseFTPPath;
@@ -1482,7 +1510,7 @@ public static void removeDevice(){
     private javax.swing.JSpinner FTPmaxLogin;
     private javax.swing.JLabel FTPpasswordLabel;
     private javax.swing.JLabel FTPportLabel;
-    private javax.swing.JTextArea FTPserverCMDLog;
+    public javax.swing.JTextArea FTPserverCMDLog;
     private javax.swing.JScrollPane FTPserverLogPane;
     private javax.swing.JPanel FTPserverPropPanel;
     private javax.swing.JLabel FTPservernameLable;
@@ -1517,11 +1545,11 @@ public static void removeDevice(){
     private javax.swing.JTextField email_userPhone;
     private javax.swing.Box.Filler filler14;
     private javax.swing.Box.Filler filler18;
-    private javax.swing.JButton ftp_connect;
-    private javax.swing.JPasswordField ftp_password;
-    private javax.swing.JTextField ftp_port;
-    private javax.swing.JTextField ftp_serverIP;
-    private javax.swing.JTextField ftp_userName;
+    private javax.swing.JButton ftpClient_ServerConnect;
+    private javax.swing.JTextField ftpClient_ServerName;
+    private javax.swing.JPasswordField ftpClient_ServerPass;
+    private javax.swing.JTextField ftpClient_serverIP;
+    private javax.swing.JSpinner ftpClient_serverPort;
     private javax.swing.JLabel hostAddressLable;
     private javax.swing.JTabbedPane hsTabs;
     private javax.swing.JMenuItem item_packetSender;
