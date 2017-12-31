@@ -45,7 +45,7 @@ public class FTPclient {
         this.name = name;
         this.server = server;
         this.port = port;
-        this.user = this.user;
+        this.user = user;
         this.pass = pass;
 
         // set Local and remote default path
@@ -70,10 +70,9 @@ public class FTPclient {
             try {
                 ftpClient.login(user, pass);
                 userLog(Level.INFO, " Login Sucessesful");
-            } catch (IOException ex) {
+            } catch (Exception ex) {
                 userLog(Level.WARNING, "Failed to Login: " + ex.getMessage());
             }
-
         }
 
         try {
@@ -83,6 +82,9 @@ public class FTPclient {
             // this file type works of the all file types
             ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
             userLog(Level.INFO, "Tranfer file type set to binary");
+            
+            // get remote file list 
+            
         } catch (IOException ex) {
             userLog(Level.WARNING, "Failed to set file type: " + ex.getMessage());
         }
