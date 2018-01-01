@@ -91,7 +91,7 @@ public static void removeDevice(){
         lable_password = new javax.swing.JLabel();
         ftpClient_ServerPass = new javax.swing.JPasswordField();
         ftpClient_ServerConnect = new javax.swing.JButton();
-        FTPserverLogPane = new javax.swing.JScrollPane();
+        FTPserverCMDLogPane = new javax.swing.JScrollPane();
         FTPserverCMDLog = new javax.swing.JTextArea();
         FileMangerPanel = new javax.swing.JPanel();
         Localside = new javax.swing.JPanel();
@@ -104,20 +104,20 @@ public static void removeDevice(){
         filler14 = new javax.swing.Box.Filler(new java.awt.Dimension(10, 10), new java.awt.Dimension(10, 10), new java.awt.Dimension(10, 10));
         localFilePath = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTree2 = new javax.swing.JTree();
+        ftpClient_localFileTree = new javax.swing.JTree();
         TransferCotrolPanel = new javax.swing.JPanel();
         uploadClientToServer = new javax.swing.JButton();
         uploadServerToClient = new javax.swing.JButton();
         RemoteSide = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel19 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
+        refreshRemoteDir = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         filler18 = new javax.swing.Box.Filler(new java.awt.Dimension(10, 10), new java.awt.Dimension(10, 10), new java.awt.Dimension(10, 10));
-        jTextField2 = new javax.swing.JTextField();
+        ftpClient_remoteCWR = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTree1 = new javax.swing.JTree();
+        ftpClient_remoteFileTree = new javax.swing.JTree();
         jPanel20 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -391,14 +391,11 @@ public static void removeDevice(){
 
         FTPServerConfigPanel.add(FTPConnectionControl, java.awt.BorderLayout.PAGE_START);
 
-        FTPserverLogPane.setMinimumSize(new java.awt.Dimension(23, 75));
-
         FTPserverCMDLog.setColumns(20);
         FTPserverCMDLog.setRows(5);
-        FTPserverCMDLog.setPreferredSize(new java.awt.Dimension(164, 110));
-        FTPserverLogPane.setViewportView(FTPserverCMDLog);
+        FTPserverCMDLogPane.setViewportView(FTPserverCMDLog);
 
-        FTPServerConfigPanel.add(FTPserverLogPane, java.awt.BorderLayout.CENTER);
+        FTPServerConfigPanel.add(FTPserverCMDLogPane, java.awt.BorderLayout.CENTER);
 
         jPanel17.add(FTPServerConfigPanel, java.awt.BorderLayout.PAGE_START);
 
@@ -427,15 +424,15 @@ public static void removeDevice(){
         lablePath.setText("Path");
         jPanel3.add(lablePath);
         jPanel3.add(filler14);
-
-        localFilePath.setText("jTextField1");
         jPanel3.add(localFilePath);
 
         jPanel2.add(jPanel3, java.awt.BorderLayout.PAGE_END);
 
         Localside.add(jPanel2, java.awt.BorderLayout.PAGE_START);
 
-        jScrollPane4.setViewportView(jTree2);
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
+        ftpClient_localFileTree.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane4.setViewportView(ftpClient_localFileTree);
 
         Localside.add(jScrollPane4, java.awt.BorderLayout.CENTER);
 
@@ -478,8 +475,13 @@ public static void removeDevice(){
 
         jPanel19.setLayout(new javax.swing.BoxLayout(jPanel19, javax.swing.BoxLayout.LINE_AXIS));
 
-        jButton2.setText("Refresh");
-        jPanel19.add(jButton2);
+        refreshRemoteDir.setText("Refresh");
+        refreshRemoteDir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshRemoteDirActionPerformed(evt);
+            }
+        });
+        jPanel19.add(refreshRemoteDir);
 
         jPanel4.add(jPanel19, java.awt.BorderLayout.PAGE_START);
 
@@ -488,15 +490,15 @@ public static void removeDevice(){
         jLabel2.setText("Path");
         jPanel5.add(jLabel2);
         jPanel5.add(filler18);
-
-        jTextField2.setText("jTextField1");
-        jPanel5.add(jTextField2);
+        jPanel5.add(ftpClient_remoteCWR);
 
         jPanel4.add(jPanel5, java.awt.BorderLayout.PAGE_END);
 
         RemoteSide.add(jPanel4, java.awt.BorderLayout.PAGE_START);
 
-        jScrollPane1.setViewportView(jTree1);
+        treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
+        ftpClient_remoteFileTree.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane1.setViewportView(ftpClient_remoteFileTree);
 
         RemoteSide.add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
@@ -1200,7 +1202,7 @@ public static void removeDevice(){
 
         split_DeviceList.setLayout(new java.awt.BorderLayout());
 
-        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
+        treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
         javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("IP Devices");
         javax.swing.tree.DefaultMutableTreeNode treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("CNT-IP-264");
         javax.swing.tree.DefaultMutableTreeNode treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("IP:192.168.123.1");
@@ -1471,9 +1473,11 @@ public static void removeDevice(){
         int port = (int)ftpClient_serverPort.getValue();
         String userName = ftpClient_ServerName.getText();
         String userPass = new String(ftpClient_ServerPass.getPassword());
-         myFtpClient = new FTPclient(serverIP, port, userName, userPass);
-         // show some log to the user 
-         userLog("Atempting to connect"+ serverIP+"....");
+        // show some log to the user 
+        userLog("Atempting to connect"+ serverIP+"....");
+         
+        myFtpClient = new FTPclient(serverIP, port, userName, userPass);
+         
          if(myFtpClient.isConnected()){
              ftpClient_ServerConnect.setText("Dis Connect");
          }
@@ -1482,6 +1486,12 @@ public static void removeDevice(){
             ftpClient_ServerConnect.setText("Connect");
         }
     }//GEN-LAST:event_ftpClient_ServerConnectActionPerformed
+
+    private void refreshRemoteDirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshRemoteDirActionPerformed
+        if(myFtpClient.isConnected()){
+            myFtpClient.showJtreeforRemote();
+        }
+    }//GEN-LAST:event_refreshRemoteDirActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1511,7 +1521,7 @@ public static void removeDevice(){
     private javax.swing.JLabel FTPpasswordLabel;
     private javax.swing.JLabel FTPportLabel;
     public javax.swing.JTextArea FTPserverCMDLog;
-    private javax.swing.JScrollPane FTPserverLogPane;
+    private javax.swing.JScrollPane FTPserverCMDLogPane;
     private javax.swing.JPanel FTPserverPropPanel;
     private javax.swing.JLabel FTPservernameLable;
     private javax.swing.JLabel FTPusernameLabel;
@@ -1548,6 +1558,9 @@ public static void removeDevice(){
     private javax.swing.JButton ftpClient_ServerConnect;
     private javax.swing.JTextField ftpClient_ServerName;
     private javax.swing.JPasswordField ftpClient_ServerPass;
+    private javax.swing.JTree ftpClient_localFileTree;
+    public javax.swing.JTextField ftpClient_remoteCWR;
+    public javax.swing.JTree ftpClient_remoteFileTree;
     private javax.swing.JTextField ftpClient_serverIP;
     private javax.swing.JSpinner ftpClient_serverPort;
     private javax.swing.JLabel hostAddressLable;
@@ -1559,7 +1572,6 @@ public static void removeDevice(){
     private javax.swing.JMenuItem item_telnetClient;
     private javax.swing.JMenuItem item_udpClient;
     private javax.swing.JMenuItem item_udpServer;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -1592,9 +1604,6 @@ public static void removeDevice(){
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTree jTree1;
-    private javax.swing.JTree jTree2;
     private javax.swing.JLabel lablePath;
     private javax.swing.JLabel lable_password;
     private javax.swing.JLabel lable_port;
@@ -1609,6 +1618,7 @@ public static void removeDevice(){
     private javax.swing.JLabel maxLoginperIP_lable;
     private javax.swing.JPanel myFTPclient;
     private javax.swing.JPanel myFTPserver;
+    private javax.swing.JButton refreshRemoteDir;
     private javax.swing.JButton save_tcpServerAdvSett;
     private javax.swing.JPanel split_DeviceList;
     private javax.swing.JPanel split_DeviceProp;
