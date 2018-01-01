@@ -1,6 +1,10 @@
 package model;
 
 import static embeddedcontroller.EmbeddedController.*;
+import java.awt.Component;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -10,9 +14,19 @@ import java.io.OutputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
+import javax.swing.JTree;
+import javax.swing.UIManager;
+import javax.swing.event.TreeSelectionEvent;
+import javax.swing.event.TreeSelectionListener;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeCellRenderer;
+import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.MutableTreeNode;
+import javax.swing.tree.TreeSelectionModel;
 
 import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
+import org.apache.commons.net.ftp.FTPFile;
 
 public class FTPclient {
 
@@ -28,6 +42,12 @@ public class FTPclient {
     private FTPClient ftpClient = null;
 
     // local files
+    // lists files and directories in the current working directory
+    public FTPFile[] remoteFiles;
+    public String CWR = "/";  // current working directory
+    // remote tree
+    public JTree remoteTree = hs.ftpClient_remoteFileTree;
+
     private String LOCAL_FILE_PATH = "";
     private File LocalFile = null;
     private InputStream LocalFileStream = null;
@@ -62,14 +82,20 @@ public class FTPclient {
             ftpClient.connect(server, port);
             if (ftpClient.isConnected()) {
                 userLog(Level.INFO, " Server Connected");
+                showServerReply();
             }
         } catch (Exception ex) {
             userLog(Level.SEVERE, "Failed to connect: " + ex.getMessage());
         }
         if (ftpClient.isConnected()) {
             try {
-                ftpClient.login(user, pass);
-                userLog(Level.INFO, " Login Sucessesful");
+                if (ftpClient.login(user, pass)) {
+                    userLog(Level.INFO, " Login Sucessesful");
+                } else {
+                    userLog(Level.INFO, " Login Failed");
+                }
+                showServerReply();
+
             } catch (Exception ex) {
                 userLog(Level.WARNING, "Failed to Login: " + ex.getMessage());
             }
@@ -82,15 +108,189 @@ public class FTPclient {
             // this file type works of the all file types
             ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
             userLog(Level.INFO, "Tranfer file type set to binary");
-            
-            // get remote file list 
-            
+            showServerReply();
+
+            // list the files int he current directory
+            showJtreeforRemote();
+
         } catch (IOException ex) {
             userLog(Level.WARNING, "Failed to set file type: " + ex.getMessage());
         }
 
         //FTPclient_Count++;
         //DEBUG.log(Level.INFO, "Total number of FTP clients : {0}", FTPclient_Count);
+    }
+
+    public void showJtreeforRemote() {
+
+        // get the file information for the current dir
+        if (listCurrentDir()) {
+
+            DefaultTreeModel model = (DefaultTreeModel) remoteTree.getModel();
+            DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
+            root.setUserObject(CWR);
+            model.nodeChanged(root); // paint this node again
+
+            // populate all the files as nodes under root -- each node save the FTPfileobject
+            for (FTPFile f : remoteFiles) {
+                if (f.isDirectory()) {
+                    // create a BRANCH NODE-- node that can have children
+                    MutableTreeNode dirNode = new DefaultMutableTreeNode(f, true);
+                    // set this icon to a folder 
+                    root.add(dirNode);
+                } else if (f.isFile()) {
+                    // create a LEAF NODE -- that cannot have a children
+                    root.add(new DefaultMutableTreeNode(f));
+                } else if (f.isSymbolicLink()) {
+                    // LEAF NODE
+                    root.add(new DefaultMutableTreeNode(f));
+                } else if (f.isUnknown()) {
+                    // LEAF NODE
+                    root.add(new DefaultMutableTreeNode(f));
+                }
+            }
+
+            // Add event Single select event listener to the tree
+            remoteTree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
+
+            // Cell render for tree nodes
+            remoteTree.setCellRenderer(new DefaultTreeCellRenderer() {
+                // change the icon of dir to folder
+                @Override
+                public Component getTreeCellRendererComponent(JTree tree, Object value, boolean sel, boolean expanded, boolean leaf, int row, boolean hasFocus) {
+                    super.getTreeCellRendererComponent(tree, value, sel, expanded, leaf, row, hasFocus);
+                    if (value instanceof DefaultMutableTreeNode) {
+                        DefaultMutableTreeNode node = (DefaultMutableTreeNode) value;
+                        if (node.isRoot()) {
+                            setIcon(UIManager.getIcon("FileView.hardDriveIcon"));
+                        }else{
+                            Object select = node.getUserObject();
+                            if (select != null) {
+                                if (select instanceof FTPFile) {
+                                    FTPFile f = (FTPFile) select;
+                                    if (f.isDirectory()) {
+                                        setIcon(UIManager.getIcon("FileView.directoryIcon"));
+                                    }
+                                } 
+                            }
+                        }
+                    }
+                    // customize the ICONS
+                    return this;
+                }
+
+            });
+            //Selection event handler
+            remoteTree.addTreeSelectionListener(new TreeSelectionListener() {
+                @Override
+                public void valueChanged(TreeSelectionEvent e) {
+                    // get the selected node
+                    DefaultMutableTreeNode node = (DefaultMutableTreeNode) remoteTree.getLastSelectedPathComponent();
+                    if (node != null) {
+                        Object sel = node.getUserObject();
+                        if (sel instanceof FTPFile) {
+                            FTPFile remoteFile = (FTPFile) sel;
+                            remoteFileSelected(remoteFile);
+                        } else if (node.isRoot()) {
+                            // see if this is a root node
+                            userLog("Root select");
+                        }
+                    }
+                }
+            });
+            // remote tree Mouse Double click listener
+            remoteTree.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    if (e.getClickCount() == 2) {
+
+                        DefaultMutableTreeNode node = (DefaultMutableTreeNode) remoteTree.getLastSelectedPathComponent();
+                        if (node != null) {
+                            Object sel = node.getUserObject();
+                            if (sel instanceof FTPFile) {
+                                FTPFile f = (FTPFile) sel;
+                                if (f.isDirectory()) {
+                                    userLog("Changing CWR to ../" + f.getName());
+                                }
+                            } else if (node.isRoot()) {
+                                // see if this is a root node
+                                userLog("Root Double click");
+
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    }
+
+    private static void remoteFileSelected(FTPFile f) {
+        System.err.println("Selected File: " + f.toString());
+        if (f.isDirectory()) {
+            userLog("Remote Dir Selected:" + f.getName());
+        } else {
+            userLog("File Selected: " + f.getName());
+        }
+    }
+
+    // list the files/directories in current directory
+    private boolean listCurrentDir() {
+
+        int dirs = 0;
+        int files = 0;
+        int sbl = 0;
+        int ukn = 0;
+
+        try {
+            // try to get the current working dir first
+            CWR = ftpClient.printWorkingDirectory();
+            userLog(Level.INFO, "Working Dir :" + CWR);
+            hs.ftpClient_remoteCWR.setText(CWR);
+            showServerReply();
+        } catch (IOException ex) {
+            userLog(Level.SEVERE, "Failed to get CWR" + ex.getMessage());
+            CWR = null;
+            showServerReply();
+            return false;
+        }
+
+        try {
+            // get all the files in the current dir 
+            remoteFiles = ftpClient.listFiles();
+            for (FTPFile f : remoteFiles) {
+                if (f.isDirectory()) {
+                    dirs++;
+                    userLog(Level.INFO, "D" + dirs + " :" + f.getName() + ":" + f.getSize());
+                } else if (f.isFile()) {
+                    files++;
+                    userLog(Level.INFO, " F" + files + " :" + f.getName() + ":" + f.getSize());
+                } else if (f.isSymbolicLink()) {
+                    sbl++;
+                    userLog(Level.INFO, " S" + sbl + " :" + f.getName() + ":" + f.getSize());
+                } else if (f.isUnknown()) {
+                    ukn++;
+                    userLog(Level.INFO, " U" + ukn + " :" + f.getName() + ":" + f.getSize());
+                }
+            }
+            showServerReply();
+
+            // construct Jtree for the current dir
+            return true;
+        } catch (IOException ex) {
+            Logger.getLogger(FTPclient.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+
+    }
+
+    // Call this method to see the server reponse after each action
+    private void showServerReply() {
+        String[] replies = ftpClient.getReplyStrings();
+        if (replies != null && replies.length > 0) {
+            for (String rply : replies) {
+                userLog("SERVER: " + rply);
+            }
+        }
     }
 
     // uploading Files{true: if sucess full}
@@ -174,8 +374,9 @@ public class FTPclient {
     public String getName() {
         return this.name;
     }
-    public boolean isConnected(){
-     return ftpClient.isConnected();
+
+    public boolean isConnected() {
+        return ftpClient.isConnected();
     }
 
     @Override
