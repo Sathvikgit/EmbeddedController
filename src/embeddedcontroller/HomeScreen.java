@@ -97,12 +97,12 @@ public static void removeDevice(){
         Localside = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel18 = new javax.swing.JPanel();
-        browseLocalFile = new javax.swing.JToggleButton();
-        RefreshLocalFile = new javax.swing.JButton();
+        ftpClient_browseLocalPath = new javax.swing.JToggleButton();
+        RefreshLocalDir = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         lablePath = new javax.swing.JLabel();
         filler14 = new javax.swing.Box.Filler(new java.awt.Dimension(10, 10), new java.awt.Dimension(10, 10), new java.awt.Dimension(10, 10));
-        localFilePath = new javax.swing.JTextField();
+        ftpClient_localPath = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
         ftpClient_localFileTree = new javax.swing.JTree();
         TransferCotrolPanel = new javax.swing.JPanel();
@@ -411,11 +411,11 @@ public static void removeDevice(){
 
         jPanel18.setLayout(new javax.swing.BoxLayout(jPanel18, javax.swing.BoxLayout.LINE_AXIS));
 
-        browseLocalFile.setText("Bowse");
-        jPanel18.add(browseLocalFile);
+        ftpClient_browseLocalPath.setText("Bowse");
+        jPanel18.add(ftpClient_browseLocalPath);
 
-        RefreshLocalFile.setText("Refresh");
-        jPanel18.add(RefreshLocalFile);
+        RefreshLocalDir.setText("Refresh");
+        jPanel18.add(RefreshLocalDir);
 
         jPanel2.add(jPanel18, java.awt.BorderLayout.CENTER);
 
@@ -424,7 +424,7 @@ public static void removeDevice(){
         lablePath.setText("Path");
         jPanel3.add(lablePath);
         jPanel3.add(filler14);
-        jPanel3.add(localFilePath);
+        jPanel3.add(ftpClient_localPath);
 
         jPanel2.add(jPanel3, java.awt.BorderLayout.PAGE_END);
 
@@ -1479,10 +1479,10 @@ public static void removeDevice(){
         myFtpClient = new FTPclient(serverIP, port, userName, userPass);
          
          if(myFtpClient.isConnected()){
-             ftpClient_ServerConnect.setText("Dis Connect");
+             ftpClient_ServerConnect.setText("Disconnect");
          }
         }else {
-            userLog("dis connecting ... ");
+            userLog("disconnecting ... ");
             ftpClient_ServerConnect.setText("Connect");
         }
     }//GEN-LAST:event_ftpClient_ServerConnectActionPerformed
@@ -1530,7 +1530,7 @@ public static void removeDevice(){
     private javax.swing.JPanel HTTPserver;
     private javax.swing.JPanel Localside;
     private javax.swing.JPanel PacketSender;
-    private javax.swing.JButton RefreshLocalFile;
+    private javax.swing.JButton RefreshLocalDir;
     private javax.swing.JPanel RemoteSide;
     private javax.swing.JPanel SerialTermainal;
     private javax.swing.JMenu SetupMenu;
@@ -1544,7 +1544,6 @@ public static void removeDevice(){
     private javax.swing.JMenu ToolsMenu;
     private javax.swing.JPanel TransferCotrolPanel;
     private javax.swing.JPanel UDPserver;
-    private javax.swing.JToggleButton browseLocalFile;
     private javax.swing.JButton cancel_tcpServerAdvSett;
     private javax.swing.JButton clearTCPLog;
     private javax.swing.JPanel contactInfopanel;
@@ -1558,7 +1557,9 @@ public static void removeDevice(){
     private javax.swing.JButton ftpClient_ServerConnect;
     private javax.swing.JTextField ftpClient_ServerName;
     private javax.swing.JPasswordField ftpClient_ServerPass;
+    private javax.swing.JToggleButton ftpClient_browseLocalPath;
     private javax.swing.JTree ftpClient_localFileTree;
+    private javax.swing.JTextField ftpClient_localPath;
     public javax.swing.JTextField ftpClient_remoteCWR;
     public javax.swing.JTree ftpClient_remoteFileTree;
     private javax.swing.JTextField ftpClient_serverIP;
@@ -1609,7 +1610,6 @@ public static void removeDevice(){
     private javax.swing.JLabel lable_port;
     private javax.swing.JLabel lable_serverIP;
     private javax.swing.JLabel lable_username;
-    private javax.swing.JTextField localFilePath;
     private javax.swing.JLabel mail_emailLable;
     private javax.swing.JLabel mail_nameLabel;
     private javax.swing.JLabel mail_phoneLable;
