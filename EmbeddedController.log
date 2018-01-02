@@ -101672,3 +101672,73 @@
   <message>myTelentClient: send = list</message>
 </record>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-01-02T11:28:04</date>
+  <millis>1514921284523</millis>
+  <sequence>0</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.EmbeddedController</class>
+  <method>createLogger</method>
+  <thread>1</thread>
+  <message>Log File created</message>
+</record>
+<record>
+  <date>2018-01-02T11:28:04</date>
+  <millis>1514921284638</millis>
+  <sequence>1</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.EmbeddedController</class>
+  <method>SetLookandFeel</method>
+  <thread>1</thread>
+  <message>look and Feel set to : Nimbus</message>
+</record>
+<record>
+  <date>2018-01-02T11:28:04</date>
+  <millis>1514921284962</millis>
+  <sequence>2</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>&lt;init&gt;</method>
+  <thread>16</thread>
+  <message>Home Screen initialized</message>
+</record>
+<record>
+  <date>2018-01-02T11:28:04</date>
+  <millis>1514921284962</millis>
+  <sequence>3</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>&lt;init&gt;</method>
+  <thread>16</thread>
+  <message>DefaultCloseOperation= 3</message>
+</record>
+<record>
+  <date>2018-01-02T11:28:04</date>
+  <millis>1514921284963</millis>
+  <sequence>4</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>Rearrage</method>
+  <thread>16</thread>
+  <message>ScreeSize java.awt.Dimension[width=1280,height=1024]</message>
+</record>
+<record>
+  <date>2018-01-02T11:28:04</date>
+  <millis>1514921284963</millis>
+  <sequence>5</sequence>
+  <logger>embeddedcontroller.EmbeddedController</logger>
+  <level>INFO</level>
+  <class>embeddedcontroller.HomeScreen</class>
+  <method>Rearrage</method>
+  <thread>16</thread>
+  <message>Home Bounds: java.awt.Rectangle[x=0,y=30,width=859,height=845]</message>
+</record>
+</log>

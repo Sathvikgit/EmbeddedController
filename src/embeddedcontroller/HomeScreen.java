@@ -183,7 +183,6 @@ public static void removeDevice(){
         telnetAddCR = new javax.swing.JCheckBox();
         telnetAddLF = new javax.swing.JCheckBox();
         telnetAddCRLF = new javax.swing.JCheckBox();
-        SerialTermainal = new javax.swing.JPanel();
         HTTPserver = new javax.swing.JPanel();
         EmailClient = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
@@ -1072,19 +1071,6 @@ public static void removeDevice(){
 
         hsTabs.addTab("Telnet Terminal", TelnetTerminal);
 
-        javax.swing.GroupLayout SerialTermainalLayout = new javax.swing.GroupLayout(SerialTermainal);
-        SerialTermainal.setLayout(SerialTermainalLayout);
-        SerialTermainalLayout.setHorizontalGroup(
-            SerialTermainalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 655, Short.MAX_VALUE)
-        );
-        SerialTermainalLayout.setVerticalGroup(
-            SerialTermainalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 579, Short.MAX_VALUE)
-        );
-
-        hsTabs.addTab("Serial Termainal", SerialTermainal);
-
         javax.swing.GroupLayout HTTPserverLayout = new javax.swing.GroupLayout(HTTPserver);
         HTTPserver.setLayout(HTTPserverLayout);
         HTTPserverLayout.setHorizontalGroup(
@@ -1202,45 +1188,29 @@ public static void removeDevice(){
 
         split_DeviceList.setLayout(new java.awt.BorderLayout());
 
-        treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
-        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("IP Devices");
-        javax.swing.tree.DefaultMutableTreeNode treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("CNT-IP-264");
-        javax.swing.tree.DefaultMutableTreeNode treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("IP:192.168.123.1");
-        treeNode3.add(treeNode4);
-        treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("Name: FHD Device Finder");
-        treeNode3.add(treeNode4);
-        treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("Location: Hall Research");
-        treeNode3.add(treeNode4);
+        treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Devices");
+        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("CNT-IP-264");
+        javax.swing.tree.DefaultMutableTreeNode treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("IP:192.168.123.1");
         treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("VSA-UI-TS");
-        treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("IP:192.168.123.2l");
-        treeNode3.add(treeNode4);
-        treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("Name: VSA Controller");
-        treeNode3.add(treeNode4);
-        treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("Location: Hall Research");
-        treeNode3.add(treeNode4);
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Name: FHD Device Finder");
         treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("CNT-IP-2");
-        treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("IP:192.168.123.3");
-        treeNode3.add(treeNode4);
-        treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("Name: Room Controller");
-        treeNode3.add(treeNode4);
-        treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("Location: Hall Research");
-        treeNode3.add(treeNode4);
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Location: Hall Research");
         treeNode2.add(treeNode3);
         treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Serial Devices");
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("HSM-88-4K");
-        treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("Com Port:1");
-        treeNode3.add(treeNode4);
-        treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("Baud:15000");
-        treeNode3.add(treeNode4);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("VSA-UI-TS");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("IP:192.168.123.2l");
         treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("SSW-HD-4");
-        treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("Com Port:2");
-        treeNode3.add(treeNode4);
-        treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("Baud:15200");
-        treeNode3.add(treeNode4);
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Name: VSA Controller");
+        treeNode2.add(treeNode3);
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Location: Hall Research");
+        treeNode2.add(treeNode3);
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("CNT-IP-2");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("IP:192.168.123.3");
+        treeNode2.add(treeNode3);
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Name: Room Controller");
+        treeNode2.add(treeNode3);
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Location: Hall Research");
         treeNode2.add(treeNode3);
         treeNode1.add(treeNode2);
         DeviceList.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
@@ -1532,7 +1502,6 @@ public static void removeDevice(){
     private javax.swing.JPanel PacketSender;
     private javax.swing.JButton RefreshLocalDir;
     private javax.swing.JPanel RemoteSide;
-    private javax.swing.JPanel SerialTermainal;
     private javax.swing.JMenu SetupMenu;
     private javax.swing.JToggleButton ShowFTPPassword;
     private javax.swing.JPanel StatusPanel;
