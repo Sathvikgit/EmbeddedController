@@ -22,6 +22,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.MutableTreeNode;
+import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
 
 import org.apache.commons.net.ftp.FTP;
@@ -47,6 +48,8 @@ public class FTPclient {
     public String CWR = "/";  // current working directory
     // remote tree
     public JTree remoteTree = hs.ftpClient_remoteFileTree;
+    
+    
 
     private String LOCAL_FILE_PATH = "";
     private File LocalFile = null;
@@ -110,8 +113,10 @@ public class FTPclient {
             userLog(Level.INFO, "Tranfer file type set to binary");
             showServerReply();
 
-            // list the files int he current directory
+            // list the files int the current  working directory
             showJtreeforRemote();
+            // Wire the event listener in the remote tree 
+            wireRemoteTreeEventListeners();
 
         } catch (IOException ex) {
             userLog(Level.WARNING, "Failed to set file type: " + ex.getMessage());
@@ -119,40 +124,12 @@ public class FTPclient {
 
         //FTPclient_Count++;
         //DEBUG.log(Level.INFO, "Total number of FTP clients : {0}", FTPclient_Count);
+       
     }
-
-    public void showJtreeforRemote() {
-
-        // get the file information for the current dir
-        if (listCurrentDir()) {
-
-            DefaultTreeModel model = (DefaultTreeModel) remoteTree.getModel();
-            DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
-            root.setUserObject(CWR);
-            model.nodeChanged(root); // paint this node again
-
-            // populate all the files as nodes under root -- each node save the FTPfileobject
-            for (FTPFile f : remoteFiles) {
-                if (f.isDirectory()) {
-                    // create a BRANCH NODE-- node that can have children
-                    MutableTreeNode dirNode = new DefaultMutableTreeNode(f, true);
-                    // set this icon to a folder 
-                    root.add(dirNode);
-                } else if (f.isFile()) {
-                    // create a LEAF NODE -- that cannot have a children
-                    root.add(new DefaultMutableTreeNode(f));
-                } else if (f.isSymbolicLink()) {
-                    // LEAF NODE
-                    root.add(new DefaultMutableTreeNode(f));
-                } else if (f.isUnknown()) {
-                    // LEAF NODE
-                    root.add(new DefaultMutableTreeNode(f));
-                }
-            }
-
-            // Add event Single select event listener to the tree
-            remoteTree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
-
+    
+    private void wireRemoteTreeEventListeners(){
+    
+            
             // Cell render for tree nodes
             remoteTree.setCellRenderer(new DefaultTreeCellRenderer() {
                 // change the icon of dir to folder
@@ -177,24 +154,41 @@ public class FTPclient {
                     }
                     // customize the ICONS
                     return this;
-                }
-
+                }    
             });
+            
             //Selection event handler
             remoteTree.addTreeSelectionListener(new TreeSelectionListener() {
                 @Override
                 public void valueChanged(TreeSelectionEvent e) {
-                    // get the selected node
-                    DefaultMutableTreeNode node = (DefaultMutableTreeNode) remoteTree.getLastSelectedPathComponent();
-                    if (node != null) {
-                        Object sel = node.getUserObject();
-                        if (sel instanceof FTPFile) {
-                            FTPFile remoteFile = (FTPFile) sel;
-                            remoteFileSelected(remoteFile);
-                        } else if (node.isRoot()) {
-                            // see if this is a root node
-                            userLog("Root select");
-                        }
+                   
+                    // get multiple selections
+                    TreePath[] rows = remoteTree.getSelectionPaths();
+                    if(rows == null){return;}
+                    
+                    if (rows.length > 0){
+                        Object root = remoteTree.getModel().getRoot();
+                        for (TreePath row :rows){
+                        // these are the actual rows selected 
+                            int index = remoteTree.getRowForPath(row);
+                            userLog("Row "+index+" Selected");
+                            
+                            if(index-1 <0){
+                                // there is a root in the selection
+                                continue;
+                            }
+                            // get the node with respect to root
+                            DefaultMutableTreeNode node = (DefaultMutableTreeNode)remoteTree.getModel().getChild(root,index-1);
+                            Object rowObj = node.getUserObject();
+                            if(rowObj!= null){
+                                if (rowObj instanceof FTPFile) {
+                                    FTPFile remoteFile = (FTPFile) rowObj;
+                                    remoteFileSelected(remoteFile);
+                                }      
+                            }else if (node.isRoot()){
+                                userLog("Root select");
+                            }
+                        }   
                     }
                 }
             });
@@ -211,16 +205,64 @@ public class FTPclient {
                                 FTPFile f = (FTPFile) sel;
                                 if (f.isDirectory()) {
                                     userLog("Changing CWR to ../" + f.getName());
+                                    if(goToDir(f.getName())){
+                                        showJtreeforRemote();
+                                    }
                                 }
                             } else if (node.isRoot()) {
                                 // see if this is a root node
                                 userLog("Root Double click");
-
+                                //go one level back
+                                if(changeCWD("..")){
+                                    showJtreeforRemote();
+                                }
                             }
                         }
                     }
                 }
             });
+    }
+
+    // shows the device tree for current working dir
+    public void showJtreeforRemote() {
+
+        // get the file information for the current dir
+        if (listCurrentDir()) {
+
+            DefaultTreeModel model = (DefaultTreeModel) remoteTree.getModel();
+            DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
+            // clear all the nodes 
+            root.removeAllChildren(); //this removes all nodes
+            
+            model.reload();
+            
+            root.setUserObject(CWR);
+            model.nodeChanged(root); // paint this node again
+
+            // populate all the files as nodes under root -- each node save the FTPfileobject
+            for (FTPFile f : remoteFiles) {
+                if (f.isDirectory()) {
+                    // create a BRANCH NODE-- node that can have children
+                    MutableTreeNode dirNode = new DefaultMutableTreeNode(f, true);
+                    // set this icon to a folder 
+                    root.add(dirNode);
+                } else if (f.isFile()) {
+                    // create a LEAF NODE -- that cannot have a children
+                    root.add(new DefaultMutableTreeNode(f));
+                } else if (f.isSymbolicLink()) {
+                    // LEAF NODE
+                    root.add(new DefaultMutableTreeNode(f));
+                } else if (f.isUnknown()) {
+                    // LEAF NODE
+                    root.add(new DefaultMutableTreeNode(f));
+                }
+            }
+            // always expand root
+            remoteTree.expandRow(0);
+            
+            // Add event Single select event listener to the tree
+            remoteTree.getSelectionModel().setSelectionMode(TreeSelectionModel.DISCONTIGUOUS_TREE_SELECTION);
+
         }
     }
 
@@ -233,6 +275,49 @@ public class FTPclient {
         }
     }
 
+    
+    private boolean changeCWD(String path){
+        try {
+                // change the CWD
+                boolean status;
+                status = ftpClient.changeWorkingDirectory(path);
+                showServerReply();
+                return status;
+        } catch (Exception ex) {
+            userLog(Level.SEVERE,"Failed to open : "+path);
+            showServerReply();
+            return false;
+        }
+    }
+    private boolean  goToDir(String dirName){
+        // this directory must be in current working path
+        if(getCWR()){
+            if(changeCWD(CWR+"/"+dirName)){
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        }
+    }
+    
+    private boolean getCWR(){
+        try {
+            // try to get the current working dir first
+            CWR = ftpClient.printWorkingDirectory();
+            userLog(Level.INFO, "Working Dir :" + CWR);
+            hs.ftpClient_remoteCWR.setText(CWR);
+            showServerReply();
+            return true;
+        } catch (IOException ex) {
+            userLog(Level.SEVERE, "Failed to get CWR" + ex.getMessage());
+            CWR = null;
+            showServerReply();
+            return false;
+        }
+    }
+    
     // list the files/directories in current directory
     private boolean listCurrentDir() {
 
@@ -241,16 +326,7 @@ public class FTPclient {
         int sbl = 0;
         int ukn = 0;
 
-        try {
-            // try to get the current working dir first
-            CWR = ftpClient.printWorkingDirectory();
-            userLog(Level.INFO, "Working Dir :" + CWR);
-            hs.ftpClient_remoteCWR.setText(CWR);
-            showServerReply();
-        } catch (IOException ex) {
-            userLog(Level.SEVERE, "Failed to get CWR" + ex.getMessage());
-            CWR = null;
-            showServerReply();
+        if(!getCWR()){
             return false;
         }
 
