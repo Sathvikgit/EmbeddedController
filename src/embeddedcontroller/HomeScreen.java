@@ -199,8 +199,11 @@ public static void removeDevice(){
         jPanel11 = new javax.swing.JPanel();
         email_send = new javax.swing.JButton();
         split_DeviceList = new javax.swing.JPanel();
+        deviceFinderPanel = new javax.swing.JPanel();
+        df_startScan = new javax.swing.JButton();
+        df_settings = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        DeviceList = new javax.swing.JTree();
+        dfDeviceTree = new javax.swing.JTree();
         Toolbar = new javax.swing.JMenuBar();
         ToolsMenu = new javax.swing.JMenu();
         item_packetSender = new javax.swing.JMenuItem();
@@ -1188,33 +1191,38 @@ public static void removeDevice(){
 
         split_DeviceList.setLayout(new java.awt.BorderLayout());
 
+        deviceFinderPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
+        df_startScan.setText("Scan");
+
+        df_settings.setText("Settings");
+
+        javax.swing.GroupLayout deviceFinderPanelLayout = new javax.swing.GroupLayout(deviceFinderPanel);
+        deviceFinderPanel.setLayout(deviceFinderPanelLayout);
+        deviceFinderPanelLayout.setHorizontalGroup(
+            deviceFinderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(deviceFinderPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(df_startScan)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(df_settings)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        deviceFinderPanelLayout.setVerticalGroup(
+            deviceFinderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(deviceFinderPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(deviceFinderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(df_startScan)
+                    .addComponent(df_settings))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+
+        split_DeviceList.add(deviceFinderPanel, java.awt.BorderLayout.PAGE_START);
+
         treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Devices");
-        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("CNT-IP-264");
-        javax.swing.tree.DefaultMutableTreeNode treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("IP:192.168.123.1");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Name: FHD Device Finder");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Location: Hall Research");
-        treeNode2.add(treeNode3);
-        treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("VSA-UI-TS");
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("IP:192.168.123.2l");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Name: VSA Controller");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Location: Hall Research");
-        treeNode2.add(treeNode3);
-        treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("CNT-IP-2");
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("IP:192.168.123.3");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Name: Room Controller");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Location: Hall Research");
-        treeNode2.add(treeNode3);
-        treeNode1.add(treeNode2);
-        DeviceList.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
-        jScrollPane2.setViewportView(DeviceList);
+        dfDeviceTree.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane2.setViewportView(dfDeviceTree);
 
         split_DeviceList.add(jScrollPane2, java.awt.BorderLayout.CENTER);
 
@@ -1469,7 +1477,6 @@ public static void removeDevice(){
     private javax.swing.JMenuItem Clear;
     private javax.swing.JMenu DebugMenu;
     private javax.swing.JPanel DeviceControls;
-    private javax.swing.JTree DeviceList;
     private javax.swing.JPanel DeviceProperties;
     private javax.swing.JPanel EmailClient;
     public javax.swing.JTextField FTPClientCount;
@@ -1516,6 +1523,10 @@ public static void removeDevice(){
     private javax.swing.JButton cancel_tcpServerAdvSett;
     private javax.swing.JButton clearTCPLog;
     private javax.swing.JPanel contactInfopanel;
+    private javax.swing.JPanel deviceFinderPanel;
+    public javax.swing.JTree dfDeviceTree;
+    private javax.swing.JButton df_settings;
+    private javax.swing.JButton df_startScan;
     private javax.swing.JButton email_send;
     private javax.swing.JTextField email_userEmail;
     private javax.swing.JTextArea email_userMessage;
