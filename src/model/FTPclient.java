@@ -233,12 +233,11 @@ public class FTPclient {
             DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
             // clear all the nodes 
             root.removeAllChildren(); //this removes all nodes
-            
-            model.reload();
-            
+                      
             root.setUserObject(CWR);
             model.nodeChanged(root); // paint this node again
-
+            
+            model.reload();
             // populate all the files as nodes under root -- each node save the FTPfileobject
             for (FTPFile f : remoteFiles) {
                 if (f.isDirectory()) {

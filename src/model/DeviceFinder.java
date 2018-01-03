@@ -9,6 +9,7 @@ import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import javax.swing.JOptionPane;
+import static model.DeviceManager.addNewDevice;
 import systemDefinitions.HR_Device;
 import systemDefinitions.responding_network_devices;
 import systemDefinitions.thread_timer;
@@ -115,7 +116,7 @@ public class DeviceFinder {
                 if(new_item != null){
                     DEBUG.log(Level.INFO,"HR Device: {0}",new_item.toString());
                     // show this device to the user
-                                        
+                    addNewDevice(new_item);                    
                 }
             }else{
                // DEBUG.log(Level.INFO,"No HR devices");
@@ -128,7 +129,7 @@ public class DeviceFinder {
                  if(new_item != null){
                     DEBUG.log(Level.INFO,"Prob HR Device: {0}",new_item.toString());
                     // show this device to the user
-                                        
+                    addNewDevice(new_item);                
                 }           
             }else{
                // DEBUG.log(Level.INFO,"No Other devices");

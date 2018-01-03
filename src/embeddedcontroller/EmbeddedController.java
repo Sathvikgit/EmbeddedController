@@ -9,6 +9,7 @@ import java.util.logging.*;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 import model.DeviceFinder;
+import model.DeviceManager;
 import model.EmailClient;
 import model.FTPclient;
 import model.FTPserver;
@@ -33,7 +34,7 @@ public class EmbeddedController {
     }
     
     public static void closeApplication(){
-        DEBUG.log(Level.INFO,"Closing Applcation");
+        DEBUG.log(Level.INFO,"Closing Application");
     }
     /**
      * @param args the command line arguments
@@ -47,6 +48,7 @@ public class EmbeddedController {
     public static TCPServer myTCPServer;
     public static FTPclient myFtpClient;
     public static HomeScreen hs;
+    public static DeviceManager DM;
     public static DeviceFinder DF;
     
     public static String DEF_LOOKANDFEEL ="Nimbus"; // this runs in all the platforms
@@ -65,11 +67,13 @@ public class EmbeddedController {
             hs = new HomeScreen();
             // You have the set the form to visible
             hs.setVisible(true);
+            
+            // Start the Device Finder
+            DM = new DeviceManager();
+            DF = new DeviceFinder();
+                        
         });
-        
-        // Start the Device Finder
-        DF = new DeviceFinder();
-          
+             
     }
     
     public static void SetLookandFeel(String LF){       
