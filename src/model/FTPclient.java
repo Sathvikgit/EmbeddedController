@@ -72,7 +72,7 @@ public class FTPclient {
         this.pass = pass;
 
         // set Local and remote default path
-        DEFAULT_LOCAL_FTP_DIR = "C:/Users/gsath/Desktop/MyFTPServer/";  // just for testing
+        DEFAULT_LOCAL_FTP_DIR = "/";  // just for testing
         DEFAULT_REMOTE_FTP_DIR = "/";
 
         // UI for this client. Each client has their own UI
@@ -260,12 +260,13 @@ public class FTPclient {
     public void showJtreeforLocal() {
         DefaultTreeModel model = (DefaultTreeModel) localTree.getModel();
         DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
-        
+        File fileRoot;
         try {
             
-            hs.ftpClient_localPath.setText(DEFAULT_LOCAL_FTP_DIR);
-            File fileRoot = new File(DEFAULT_LOCAL_FTP_DIR);
-           
+            hs.ftpClient_localPath.setText(DEFAULT_LOCAL_FTP_DIR);        
+            
+            fileRoot = new File(DEFAULT_LOCAL_FTP_DIR);
+                       
             // clear all the nodes 
             root.removeAllChildren(); //this removes all nodes          
             root.setUserObject(fileRoot.getName());

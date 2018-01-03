@@ -15,20 +15,34 @@ import model.FTPclient;
 import model.FTPserver;
 import model.MyTelnetClient;
 import model.TCPServer;
+import systemDefinitions.MyLogFiilter;
+import systemDefinitions.MyLogFormatter;
 
 public class EmbeddedController {
 
+    /* */
+    public static final String SOFTWARE_VERSION= "V 1.0 beta";
+    
     // All the classes must use this to log the messages 
     public static final Logger DEBUG = Logger.getLogger(EmbeddedController.class.getName());
     private static Handler log_Filehandler;
     private static void createLogger(){
         try {
             // All the debug messages will be logged to this file
-            log_Filehandler = new FileHandler("./EmbeddedController.log", true); 
             // WARNING: Application is responsible for closing and deleting this file
+            log_Filehandler = new FileHandler("./EmbeddedController.log", true); 
+            log_Filehandler.setFormatter(new MyLogFormatter());
             
             DEBUG.addHandler(log_Filehandler);
             DEBUG.log(Level.INFO,"Log File created");
+            
+            // set the log level 
+            
+            // filter logs
+            DEBUG.setFilter(new MyLogFiilter());
+           
+            
+            
         }catch (IOException | SecurityException ex) {
             DEBUG.log(Level.SEVERE,ex.getMessage());
         }

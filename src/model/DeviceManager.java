@@ -13,6 +13,7 @@ import model.SystemDefinitions.*;
 import static model.SystemDefinitions.DEVICE_TYPE.*;
 import static model.SystemDefinitions.*;
 import org.apache.commons.net.ftp.FTPFile;
+import systemDefinitions.Device;
 import systemDefinitions.HR_Device;
 
 public class DeviceManager {
@@ -36,12 +37,14 @@ public class DeviceManager {
 
     // Device will the send you the device information
     public static void addNewDevice(HR_Device dev) {
-        root.add(new DefaultMutableTreeNode(dev));
-        
+        root.add(new DefaultMutableTreeNode(new Device(dev)));
+        devTree.expandRow(0);
     }
 
     private void wireDeviceTreeEventListeners() {
 
+        //Always Expand the tree
+        devTree.expandRow(0);
         // Cell render for tree nodes
         devTree.setCellRenderer(new DefaultTreeCellRenderer() {
             @Override
@@ -54,8 +57,8 @@ public class DeviceManager {
                     } else {
                         Object select = node.getUserObject();
                         if (select != null) {
-                            if (select instanceof HR_Device) {
-                                HR_Device f = (HR_Device) select;
+                            if (select instanceof Device) {
+                                Device f = (Device) select;
                                 setIcon(UIManager.getIcon("FileView.computerIcon"));
                             }
                         }
