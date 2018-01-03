@@ -26,6 +26,7 @@ public class EmbeddedController {
             // All the debug messages will be logged to this file
             log_Filehandler = new FileHandler("./EmbeddedController.log", true); 
             // WARNING: Application is responsible for closing and deleting this file
+            
             DEBUG.addHandler(log_Filehandler);
             DEBUG.log(Level.INFO,"Log File created");
         }catch (IOException | SecurityException ex) {
@@ -35,10 +36,11 @@ public class EmbeddedController {
     
     public static void closeApplication(){
         DEBUG.log(Level.INFO,"Closing Application");
+        // close all the ports and free all the resources
+        
+        
     }
-    /**
-     * @param args the command line arguments
-     */
+    
     
     
     // Applications 

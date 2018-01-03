@@ -328,7 +328,7 @@ public static void removeDevice(){
         DeviceProperties.setLayout(DevicePropertiesLayout);
         DevicePropertiesLayout.setHorizontalGroup(
             DevicePropertiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 655, Short.MAX_VALUE)
+            .addGap(0, 642, Short.MAX_VALUE)
         );
         DevicePropertiesLayout.setVerticalGroup(
             DevicePropertiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -341,7 +341,7 @@ public static void removeDevice(){
         DeviceControls.setLayout(DeviceControlsLayout);
         DeviceControlsLayout.setHorizontalGroup(
             DeviceControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 655, Short.MAX_VALUE)
+            .addGap(0, 642, Short.MAX_VALUE)
         );
         DeviceControlsLayout.setVerticalGroup(
             DeviceControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -527,7 +527,7 @@ public static void removeDevice(){
         jPanel20.setLayout(jPanel20Layout);
         jPanel20Layout.setHorizontalGroup(
             jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 655, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE)
         );
         jPanel20Layout.setVerticalGroup(
             jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -769,7 +769,7 @@ public static void removeDevice(){
         PacketSender.setLayout(PacketSenderLayout);
         PacketSenderLayout.setHorizontalGroup(
             PacketSenderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 655, Short.MAX_VALUE)
+            .addGap(0, 642, Short.MAX_VALUE)
         );
         PacketSenderLayout.setVerticalGroup(
             PacketSenderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -823,7 +823,7 @@ public static void removeDevice(){
                 .addComponent(tcpServerMaxConnections, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tcpServerAdvancedSettings)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 171, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
                 .addComponent(startTCPServer, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
         );
@@ -881,7 +881,7 @@ public static void removeDevice(){
         jPanel14Layout.setHorizontalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
-                .addContainerGap(568, Short.MAX_VALUE)
+                .addContainerGap(555, Short.MAX_VALUE)
                 .addComponent(clearTCPLog)
                 .addContainerGap())
         );
@@ -901,7 +901,7 @@ public static void removeDevice(){
         UDPserver.setLayout(UDPserverLayout);
         UDPserverLayout.setHorizontalGroup(
             UDPserverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 655, Short.MAX_VALUE)
+            .addGap(0, 642, Short.MAX_VALUE)
         );
         UDPserverLayout.setVerticalGroup(
             UDPserverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -945,7 +945,7 @@ public static void removeDevice(){
                 .addComponent(telnetPort, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(telneClientConnect, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
         telnetConnectionsPannelLayout.setVerticalGroup(
             telnetConnectionsPannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1012,7 +1012,7 @@ public static void removeDevice(){
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap(245, Short.MAX_VALUE)
+                .addContainerGap(313, Short.MAX_VALUE)
                 .addComponent(telnetEnableLocalEcho)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(telnetDeleteCMDAfterSend)
@@ -1078,7 +1078,7 @@ public static void removeDevice(){
         HTTPserver.setLayout(HTTPserverLayout);
         HTTPserverLayout.setHorizontalGroup(
             HTTPserverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 655, Short.MAX_VALUE)
+            .addGap(0, 642, Short.MAX_VALUE)
         );
         HTTPserverLayout.setVerticalGroup(
             HTTPserverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1167,7 +1167,7 @@ public static void removeDevice(){
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                .addContainerGap(570, Short.MAX_VALUE)
+                .addContainerGap(557, Short.MAX_VALUE)
                 .addComponent(email_send, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1220,7 +1220,7 @@ public static void removeDevice(){
 
         split_DeviceList.add(deviceFinderPanel, java.awt.BorderLayout.PAGE_START);
 
-        treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Devices");
+        treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("No Devices Found");
         dfDeviceTree.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         jScrollPane2.setViewportView(dfDeviceTree);
 
@@ -1538,8 +1538,8 @@ public static void removeDevice(){
     private javax.swing.JTextField ftpClient_ServerName;
     private javax.swing.JPasswordField ftpClient_ServerPass;
     private javax.swing.JToggleButton ftpClient_browseLocalPath;
-    private javax.swing.JTree ftpClient_localFileTree;
-    private javax.swing.JTextField ftpClient_localPath;
+    public javax.swing.JTree ftpClient_localFileTree;
+    public javax.swing.JTextField ftpClient_localPath;
     public javax.swing.JTextField ftpClient_remoteCWR;
     public javax.swing.JTree ftpClient_remoteFileTree;
     private javax.swing.JTextField ftpClient_serverIP;

@@ -268,7 +268,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,-116,0,0,2,-72"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,-116,0,0,3,40"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
@@ -326,7 +326,7 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="655" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="642" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
@@ -348,7 +348,7 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="655" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="642" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
@@ -574,6 +574,9 @@
                                           </AuxValues>
                                         </Component>
                                         <Component class="javax.swing.JTextField" name="ftpClient_localPath">
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                                          </AuxValues>
                                         </Component>
                                       </SubComponents>
                                     </Container>
@@ -597,6 +600,9 @@
                                           <TreeModel code=""/>
                                         </Property>
                                       </Properties>
+                                      <AuxValues>
+                                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                                      </AuxValues>
                                     </Component>
                                   </SubComponents>
                                 </Container>
@@ -763,7 +769,7 @@
                       <Layout>
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jScrollPane3" alignment="0" pref="655" max="32767" attributes="0"/>
+                              <Component id="jScrollPane3" alignment="0" pref="642" max="32767" attributes="0"/>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
@@ -1198,7 +1204,7 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="655" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="642" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
@@ -1247,7 +1253,7 @@
                                   <Component id="tcpServerMaxConnections" min="-2" pref="47" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="tcpServerAdvancedSettings" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="171" max="32767" attributes="0"/>
+                                  <EmptySpace pref="158" max="32767" attributes="0"/>
                                   <Component id="startTCPServer" min="-2" pref="73" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                               </Group>
@@ -1439,7 +1445,7 @@
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace pref="568" max="32767" attributes="0"/>
+                                  <EmptySpace pref="555" max="32767" attributes="0"/>
                                   <Component id="clearTCPLog" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -1480,7 +1486,7 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="655" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="642" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
@@ -1531,7 +1537,7 @@
                                   <Component id="telnetPort" min="-2" pref="52" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="telneClientConnect" min="-2" pref="158" max="-2" attributes="0"/>
-                                  <EmptySpace pref="98" max="32767" attributes="0"/>
+                                  <EmptySpace pref="85" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -1717,7 +1723,7 @@
                                     <DimensionLayout dim="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace pref="245" max="32767" attributes="0"/>
+                                              <EmptySpace pref="313" max="32767" attributes="0"/>
                                               <Component id="telnetEnableLocalEcho" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Component id="telnetDeleteCMDAfterSend" min="-2" max="-2" attributes="0"/>
@@ -1838,7 +1844,7 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="655" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="642" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
@@ -1999,7 +2005,7 @@
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace pref="570" max="32767" attributes="0"/>
+                                      <EmptySpace pref="557" max="32767" attributes="0"/>
                                       <Component id="email_send" min="-2" pref="75" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
@@ -2110,7 +2116,7 @@
                 <Component class="javax.swing.JTree" name="dfDeviceTree">
                   <Properties>
                     <Property name="model" type="javax.swing.tree.TreeModel" editor="org.netbeans.modules.form.editors2.TreeModelEditor">
-                      <TreeModel code="Devices&#xa;"/>
+                      <TreeModel code="No Devices Found&#xa;"/>
                     </Property>
                   </Properties>
                   <AuxValues>

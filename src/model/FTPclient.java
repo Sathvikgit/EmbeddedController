@@ -27,6 +27,7 @@ import javax.swing.tree.TreeSelectionModel;
 import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPFile;
+import systemDefinitions.FileNode;
 
 public class FTPclient {
 
@@ -41,22 +42,22 @@ public class FTPclient {
 
     private FTPClient ftpClient = null;
 
-    // local files
+    // Rmote files
     // lists files and directories in the current working directory
     public FTPFile[] remoteFiles;
-    public String CWR = "/";  // current working directory
-    // remote tree
+    public String R_CWD = "/";  // current working directory
     public JTree remoteTree = hs.ftpClient_remoteFileTree;
-    
-    
-
-    private String LOCAL_FILE_PATH = "";
-    private File LocalFile = null;
-    private InputStream LocalFileStream = null;
-    // remote files
-    private String REMOTE_FILE_PATH = "";
+    private String DEFAULT_REMOTE_FTP_DIR = "/";
     private OutputStream RemoteFileStream = null;
-
+    
+    
+    // Local Files
+    public File[] localFiles;
+    public String L_CWD ="/";
+    public JTree localTree = hs.ftpClient_localFileTree;
+    private String DEFAULT_LOCAL_FTP_DIR = "/";
+    private InputStream LocalFileStream = null;
+    
     public FTPclient(String server, int port, String user, String pass) {
         // if their is no name of this lcient, lets give it a name
         this("noNameFTPClient", server, port, user, pass);
@@ -71,8 +72,8 @@ public class FTPclient {
         this.pass = pass;
 
         // set Local and remote default path
-        LOCAL_FILE_PATH = "C:/Users/gsath/Desktop/Ftptest.txt";
-        REMOTE_FILE_PATH = "/";
+        DEFAULT_LOCAL_FTP_DIR = "C:/Users/gsath/Desktop/MyFTPServer/";  // just for testing
+        DEFAULT_REMOTE_FTP_DIR = "/";
 
         // UI for this client. Each client has their own UI
         JPanel UI;
@@ -116,7 +117,12 @@ public class FTPclient {
             showJtreeforRemote();
             // Wire the event listener in the remote tree 
             wireRemoteTreeEventListeners();
-
+            
+            // list file in the local dir 
+            showJtreeforLocal();
+            // wire the event listener for local tree
+            wireLocalTreeEventListeners();
+            
         } catch (IOException ex) {
             userLog(Level.WARNING, "Failed to set file type: " + ex.getMessage());
         }
@@ -128,7 +134,6 @@ public class FTPclient {
     
     private void wireRemoteTreeEventListeners(){
     
-            
             // Cell render for tree nodes
             remoteTree.setCellRenderer(new DefaultTreeCellRenderer() {
                 // change the icon of dir to folder
@@ -222,6 +227,80 @@ public class FTPclient {
             });
     }
 
+    public void wireLocalTreeEventListeners() {
+        localTree.setCellRenderer(new DefaultTreeCellRenderer() {
+            // change the icon of dir to folder
+            @Override
+            public Component getTreeCellRendererComponent(JTree tree, Object value, boolean sel, boolean expanded, boolean leaf, int row, boolean hasFocus) {
+                super.getTreeCellRendererComponent(tree, value, sel, expanded, leaf, row, hasFocus);
+                if (value instanceof DefaultMutableTreeNode) {
+                    DefaultMutableTreeNode node = (DefaultMutableTreeNode) value;
+                    if (node.isRoot()) {
+                        setIcon(UIManager.getIcon("FileView.hardDriveIcon"));
+                    } else {
+                        Object select = node.getUserObject();
+                        if (select != null) {
+                            if (select instanceof FileNode) {
+                                FileNode f = (FileNode) select;
+                                if (f.isDirectory()) {
+                                    setIcon(UIManager.getIcon("FileView.directoryIcon"));
+                                }
+                            }
+                        }
+                    }
+                }
+                // customize the ICONS
+                return this;
+            }
+        });
+
+    }
+    
+    
+    public void showJtreeforLocal() {
+        DefaultTreeModel model = (DefaultTreeModel) localTree.getModel();
+        DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
+        
+        try {
+            
+            hs.ftpClient_localPath.setText(DEFAULT_LOCAL_FTP_DIR);
+            File fileRoot = new File(DEFAULT_LOCAL_FTP_DIR);
+           
+            // clear all the nodes 
+            root.removeAllChildren(); //this removes all nodes          
+            root.setUserObject(fileRoot.getName());
+            model.nodeChanged(root);
+            
+            // get all the files in the dir 
+            localFiles = fileRoot.listFiles();
+            for (File f : localFiles) {
+                if (f != null) {
+                    if (f.isDirectory()) {
+                        // create a BRANCH NODE-- node that can have children
+                        MutableTreeNode dirNode = new DefaultMutableTreeNode(new FileNode(f), true);
+                        // set this icon to a folder 
+                        root.add(dirNode);
+                    } else if (f.isFile()) {
+                        // create a LEAF NODE -- that cannot have a children
+                        root.add(new DefaultMutableTreeNode(new FileNode(f)));
+                    } else if (f.isHidden()) {
+                        // LEAF NODE
+                        root.add(new DefaultMutableTreeNode(new FileNode(f)));
+                    }
+                }
+            }
+            // always expand root
+            localTree.expandRow(0);
+            
+            // Add event Single select event listener to the tree
+            localTree.getSelectionModel().setSelectionMode(TreeSelectionModel.DISCONTIGUOUS_TREE_SELECTION);
+
+        } catch (Exception e) {
+            userLog(Level.SEVERE, "Error in local file system:" + e.getMessage());
+        }
+
+    }
+    
     // shows the device tree for current working dir
     public void showJtreeforRemote() {
 
@@ -233,7 +312,7 @@ public class FTPclient {
             // clear all the nodes 
             root.removeAllChildren(); //this removes all nodes
                       
-            root.setUserObject(CWR);
+            root.setUserObject(R_CWD);
             model.nodeChanged(root); // paint this node again
             
             model.reload();
@@ -290,7 +369,7 @@ public class FTPclient {
     private boolean  goToDir(String dirName){
         // this directory must be in current working path
         if(getCWR()){
-            if(changeCWD(CWR+"/"+dirName)){
+            if(changeCWD(R_CWD+"/"+dirName)){
                 return true;
             }else{
                 return false;
@@ -303,14 +382,14 @@ public class FTPclient {
     private boolean getCWR(){
         try {
             // try to get the current working dir first
-            CWR = ftpClient.printWorkingDirectory();
-            userLog(Level.INFO, "Working Dir :" + CWR);
-            hs.ftpClient_remoteCWR.setText(CWR);
+            R_CWD = ftpClient.printWorkingDirectory();
+            userLog(Level.INFO, "Working Dir :" + R_CWD);
+            hs.ftpClient_remoteCWR.setText(R_CWD);
             showServerReply();
             return true;
         } catch (IOException ex) {
             userLog(Level.SEVERE, "Failed to get CWR" + ex.getMessage());
-            CWR = null;
+            R_CWD = null;
             showServerReply();
             return false;
         }
@@ -370,28 +449,28 @@ public class FTPclient {
     // uploading Files{true: if sucess full}
     private Boolean uploadFile(String localFile, String remoteFile) {
         boolean done = false;
-        this.LOCAL_FILE_PATH = localFile;
-        this.REMOTE_FILE_PATH = remoteFile;
+        this.DEFAULT_LOCAL_FTP_DIR = localFile;
+        this.DEFAULT_REMOTE_FTP_DIR = remoteFile;
         // open local file
-        LocalFile = new File(LOCAL_FILE_PATH);
+        File LocalFile = new File(DEFAULT_LOCAL_FTP_DIR);
         try {
             // get the local file stream
             LocalFileStream = new FileInputStream(LocalFile);
         } catch (FileNotFoundException ex) {
             DEBUG.log(Level.SEVERE, getName() + "{0}", ex.getMessage());
-            DEBUG.log(Level.SEVERE, getName() + ": {0}", "Sending failed " + LOCAL_FILE_PATH + "->" + REMOTE_FILE_PATH);
+            DEBUG.log(Level.SEVERE, getName() + ": {0}", "Sending failed " + DEFAULT_LOCAL_FTP_DIR + "->" + DEFAULT_REMOTE_FTP_DIR);
             return false;
         }
 
         // Sending File
         try {
-            DEBUG.log(Level.SEVERE, getName() + ": {0}", "Sending file " + LOCAL_FILE_PATH + "->" + REMOTE_FILE_PATH);
+            DEBUG.log(Level.SEVERE, getName() + ": {0}", "Sending file " + DEFAULT_LOCAL_FTP_DIR + "->" + DEFAULT_REMOTE_FTP_DIR);
             // Approach 1: Sends the file with limited control
             //done = ftpClient.storeFile(REMOTE_FILE_PATH, LocalFileStream);
 
             //Approach 2: Send with more control. we can show number bytes we are sending..
             // get the file stream
-            RemoteFileStream = ftpClient.storeFileStream(REMOTE_FILE_PATH);
+            RemoteFileStream = ftpClient.storeFileStream(DEFAULT_REMOTE_FTP_DIR);
             byte[] bytesIn = new byte[4096];
             int read = 0;
 
@@ -427,7 +506,7 @@ public class FTPclient {
         }
 
         if (done) {
-            DEBUG.log(Level.INFO, getName() + ": {0}", "File sent " + LOCAL_FILE_PATH + "->" + REMOTE_FILE_PATH);
+            DEBUG.log(Level.INFO, getName() + ": {0}", "File sent " + DEFAULT_LOCAL_FTP_DIR + "->" + DEFAULT_REMOTE_FTP_DIR);
             return true;
         } else {
             return false;
