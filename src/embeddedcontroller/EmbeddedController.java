@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.logging.*;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
+import model.DeviceFinder;
 import model.EmailClient;
 import model.FTPclient;
 import model.FTPserver;
@@ -46,6 +47,7 @@ public class EmbeddedController {
     public static TCPServer myTCPServer;
     public static FTPclient myFtpClient;
     public static HomeScreen hs;
+    public static DeviceFinder DF;
     
     public static String DEF_LOOKANDFEEL ="Nimbus"; // this runs in all the platforms
   
@@ -65,6 +67,8 @@ public class EmbeddedController {
             hs.setVisible(true);
         });
         
+        // Start the Device Finder
+        DF = new DeviceFinder();
           
     }
     

@@ -14,8 +14,11 @@ import org.apache.mina.core.session.IdleStatus;
 
 public class SystemStatus {
 
+    // System Info
+    public static String ipv4_system, _ipv4_address;
+    
+    
     // Note: All the function in this class should run in the background
-   
     // FTP Server
     public static void update_FTPServerStatus() {
         DEBUG.log(Level.INFO, "SystemStatus: {0}", "Updating FTP Server");
