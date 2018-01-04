@@ -45,9 +45,7 @@ public class EmbeddedController {
             // set the log level 
             // filter logs
             DEBUG.setFilter(new MyLogFiilter());
-           
-            
-            
+                                 
         }catch (IOException | SecurityException ex) {
             DEBUG.log(Level.SEVERE,ex.getMessage());
         }

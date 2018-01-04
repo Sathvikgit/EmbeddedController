@@ -1,9 +1,7 @@
 package model;
 
-import static embeddedcontroller.EmbeddedController.DEBUG;
 import static embeddedcontroller.EmbeddedController.hs;
 import java.awt.Component;
-import java.util.logging.Level;
 import javax.swing.JTree;
 import javax.swing.UIManager;
 import javax.swing.event.TreeSelectionEvent;
@@ -11,13 +9,7 @@ import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
 import javax.swing.tree.DefaultTreeModel;
-import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
-import static model.FTPclient.userLog;
-import model.SystemDefinitions.*;
-import static model.SystemDefinitions.DEVICE_TYPE.*;
-import static model.SystemDefinitions.*;
-import org.apache.commons.net.ftp.FTPFile;
 import systemDefinitions.Device;
 import systemDefinitions.HR_Device;
 
@@ -41,6 +33,7 @@ public class DeviceManager {
         devTree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
         
         wireDeviceTreeEventListeners();
+        displayHttpDeviceInfo(false);
         
         // for Testing: Add some temp Devices 
         //addNewDevice(new HR_Device("192.168.1.12", "STATIC","a0:a1:a2:a3:a4:a5:a6:a7:a8","CNT-IP-2","FHD Controller","Hall Research","admin","pass"));
@@ -89,7 +82,10 @@ public class DeviceManager {
                     // get Selcted device 
                     DefaultMutableTreeNode node = (DefaultMutableTreeNode)devTree.getLastSelectedPathComponent();
                     if(node == null){return;}
-                    if (node.isRoot()) {return;}
+                    if (node.isRoot()) {
+                        displayHttpDeviceInfo(false);
+                        return;
+                    }
                     Object nodeObject = node.getUserObject();
                     if(nodeObject instanceof Device){
                         Device device = (Device) nodeObject;
@@ -100,4 +96,10 @@ public class DeviceManager {
 
     }
 
+    
+    public static void displayHttpDeviceInfo(boolean state){
+        hs.deviceHttpInfoContainer.setVisible(state);
+    }
+   
+    
 }

@@ -83,6 +83,12 @@ public static void removeDevice(){
         deviceHttpInfoContainer = new javax.swing.JPanel();
         deviceImageContainer = new javax.swing.JPanel();
         hr_deviceImage = new javax.swing.JLabel();
+        deviceDescriptionPane = new javax.swing.JScrollPane();
+        hr_deviceDescription = new javax.swing.JTextArea();
+        hrDeviceDownloadsPanel = new javax.swing.JScrollPane();
+        deviceDownloadsPanel = new javax.swing.JPanel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        hr_deviceDownloadsTable = new javax.swing.JTable();
         DeviceControls = new javax.swing.JPanel();
         myFTPclient = new javax.swing.JPanel();
         jPanel17 = new javax.swing.JPanel();
@@ -359,35 +365,62 @@ public static void removeDevice(){
 
         DeviceProperties.add(deviceDetailsContainer);
 
-        deviceImageContainer.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        deviceImageContainer.setMinimumSize(new java.awt.Dimension(275, 275));
-        deviceImageContainer.setLayout(new java.awt.BorderLayout());
+        deviceHttpInfoContainer.setLayout(new java.awt.BorderLayout());
 
+        deviceImageContainer.setMinimumSize(new java.awt.Dimension(275, 275));
+        deviceImageContainer.setLayout(new javax.swing.BoxLayout(deviceImageContainer, javax.swing.BoxLayout.LINE_AXIS));
+
+        hr_deviceImage.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         hr_deviceImage.setMaximumSize(new java.awt.Dimension(250, 250));
         hr_deviceImage.setMinimumSize(new java.awt.Dimension(250, 250));
         hr_deviceImage.setPreferredSize(new java.awt.Dimension(250, 250));
-        deviceImageContainer.add(hr_deviceImage, java.awt.BorderLayout.CENTER);
+        deviceImageContainer.add(hr_deviceImage);
 
-        javax.swing.GroupLayout deviceHttpInfoContainerLayout = new javax.swing.GroupLayout(deviceHttpInfoContainer);
-        deviceHttpInfoContainer.setLayout(deviceHttpInfoContainerLayout);
-        deviceHttpInfoContainerLayout.setHorizontalGroup(
-            deviceHttpInfoContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 439, Short.MAX_VALUE)
-            .addGroup(deviceHttpInfoContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(deviceHttpInfoContainerLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(deviceImageContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(156, Short.MAX_VALUE)))
-        );
-        deviceHttpInfoContainerLayout.setVerticalGroup(
-            deviceHttpInfoContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 579, Short.MAX_VALUE)
-            .addGroup(deviceHttpInfoContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(deviceHttpInfoContainerLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(deviceImageContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(313, Short.MAX_VALUE)))
-        );
+        deviceHttpInfoContainer.add(deviceImageContainer, java.awt.BorderLayout.PAGE_START);
+
+        deviceDescriptionPane.setBorder(javax.swing.BorderFactory.createTitledBorder("Device Description"));
+        deviceDescriptionPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        hr_deviceDescription.setEditable(false);
+        hr_deviceDescription.setBackground(javax.swing.UIManager.getDefaults().getColor("InternalFrame.borderLight"));
+        hr_deviceDescription.setColumns(20);
+        hr_deviceDescription.setLineWrap(true);
+        hr_deviceDescription.setRows(5);
+        deviceDescriptionPane.setViewportView(hr_deviceDescription);
+
+        deviceHttpInfoContainer.add(deviceDescriptionPane, java.awt.BorderLayout.CENTER);
+
+        hrDeviceDownloadsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Downloads"));
+
+        deviceDownloadsPanel.setLayout(new java.awt.BorderLayout());
+
+        jScrollPane8.setMaximumSize(new java.awt.Dimension(32767, 250));
+        jScrollPane8.setMinimumSize(new java.awt.Dimension(23, 250));
+        jScrollPane8.setPreferredSize(new java.awt.Dimension(328, 250));
+
+        hr_deviceDownloadsTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Title", "Link"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane8.setViewportView(hr_deviceDownloadsTable);
+
+        deviceDownloadsPanel.add(jScrollPane8, java.awt.BorderLayout.CENTER);
+
+        hrDeviceDownloadsPanel.setViewportView(deviceDownloadsPanel);
+
+        deviceHttpInfoContainer.add(hrDeviceDownloadsPanel, java.awt.BorderLayout.PAGE_END);
 
         DeviceProperties.add(deviceHttpInfoContainer);
 
@@ -1590,10 +1623,12 @@ public static void removeDevice(){
     private javax.swing.JButton cancel_tcpServerAdvSett;
     private javax.swing.JButton clearTCPLog;
     private javax.swing.JPanel contactInfopanel;
+    private javax.swing.JScrollPane deviceDescriptionPane;
     private javax.swing.JPanel deviceDetailsContainer;
     public javax.swing.JTable deviceDetailsTable;
+    private javax.swing.JPanel deviceDownloadsPanel;
     private javax.swing.JPanel deviceFinderPanel;
-    private javax.swing.JPanel deviceHttpInfoContainer;
+    public javax.swing.JPanel deviceHttpInfoContainer;
     private javax.swing.JPanel deviceImageContainer;
     public javax.swing.JTree dfDeviceTree;
     private javax.swing.JButton df_settings;
@@ -1621,6 +1656,9 @@ public static void removeDevice(){
     private javax.swing.JTextField ftpClient_serverIP;
     private javax.swing.JSpinner ftpClient_serverPort;
     private javax.swing.JLabel hostAddressLable;
+    private javax.swing.JScrollPane hrDeviceDownloadsPanel;
+    public javax.swing.JTextArea hr_deviceDescription;
+    public javax.swing.JTable hr_deviceDownloadsTable;
     public javax.swing.JLabel hr_deviceImage;
     private javax.swing.JTabbedPane hsTabs;
     private javax.swing.JMenuItem item_packetSender;
@@ -1662,6 +1700,7 @@ public static void removeDevice(){
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JLabel lablePath;
     private javax.swing.JLabel lable_password;
     private javax.swing.JLabel lable_port;
