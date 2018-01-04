@@ -77,6 +77,11 @@ public static void removeDevice(){
         split_DeviceProp = new javax.swing.JPanel();
         hsTabs = new javax.swing.JTabbedPane();
         DeviceProperties = new javax.swing.JPanel();
+        deviceDetailsContainer = new javax.swing.JPanel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        deviceDetailsTable = new javax.swing.JTable();
+        deviceHttpInfoContainer = new javax.swing.JPanel();
+        deviceImageContainer = new javax.swing.JPanel();
         hr_deviceImage = new javax.swing.JLabel();
         DeviceControls = new javax.swing.JPanel();
         myFTPclient = new javax.swing.JPanel();
@@ -327,24 +332,64 @@ public static void removeDevice(){
         hsTabs.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         hsTabs.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
 
-        hr_deviceImage.setText("Device Image");
+        DeviceProperties.setLayout(new javax.swing.BoxLayout(DeviceProperties, javax.swing.BoxLayout.LINE_AXIS));
 
-        javax.swing.GroupLayout DevicePropertiesLayout = new javax.swing.GroupLayout(DeviceProperties);
-        DeviceProperties.setLayout(DevicePropertiesLayout);
-        DevicePropertiesLayout.setHorizontalGroup(
-            DevicePropertiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DevicePropertiesLayout.createSequentialGroup()
-                .addGap(121, 121, 121)
-                .addComponent(hr_deviceImage)
-                .addContainerGap(456, Short.MAX_VALUE))
+        deviceDetailsContainer.setBorder(javax.swing.BorderFactory.createTitledBorder("Device Information"));
+        deviceDetailsContainer.setLayout(new java.awt.BorderLayout());
+
+        deviceDetailsTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Properties", "Value"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane7.setViewportView(deviceDetailsTable);
+
+        deviceDetailsContainer.add(jScrollPane7, java.awt.BorderLayout.CENTER);
+
+        DeviceProperties.add(deviceDetailsContainer);
+
+        deviceImageContainer.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        deviceImageContainer.setMinimumSize(new java.awt.Dimension(275, 275));
+        deviceImageContainer.setLayout(new java.awt.BorderLayout());
+
+        hr_deviceImage.setMaximumSize(new java.awt.Dimension(250, 250));
+        hr_deviceImage.setMinimumSize(new java.awt.Dimension(250, 250));
+        hr_deviceImage.setPreferredSize(new java.awt.Dimension(250, 250));
+        deviceImageContainer.add(hr_deviceImage, java.awt.BorderLayout.CENTER);
+
+        javax.swing.GroupLayout deviceHttpInfoContainerLayout = new javax.swing.GroupLayout(deviceHttpInfoContainer);
+        deviceHttpInfoContainer.setLayout(deviceHttpInfoContainerLayout);
+        deviceHttpInfoContainerLayout.setHorizontalGroup(
+            deviceHttpInfoContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 439, Short.MAX_VALUE)
+            .addGroup(deviceHttpInfoContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(deviceHttpInfoContainerLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(deviceImageContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(156, Short.MAX_VALUE)))
         );
-        DevicePropertiesLayout.setVerticalGroup(
-            DevicePropertiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DevicePropertiesLayout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(hr_deviceImage)
-                .addContainerGap(510, Short.MAX_VALUE))
+        deviceHttpInfoContainerLayout.setVerticalGroup(
+            deviceHttpInfoContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 579, Short.MAX_VALUE)
+            .addGroup(deviceHttpInfoContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(deviceHttpInfoContainerLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(deviceImageContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(313, Short.MAX_VALUE)))
         );
+
+        DeviceProperties.add(deviceHttpInfoContainer);
 
         hsTabs.addTab("Details", DeviceProperties);
 
@@ -1545,7 +1590,11 @@ public static void removeDevice(){
     private javax.swing.JButton cancel_tcpServerAdvSett;
     private javax.swing.JButton clearTCPLog;
     private javax.swing.JPanel contactInfopanel;
+    private javax.swing.JPanel deviceDetailsContainer;
+    public javax.swing.JTable deviceDetailsTable;
     private javax.swing.JPanel deviceFinderPanel;
+    private javax.swing.JPanel deviceHttpInfoContainer;
+    private javax.swing.JPanel deviceImageContainer;
     public javax.swing.JTree dfDeviceTree;
     private javax.swing.JButton df_settings;
     private javax.swing.JButton df_startScan;
@@ -1612,6 +1661,7 @@ public static void removeDevice(){
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JLabel lablePath;
     private javax.swing.JLabel lable_password;
     private javax.swing.JLabel lable_port;

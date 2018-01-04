@@ -6,9 +6,14 @@ import java.awt.Component;
 import java.util.logging.Level;
 import javax.swing.JTree;
 import javax.swing.UIManager;
+import javax.swing.event.TreeSelectionEvent;
+import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
 import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreePath;
+import javax.swing.tree.TreeSelectionModel;
+import static model.FTPclient.userLog;
 import model.SystemDefinitions.*;
 import static model.SystemDefinitions.DEVICE_TYPE.*;
 import static model.SystemDefinitions.*;
@@ -32,7 +37,15 @@ public class DeviceManager {
         
         model.nodeChanged(root); // paint this node again    
         model.reload();
+        
+        devTree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
+        
         wireDeviceTreeEventListeners();
+        
+        // for Testing: Add some temp Devices 
+        //addNewDevice(new HR_Device("192.168.1.12", "STATIC","a0:a1:a2:a3:a4:a5:a6:a7:a8","CNT-IP-2","FHD Controller","Hall Research","admin","pass"));
+        
+        
     }
 
     // Device will the send you the device information
@@ -69,7 +82,21 @@ public class DeviceManager {
 
         });
         
-        
+        // Device Selection Event Handlers
+            devTree.addTreeSelectionListener(new TreeSelectionListener() {
+                @Override
+                public void valueChanged(TreeSelectionEvent e) {
+                    // get Selcted device 
+                    DefaultMutableTreeNode node = (DefaultMutableTreeNode)devTree.getLastSelectedPathComponent();
+                    if(node == null){return;}
+                    if (node.isRoot()) {return;}
+                    Object nodeObject = node.getUserObject();
+                    if(nodeObject instanceof Device){
+                        Device device = (Device) nodeObject;
+                        device.showDeviceInfo();
+                    }
+                }
+            });
 
     }
 
