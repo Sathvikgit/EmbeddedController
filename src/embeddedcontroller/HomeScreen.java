@@ -77,6 +77,7 @@ public static void removeDevice(){
         split_DeviceProp = new javax.swing.JPanel();
         hsTabs = new javax.swing.JTabbedPane();
         DeviceProperties = new javax.swing.JPanel();
+        hr_deviceImage = new javax.swing.JLabel();
         DeviceControls = new javax.swing.JPanel();
         myFTPclient = new javax.swing.JPanel();
         jPanel17 = new javax.swing.JPanel();
@@ -326,15 +327,23 @@ public static void removeDevice(){
         hsTabs.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         hsTabs.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
 
+        hr_deviceImage.setText("Device Image");
+
         javax.swing.GroupLayout DevicePropertiesLayout = new javax.swing.GroupLayout(DeviceProperties);
         DeviceProperties.setLayout(DevicePropertiesLayout);
         DevicePropertiesLayout.setHorizontalGroup(
             DevicePropertiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 642, Short.MAX_VALUE)
+            .addGroup(DevicePropertiesLayout.createSequentialGroup()
+                .addGap(121, 121, 121)
+                .addComponent(hr_deviceImage)
+                .addContainerGap(456, Short.MAX_VALUE))
         );
         DevicePropertiesLayout.setVerticalGroup(
             DevicePropertiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 579, Short.MAX_VALUE)
+            .addGroup(DevicePropertiesLayout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addComponent(hr_deviceImage)
+                .addContainerGap(510, Short.MAX_VALUE))
         );
 
         hsTabs.addTab("Details", DeviceProperties);
@@ -1490,7 +1499,7 @@ public static void removeDevice(){
     private javax.swing.JMenuItem Clear;
     private javax.swing.JMenu DebugMenu;
     private javax.swing.JPanel DeviceControls;
-    private javax.swing.JPanel DeviceProperties;
+    public javax.swing.JPanel DeviceProperties;
     private javax.swing.JPanel EmailClient;
     public javax.swing.JTextField FTPClientCount;
     private javax.swing.JScrollPane FTPClientTabel;
@@ -1563,6 +1572,7 @@ public static void removeDevice(){
     private javax.swing.JTextField ftpClient_serverIP;
     private javax.swing.JSpinner ftpClient_serverPort;
     private javax.swing.JLabel hostAddressLable;
+    public javax.swing.JLabel hr_deviceImage;
     private javax.swing.JTabbedPane hsTabs;
     private javax.swing.JMenuItem item_packetSender;
     private javax.swing.JMenuItem item_serialClient;
