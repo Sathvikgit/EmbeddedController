@@ -17,11 +17,13 @@ import systemDefinitions.URLdownloadType;
 
 public class DeviceManager {
 
-    private static JTree devTree; 
-    private static JTree downloadTree;
+    public static JTree devTree; 
+    public static JTree downloadTree;
+    private static DefaultTreeModel dnModel;
     private static DefaultTreeModel model;
     private static DefaultMutableTreeNode root;
-
+    private static DefaultMutableTreeNode downRoot;
+            
     public DeviceManager() {
 
         devTree = hs.dfDeviceTree;
@@ -37,11 +39,19 @@ public class DeviceManager {
         
         wireDeviceTreeEventListeners();
         displayHttpDeviceInfo(false);
-        downloadTree =  hs.hr_deviceDownloadsTree;
+        
+        
+        downloadTree =  hs.hr_deviceDownloadsTree;    
+        dnModel = (DefaultTreeModel) downloadTree.getModel();
+        downRoot = (DefaultMutableTreeNode) dnModel.getRoot();
+        downRoot.removeAllChildren();
+        downRoot.setUserObject("Downloads");
         wireDownloadTreeActionListener();
         
         // for Testing: Add some temp Devices 
-        //addNewDevice(new HR_Device("192.168.1.12", "STATIC","a0:a1:a2:a3:a4:a5:a6:a7:a8","CNT-IP-2","FHD Controller","Hall Research","admin","pass"));
+        addNewDevice(new HR_Device("192.168.1.12", "STATIC","a0:a1:a2:a3:a4:a5:a6:a7:a8","HSM-I-04-04","HDMI Matrix","Hall Research","admin","pass"));
+        addNewDevice(new HR_Device("192.168.1.13", "STATIC","a0:a1:a2:a3:a4:a5:a6:a7:a8","VSA-51","AV Control System","Hall Research","admin","pass"));
+        addNewDevice(new HR_Device("192.168.1.14", "STATIC","a0:a1:a2:a3:a4:a5:a6:a7:a8","UI-IP8-DP","Key Pad","Hall Research","admin","pass"));
         
         
     }
@@ -50,8 +60,20 @@ public class DeviceManager {
     public static void addNewDevice(HR_Device dev) {
         root.add(new DefaultMutableTreeNode(new Device(dev)));
         devTree.expandRow(0);
+        model.reload();
     }
-
+    
+    public static void addDownloadItem(URLdownloadType d){
+        downRoot.add(new DefaultMutableTreeNode(d));
+        //System.out.println("Adding:"+d.toString());
+        downloadTree.expandRow(0);
+        dnModel.reload();
+    }
+    public static void clearDownloadTree(){
+        downRoot.removeAllChildren();
+        dnModel.reload();
+    }
+    
     private void wireDownloadTreeActionListener(){
        
        downloadTree.expandRow(0);
@@ -90,21 +112,20 @@ public class DeviceManager {
                 if (node == null) {
                     return;
                 }
-                if (node.isRoot()) {                  
+                if (node.isRoot()) {   
+                    System.out.println("Root Selected");
                     return;
                 }
                 Object nodeObject = node.getUserObject();
                 if (nodeObject instanceof URLdownloadType) {
                     URLdownloadType dn = (URLdownloadType) nodeObject;
-                    System.out.println("URLdownloadType Selcted");
+                    System.out.println("URLdownloadType Selected");
                 }
             }
         });
-       
-    
-    
-    
     }
+    
+    
     private void wireDeviceTreeEventListeners() {
 
         //Always Expand the tree

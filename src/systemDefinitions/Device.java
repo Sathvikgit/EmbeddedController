@@ -1,6 +1,7 @@
 package systemDefinitions;
 
 import static embeddedcontroller.EmbeddedController.DEBUG;
+import static embeddedcontroller.EmbeddedController.DM;
 import static embeddedcontroller.EmbeddedController.hs;
 import static embeddedcontroller.Utilities.imageResize;
 import java.awt.image.BufferedImage;
@@ -15,7 +16,9 @@ import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.ListModel;
+import model.DeviceManager;
 import static model.DeviceManager.displayHttpDeviceInfo;
+import static model.DeviceManager.downloadTree;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -78,7 +81,14 @@ public class Device implements Runnable{
         if(!this.httpFetchDone && !this.httpFetchError){
             
             DEBUG.log(Level.INFO,"Fetching Device info for {0}", this.toString());
-            this.hrProduct_url = HR_PRODUCT_URL+"CNT-IP-2";                //dev.get_device_model();
+            
+            // for testing only 
+            if("CNT-IP-264".equals(this.info.get_device_model())){
+                this.hrProduct_url = HR_PRODUCT_URL+"CNT-IP-2";    //this.info.get_device_model();
+            }else{
+                this.hrProduct_url = HR_PRODUCT_URL+this.info.get_device_model();
+            }
+            
             this.httpClient = HttpClientBuilder.create().build();
             HttpGet request = null;
 
@@ -167,9 +177,7 @@ public class Device implements Runnable{
                             }
                                                        
                        }
-                   }
-                   
-                   
+                   }                  
                }else{
                    DEBUG.log(Level.WARNING, "Failed to get HTTP response for {0}",this.toString());
                    this.httpFetchError = true;
@@ -205,17 +213,13 @@ public class Device implements Runnable{
             }
             
             if(this.deviceDownloads!= null){
-                //show the devices to the user
-             
-                
+                DeviceManager.clearDownloadTree();
+                //show the devices to the user                           
                 for(Map.Entry<String,ArrayList<String>> e :this.deviceDownloads.entrySet()){
                     String d_type = e.getKey();
                     ArrayList<String> d_url =e.getValue();
-                   
-                    
-                    
-                }
-               
+                    DeviceManager.addDownloadItem(new URLdownloadType(d_type, d_url));                   
+                }               
             }else{
                 DEBUG.log(Level.WARNING,"No Downloads for {0}", this.toString());
             }

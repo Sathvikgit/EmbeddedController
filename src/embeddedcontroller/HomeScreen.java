@@ -240,6 +240,8 @@ public static void removeDevice(){
 
         TCPServerAdvancedSettingsDialog.setTitle("TCP Server Advanced Settings");
         TCPServerAdvancedSettingsDialog.setAlwaysOnTop(true);
+        TCPServerAdvancedSettingsDialog.setMinimumSize(new java.awt.Dimension(400, 250));
+        TCPServerAdvancedSettingsDialog.setPreferredSize(new java.awt.Dimension(400, 250));
 
         jPanel15.setBorder(javax.swing.BorderFactory.createTitledBorder("TCP Server Advanced Settings"));
 
