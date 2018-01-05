@@ -123,7 +123,7 @@ public class DeviceManager {
                     
                     // Start download Manger
                     if(!DownloadManager.inUse){
-                        DownloadManager dm = new DownloadManager();
+                        DownloadManager dm = new DownloadManager(dn.url);
                     }else{
                         System.out.println("Download Manager in USE!");
                     }

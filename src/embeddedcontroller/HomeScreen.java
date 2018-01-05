@@ -79,8 +79,8 @@ public static void removeDevice(){
         downloadSettingsPanel = new javax.swing.JPanel();
         downloadLocation = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
+        downloadFilePath = new javax.swing.JTextField();
         browseFileLocation = new javax.swing.JButton();
-        downloadFilePath = new javax.swing.JLabel();
         downloadFileListContainer = new javax.swing.JPanel();
         jCheckBox1 = new javax.swing.JCheckBox();
         jCheckBox2 = new javax.swing.JCheckBox();
@@ -90,7 +90,6 @@ public static void removeDevice(){
         downloadOptionPanel = new javax.swing.JPanel();
         StartDownload = new javax.swing.JButton();
         CancelDownload = new javax.swing.JButton();
-        MyFilePicker = new javax.swing.JFileChooser();
         mainUI = new javax.swing.JSplitPane();
         split_DeviceProp = new javax.swing.JPanel();
         hsTabs = new javax.swing.JTabbedPane();
@@ -347,27 +346,46 @@ public static void removeDevice(){
         TCPServerAdvancedSettingsDialog.getContentPane().add(jPanel16, java.awt.BorderLayout.PAGE_END);
 
         downloadFIleDialog.setTitle("Download");
-        downloadFIleDialog.setAlwaysOnTop(true);
         downloadFIleDialog.setMaximumSize(new java.awt.Dimension(500, 250));
         downloadFIleDialog.setMinimumSize(new java.awt.Dimension(500, 250));
         downloadFIleDialog.setPreferredSize(new java.awt.Dimension(500, 250));
         downloadFIleDialog.setResizable(false);
+        downloadFIleDialog.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                downloadFIleDialogFocusGained(evt);
+            }
+        });
+        downloadFIleDialog.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                downloadFIleDialogWindowActivated(evt);
+            }
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                downloadFIleDialogWindowClosed(evt);
+            }
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                downloadFIleDialogWindowClosing(evt);
+            }
+            public void windowDeactivated(java.awt.event.WindowEvent evt) {
+                downloadFIleDialogWindowDeactivated(evt);
+            }
+        });
         downloadFIleDialog.getContentPane().setLayout(new java.awt.BorderLayout(0, 10));
 
         downloadSettingsPanel.setLayout(new java.awt.BorderLayout(0, 20));
 
         downloadLocation.setLayout(new javax.swing.BoxLayout(downloadLocation, javax.swing.BoxLayout.LINE_AXIS));
 
-        jLabel5.setText("Save File to");
+        jLabel5.setText("Save File:  ");
         downloadLocation.add(jLabel5);
+        downloadLocation.add(downloadFilePath);
 
         browseFileLocation.setText("Browse");
+        browseFileLocation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                browseFileLocationActionPerformed(evt);
+            }
+        });
         downloadLocation.add(browseFileLocation);
-
-        downloadFilePath.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        downloadFilePath.setForeground(new java.awt.Color(0, 0, 255));
-        downloadFilePath.setText("/");
-        downloadLocation.add(downloadFilePath);
 
         downloadSettingsPanel.add(downloadLocation, java.awt.BorderLayout.PAGE_END);
 
@@ -431,8 +449,6 @@ public static void removeDevice(){
         );
 
         downloadFIleDialog.getContentPane().add(downloadOptionPanel, java.awt.BorderLayout.PAGE_END);
-
-        MyFilePicker.setDialogTitle("");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Embedded Controller");
@@ -1672,6 +1688,59 @@ public static void removeDevice(){
          DownloadManager.CancelDownload();
     }//GEN-LAST:event_CancelDownloadActionPerformed
 
+    private void downloadFIleDialogFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_downloadFIleDialogFocusGained
+        System.out.println("Download dialog Focus gained");
+    }//GEN-LAST:event_downloadFIleDialogFocusGained
+
+    private void downloadFIleDialogWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_downloadFIleDialogWindowActivated
+        System.out.println("Download dialog window activated");
+    }//GEN-LAST:event_downloadFIleDialogWindowActivated
+
+    private void downloadFIleDialogWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_downloadFIleDialogWindowClosed
+        System.out.println("Download dialog closed");
+    }//GEN-LAST:event_downloadFIleDialogWindowClosed
+
+    private void downloadFIleDialogWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_downloadFIleDialogWindowClosing
+        DEBUG.log(Level.INFO,"Closing Download Dialog");
+    }//GEN-LAST:event_downloadFIleDialogWindowClosing
+
+    private void downloadFIleDialogWindowDeactivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_downloadFIleDialogWindowDeactivated
+        System.out.println("Download dialog window De activated");
+        DownloadManager.CancelDownload();
+    }//GEN-LAST:event_downloadFIleDialogWindowDeactivated
+
+    private void browseFileLocationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseFileLocationActionPerformed
+        // set the HTTP file download path
+        // open File chooser 
+        JFileChooser httpChooser = new JFileChooser();
+        httpChooser.setCurrentDirectory(new java.io.File("."));
+        httpChooser.setDialogTitle("Download Location");
+        // choose only directory
+        httpChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        httpChooser.setAcceptAllFileFilterUsed(false); 
+        String path="."; 
+        DownloadManager.selectingDownloadPath = true;
+        if (httpChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+            // Get the directory
+            path = httpChooser.getSelectedFile().getAbsolutePath();
+            DEBUG.log(Level.INFO,"httpChooser : Dir Path {0}",path);
+            downloadFilePath.setText(path);
+            DownloadManager.setDownloadPath(path);
+            if( DownloadManager.selectingDownloadPath){
+                DownloadManager.showDialog();
+                DownloadManager.selectingDownloadPath = false;
+            }   
+        }else {
+            DEBUG.log(Level.WARNING,"httpChooser : Dir Path = No Selection!");
+            if( DownloadManager.selectingDownloadPath){
+                DownloadManager.showDialog();
+                DownloadManager.selectingDownloadPath = false;
+            } 
+        }
+
+        
+    }//GEN-LAST:event_browseFileLocationActionPerformed
+
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton BrowseFTPPath;
@@ -1708,7 +1777,6 @@ public static void removeDevice(){
     private javax.swing.JMenuItem FontSize;
     private javax.swing.JPanel HTTPserver;
     private javax.swing.JPanel Localside;
-    private javax.swing.JFileChooser MyFilePicker;
     private javax.swing.JPanel PacketSender;
     private javax.swing.JButton RefreshLocalDir;
     private javax.swing.JPanel RemoteSide;
@@ -1741,9 +1809,9 @@ public static void removeDevice(){
     public javax.swing.JLabel dowloadingFileName;
     public javax.swing.JDialog downloadFIleDialog;
     public javax.swing.JPanel downloadFileListContainer;
-    public javax.swing.JLabel downloadFilePath;
+    public javax.swing.JTextField downloadFilePath;
     public javax.swing.JProgressBar downloadFileProgress;
-    private javax.swing.JPanel downloadLocation;
+    public javax.swing.JPanel downloadLocation;
     private javax.swing.JPanel downloadOptionPanel;
     private javax.swing.JPanel downloadSettingsPanel;
     private javax.swing.JButton email_send;

@@ -31,20 +31,34 @@ public class HTTPDownloadUtil {
         // always check HTTP response code first
         if (responseCode == HttpURLConnection.HTTP_OK) {
             String disposition = httpConn.getHeaderField("Content-Disposition");
+            
+            
             String contentType = httpConn.getContentType();
             contentLength = httpConn.getContentLength();
 
             if (disposition != null) {
+                System.out.println("HTTP Disposition: "+ disposition);
                 // extracts file name from header field
                 int index = disposition.indexOf("filename=");
                 if (index > 0) {
                     fileName = disposition.substring(index + 10,
-                            disposition.length() - 1);
+                            disposition.length()-1);
                 }
             } else {
                 // extracts file name from URL
-                fileName = fileURL.substring(fileURL.lastIndexOf("/") + 1,
+               
+                
+                // decode the url to get the file name
+                String result = java.net.URLDecoder.decode(fileURL, "UTF-8");
+                if(result!=null){
+                    System.out.println("Decoding url:"+result);
+                    fileName = result.substring(result.lastIndexOf("/") + 1,
+                        result.length());                   
+                }else{
+                     fileName = fileURL.substring(fileURL.lastIndexOf("/") + 1,
                         fileURL.length());
+                }
+                
             }
 
             // output for debugging purpose only
