@@ -74,6 +74,22 @@ public static void removeDevice(){
         jPanel16 = new javax.swing.JPanel();
         save_tcpServerAdvSett = new javax.swing.JButton();
         cancel_tcpServerAdvSett = new javax.swing.JButton();
+        downloadFIleDialog = new javax.swing.JDialog();
+        downloadSettingsPanel = new javax.swing.JPanel();
+        downloadLocation = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        browseFileLocation = new javax.swing.JButton();
+        downloadFilePath = new javax.swing.JLabel();
+        downloadFileListContainer = new javax.swing.JPanel();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jCheckBox2 = new javax.swing.JCheckBox();
+        fileDownloadStatus = new javax.swing.JPanel();
+        dowloadingFileName = new javax.swing.JLabel();
+        downloadFileProgress = new javax.swing.JProgressBar();
+        downloadOptionPanel = new javax.swing.JPanel();
+        StartDownload = new javax.swing.JButton();
+        CancelDownload = new javax.swing.JButton();
+        MyFilePicker = new javax.swing.JFileChooser();
         mainUI = new javax.swing.JSplitPane();
         split_DeviceProp = new javax.swing.JPanel();
         hsTabs = new javax.swing.JTabbedPane();
@@ -241,7 +257,6 @@ public static void removeDevice(){
         TCPServerAdvancedSettingsDialog.setTitle("TCP Server Advanced Settings");
         TCPServerAdvancedSettingsDialog.setAlwaysOnTop(true);
         TCPServerAdvancedSettingsDialog.setMinimumSize(new java.awt.Dimension(400, 250));
-        TCPServerAdvancedSettingsDialog.setPreferredSize(new java.awt.Dimension(400, 250));
 
         jPanel15.setBorder(javax.swing.BorderFactory.createTitledBorder("TCP Server Advanced Settings"));
 
@@ -329,6 +344,79 @@ public static void removeDevice(){
         );
 
         TCPServerAdvancedSettingsDialog.getContentPane().add(jPanel16, java.awt.BorderLayout.PAGE_END);
+
+        downloadFIleDialog.setTitle("Download");
+        downloadFIleDialog.getContentPane().setLayout(new java.awt.BorderLayout(0, 10));
+
+        downloadSettingsPanel.setLayout(new java.awt.BorderLayout(0, 20));
+
+        downloadLocation.setLayout(new javax.swing.BoxLayout(downloadLocation, javax.swing.BoxLayout.LINE_AXIS));
+
+        jLabel5.setText("Save File to");
+        downloadLocation.add(jLabel5);
+
+        browseFileLocation.setText("Browse");
+        downloadLocation.add(browseFileLocation);
+
+        downloadFilePath.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        downloadFilePath.setForeground(new java.awt.Color(0, 0, 255));
+        downloadFilePath.setText("/");
+        downloadLocation.add(downloadFilePath);
+
+        downloadSettingsPanel.add(downloadLocation, java.awt.BorderLayout.PAGE_END);
+
+        downloadFileListContainer.setMinimumSize(new java.awt.Dimension(50, 50));
+        downloadFileListContainer.setLayout(new javax.swing.BoxLayout(downloadFileListContainer, javax.swing.BoxLayout.Y_AXIS));
+
+        jCheckBox1.setText("File 1");
+        downloadFileListContainer.add(jCheckBox1);
+
+        jCheckBox2.setText("File 2");
+        downloadFileListContainer.add(jCheckBox2);
+
+        downloadSettingsPanel.add(downloadFileListContainer, java.awt.BorderLayout.CENTER);
+
+        downloadFIleDialog.getContentPane().add(downloadSettingsPanel, java.awt.BorderLayout.PAGE_START);
+
+        fileDownloadStatus.setLayout(new java.awt.BorderLayout(0, 10));
+
+        dowloadingFileName.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        dowloadingFileName.setText("File(1/2): Size = 1024 bytes ");
+        fileDownloadStatus.add(dowloadingFileName, java.awt.BorderLayout.PAGE_START);
+
+        downloadFileProgress.setValue(10);
+        fileDownloadStatus.add(downloadFileProgress, java.awt.BorderLayout.PAGE_END);
+
+        downloadFIleDialog.getContentPane().add(fileDownloadStatus, java.awt.BorderLayout.CENTER);
+
+        StartDownload.setText("Download");
+
+        CancelDownload.setText("Cancel");
+
+        javax.swing.GroupLayout downloadOptionPanelLayout = new javax.swing.GroupLayout(downloadOptionPanel);
+        downloadOptionPanel.setLayout(downloadOptionPanelLayout);
+        downloadOptionPanelLayout.setHorizontalGroup(
+            downloadOptionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(downloadOptionPanelLayout.createSequentialGroup()
+                .addContainerGap(303, Short.MAX_VALUE)
+                .addComponent(StartDownload)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(CancelDownload, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        downloadOptionPanelLayout.setVerticalGroup(
+            downloadOptionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, downloadOptionPanelLayout.createSequentialGroup()
+                .addGap(1, 1, 1)
+                .addGroup(downloadOptionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CancelDownload)
+                    .addComponent(StartDownload))
+                .addContainerGap())
+        );
+
+        downloadFIleDialog.getContentPane().add(downloadOptionPanel, java.awt.BorderLayout.PAGE_END);
+
+        MyFilePicker.setDialogTitle("");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Embedded Controller");
@@ -1562,6 +1650,7 @@ public static void removeDevice(){
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton BrowseFTPPath;
+    public javax.swing.JButton CancelDownload;
     private javax.swing.JMenuItem Clear;
     private javax.swing.JMenu DebugMenu;
     private javax.swing.JPanel DeviceControls;
@@ -1594,11 +1683,13 @@ public static void removeDevice(){
     private javax.swing.JMenuItem FontSize;
     private javax.swing.JPanel HTTPserver;
     private javax.swing.JPanel Localside;
+    private javax.swing.JFileChooser MyFilePicker;
     private javax.swing.JPanel PacketSender;
     private javax.swing.JButton RefreshLocalDir;
     private javax.swing.JPanel RemoteSide;
     private javax.swing.JMenu SetupMenu;
     private javax.swing.JToggleButton ShowFTPPassword;
+    public javax.swing.JButton StartDownload;
     private javax.swing.JPanel StatusPanel;
     private javax.swing.JDialog TCPServerAdvancedSettingsDialog;
     public javax.swing.JTable TCPServerLog;
@@ -1608,6 +1699,7 @@ public static void removeDevice(){
     private javax.swing.JMenu ToolsMenu;
     private javax.swing.JPanel TransferCotrolPanel;
     private javax.swing.JPanel UDPserver;
+    public javax.swing.JButton browseFileLocation;
     private javax.swing.JButton cancel_tcpServerAdvSett;
     private javax.swing.JButton clearTCPLog;
     private javax.swing.JPanel contactInfopanel;
@@ -1621,11 +1713,20 @@ public static void removeDevice(){
     public javax.swing.JTree dfDeviceTree;
     private javax.swing.JButton df_settings;
     private javax.swing.JButton df_startScan;
+    public javax.swing.JLabel dowloadingFileName;
+    private javax.swing.JDialog downloadFIleDialog;
+    public javax.swing.JPanel downloadFileListContainer;
+    public javax.swing.JLabel downloadFilePath;
+    public javax.swing.JProgressBar downloadFileProgress;
+    private javax.swing.JPanel downloadLocation;
+    private javax.swing.JPanel downloadOptionPanel;
+    private javax.swing.JPanel downloadSettingsPanel;
     private javax.swing.JButton email_send;
     private javax.swing.JTextField email_userEmail;
     private javax.swing.JTextArea email_userMessage;
     private javax.swing.JTextField email_userName;
     private javax.swing.JTextField email_userPhone;
+    private javax.swing.JPanel fileDownloadStatus;
     private javax.swing.Box.Filler filler14;
     private javax.swing.Box.Filler filler18;
     private javax.swing.JButton ftpClient_ServerConnect;
@@ -1656,10 +1757,13 @@ public static void removeDevice(){
     private javax.swing.JMenuItem item_telnetClient;
     private javax.swing.JMenuItem item_udpClient;
     private javax.swing.JMenuItem item_udpServer;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;

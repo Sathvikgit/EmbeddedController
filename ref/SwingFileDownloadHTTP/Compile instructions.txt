@@ -1,0 +1,2 @@
+javac -d build\classes -cp src src\net\codejava\swing\download\SwingFileDownloadHTTP.java
+jar cfev SwingFileDownloadHTTP.jar net.codejava.swing.download.SwingFileDownloadHTTP -C build\classes .

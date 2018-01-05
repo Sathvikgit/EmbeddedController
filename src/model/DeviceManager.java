@@ -89,13 +89,13 @@ public class DeviceManager {
                 if(value instanceof DefaultMutableTreeNode){
                     DefaultMutableTreeNode node = (DefaultMutableTreeNode) value;
                     if (node.isRoot()) {
-                        setIcon(UIManager.getIcon("FileView.homeFolderIcon"));
+                        setIcon(UIManager.getIcon("FileView.hardDriveIcon"));
                     }else {
                         Object select = node.getUserObject();
                         if (select != null) {
                             if (select instanceof URLdownloadType) {
                                 //URLdownloadType f = (URLdownloadType) select;
-                                setIcon(UIManager.getIcon("FileView.computerIcon"));
+                                setIcon(UIManager.getIcon("Tree.collapsedIcon"));
                             }
                         }
                     }                    
@@ -119,7 +119,10 @@ public class DeviceManager {
                 Object nodeObject = node.getUserObject();
                 if (nodeObject instanceof URLdownloadType) {
                     URLdownloadType dn = (URLdownloadType) nodeObject;
-                    System.out.println("URLdownloadType Selected");
+                    System.out.println("Open URL:"+dn.url.toString());
+                    
+                    // open the url in default browser
+                    
                 }
             }
         });
