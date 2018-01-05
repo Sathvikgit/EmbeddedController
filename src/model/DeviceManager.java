@@ -121,7 +121,12 @@ public class DeviceManager {
                     URLdownloadType dn = (URLdownloadType) nodeObject;
                     System.out.println("Open URL:"+dn.url.toString());
                     
-                    // open the url in default browser
+                    // Start download Manger
+                    if(!DownloadManager.inUse){
+                        DownloadManager dm = new DownloadManager();
+                    }else{
+                        System.out.println("Download Manager in USE!");
+                    }
                     
                 }
             }

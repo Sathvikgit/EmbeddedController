@@ -8,6 +8,7 @@ import java.util.logging.Level;
 import javafx.embed.swing.JFXPanel;
 import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
+import model.DownloadManager;
 import model.EmailClient;
 import model.FTPclient;
 import static model.FTPclient.userLog;
@@ -346,6 +347,11 @@ public static void removeDevice(){
         TCPServerAdvancedSettingsDialog.getContentPane().add(jPanel16, java.awt.BorderLayout.PAGE_END);
 
         downloadFIleDialog.setTitle("Download");
+        downloadFIleDialog.setAlwaysOnTop(true);
+        downloadFIleDialog.setMaximumSize(new java.awt.Dimension(500, 250));
+        downloadFIleDialog.setMinimumSize(new java.awt.Dimension(500, 250));
+        downloadFIleDialog.setPreferredSize(new java.awt.Dimension(500, 250));
+        downloadFIleDialog.setResizable(false);
         downloadFIleDialog.getContentPane().setLayout(new java.awt.BorderLayout(0, 10));
 
         downloadSettingsPanel.setLayout(new java.awt.BorderLayout(0, 20));
@@ -390,8 +396,18 @@ public static void removeDevice(){
         downloadFIleDialog.getContentPane().add(fileDownloadStatus, java.awt.BorderLayout.CENTER);
 
         StartDownload.setText("Download");
+        StartDownload.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                StartDownloadActionPerformed(evt);
+            }
+        });
 
         CancelDownload.setText("Cancel");
+        CancelDownload.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelDownloadActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout downloadOptionPanelLayout = new javax.swing.GroupLayout(downloadOptionPanel);
         downloadOptionPanel.setLayout(downloadOptionPanelLayout);
@@ -1647,6 +1663,15 @@ public static void removeDevice(){
         }
     }//GEN-LAST:event_refreshRemoteDirActionPerformed
 
+    private void StartDownloadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StartDownloadActionPerformed
+        DownloadManager.StartDownload();
+    }//GEN-LAST:event_StartDownloadActionPerformed
+
+    private void CancelDownloadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelDownloadActionPerformed
+        // TODO add your handling code here:
+         DownloadManager.CancelDownload();
+    }//GEN-LAST:event_CancelDownloadActionPerformed
+
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton BrowseFTPPath;
@@ -1714,7 +1739,7 @@ public static void removeDevice(){
     private javax.swing.JButton df_settings;
     private javax.swing.JButton df_startScan;
     public javax.swing.JLabel dowloadingFileName;
-    private javax.swing.JDialog downloadFIleDialog;
+    public javax.swing.JDialog downloadFIleDialog;
     public javax.swing.JPanel downloadFileListContainer;
     public javax.swing.JLabel downloadFilePath;
     public javax.swing.JProgressBar downloadFileProgress;
