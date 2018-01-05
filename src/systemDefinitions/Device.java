@@ -2,20 +2,19 @@ package systemDefinitions;
 
 import static embeddedcontroller.EmbeddedController.DEBUG;
 import static embeddedcontroller.EmbeddedController.hs;
-import embeddedcontroller.Utilities;
 import static embeddedcontroller.Utilities.imageResize;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.logging.Level;
 import javax.imageio.ImageIO;
+import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.ListModel;
 import static model.DeviceManager.displayHttpDeviceInfo;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -206,15 +205,17 @@ public class Device implements Runnable{
             }
             
             if(this.deviceDownloads!= null){
-                DefaultTableModel model = (DefaultTableModel) hs.hr_deviceDownloadsTable.getModel();
-                model.setRowCount(0);
-               for(Map.Entry<String,ArrayList<String>> e :this.deviceDownloads.entrySet()){
-                   String d_type = e.getKey();
-                   ArrayList<String> d_url =e.getValue();
-                   // clear all the rows in the table 
-                   String[] rowData = {d_type,d_url.toString()};
-                   model.addRow(rowData);
-               }            
+                //show the devices to the user
+             
+                
+                for(Map.Entry<String,ArrayList<String>> e :this.deviceDownloads.entrySet()){
+                    String d_type = e.getKey();
+                    ArrayList<String> d_url =e.getValue();
+                   
+                    
+                    
+                }
+               
             }else{
                 DEBUG.log(Level.WARNING,"No Downloads for {0}", this.toString());
             }

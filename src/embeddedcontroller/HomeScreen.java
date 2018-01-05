@@ -6,6 +6,7 @@ import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 import javafx.embed.swing.JFXPanel;
+import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
 import model.EmailClient;
 import model.FTPclient;
@@ -88,7 +89,7 @@ public static void removeDevice(){
         hrDeviceDownloadsPanel = new javax.swing.JScrollPane();
         deviceDownloadsPanel = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
-        hr_deviceDownloadsTable = new javax.swing.JTable();
+        hr_deviceDownloadsTree = new javax.swing.JTree();
         DeviceControls = new javax.swing.JPanel();
         myFTPclient = new javax.swing.JPanel();
         jPanel17 = new javax.swing.JPanel();
@@ -395,26 +396,11 @@ public static void removeDevice(){
         deviceDownloadsPanel.setLayout(new java.awt.BorderLayout());
 
         jScrollPane8.setMaximumSize(new java.awt.Dimension(32767, 250));
-        jScrollPane8.setMinimumSize(new java.awt.Dimension(23, 250));
-        jScrollPane8.setPreferredSize(new java.awt.Dimension(328, 250));
+        jScrollPane8.setPreferredSize(new java.awt.Dimension(45, 150));
 
-        hr_deviceDownloadsTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Title", "Link"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane8.setViewportView(hr_deviceDownloadsTable);
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
+        hr_deviceDownloadsTree.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane8.setViewportView(hr_deviceDownloadsTree);
 
         deviceDownloadsPanel.add(jScrollPane8, java.awt.BorderLayout.CENTER);
 
@@ -521,7 +507,7 @@ public static void removeDevice(){
 
         Localside.add(jPanel2, java.awt.BorderLayout.PAGE_START);
 
-        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
+        treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
         ftpClient_localFileTree.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         jScrollPane4.setViewportView(ftpClient_localFileTree);
 
@@ -1658,7 +1644,7 @@ public static void removeDevice(){
     private javax.swing.JLabel hostAddressLable;
     private javax.swing.JScrollPane hrDeviceDownloadsPanel;
     public javax.swing.JTextArea hr_deviceDescription;
-    public javax.swing.JTable hr_deviceDownloadsTable;
+    public javax.swing.JTree hr_deviceDownloadsTree;
     public javax.swing.JLabel hr_deviceImage;
     private javax.swing.JTabbedPane hsTabs;
     private javax.swing.JMenuItem item_packetSender;

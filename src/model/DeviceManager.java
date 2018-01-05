@@ -2,6 +2,7 @@ package model;
 
 import static embeddedcontroller.EmbeddedController.hs;
 import java.awt.Component;
+import javax.swing.DefaultCellEditor;
 import javax.swing.JTree;
 import javax.swing.UIManager;
 import javax.swing.event.TreeSelectionEvent;
@@ -12,10 +13,12 @@ import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeSelectionModel;
 import systemDefinitions.Device;
 import systemDefinitions.HR_Device;
+import systemDefinitions.URLdownloadType;
 
 public class DeviceManager {
 
     private static JTree devTree; 
+    private static JTree downloadTree;
     private static DefaultTreeModel model;
     private static DefaultMutableTreeNode root;
 
@@ -34,6 +37,8 @@ public class DeviceManager {
         
         wireDeviceTreeEventListeners();
         displayHttpDeviceInfo(false);
+        downloadTree =  hs.hr_deviceDownloadsTree;
+        wireDownloadTreeActionListener();
         
         // for Testing: Add some temp Devices 
         //addNewDevice(new HR_Device("192.168.1.12", "STATIC","a0:a1:a2:a3:a4:a5:a6:a7:a8","CNT-IP-2","FHD Controller","Hall Research","admin","pass"));
@@ -47,10 +52,65 @@ public class DeviceManager {
         devTree.expandRow(0);
     }
 
+    private void wireDownloadTreeActionListener(){
+       
+       downloadTree.expandRow(0);
+       downloadTree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
+       
+       // Cell renderer
+       downloadTree.setCellRenderer(new DefaultTreeCellRenderer(){
+       
+           @Override
+            public Component getTreeCellRendererComponent(JTree tree, Object value, boolean sel, boolean expanded, boolean leaf, int row, boolean hasFocus) {
+            
+                super.getTreeCellRendererComponent(tree, value, sel, expanded, leaf, row, hasFocus);
+                if(value instanceof DefaultMutableTreeNode){
+                    DefaultMutableTreeNode node = (DefaultMutableTreeNode) value;
+                    if (node.isRoot()) {
+                        setIcon(UIManager.getIcon("FileView.homeFolderIcon"));
+                    }else {
+                        Object select = node.getUserObject();
+                        if (select != null) {
+                            if (select instanceof URLdownloadType) {
+                                //URLdownloadType f = (URLdownloadType) select;
+                                setIcon(UIManager.getIcon("FileView.computerIcon"));
+                            }
+                        }
+                    }                    
+                }
+                return this;
+            }             
+       });
+       
+        downloadTree.addTreeSelectionListener(new TreeSelectionListener() {
+            @Override
+            public void valueChanged(TreeSelectionEvent e) {
+                // get Selcted device 
+                DefaultMutableTreeNode node = (DefaultMutableTreeNode) downloadTree.getLastSelectedPathComponent();
+                if (node == null) {
+                    return;
+                }
+                if (node.isRoot()) {                  
+                    return;
+                }
+                Object nodeObject = node.getUserObject();
+                if (nodeObject instanceof URLdownloadType) {
+                    URLdownloadType dn = (URLdownloadType) nodeObject;
+                    System.out.println("URLdownloadType Selcted");
+                }
+            }
+        });
+       
+    
+    
+    
+    }
     private void wireDeviceTreeEventListeners() {
 
         //Always Expand the tree
         devTree.expandRow(0);
+        
+        
         // Cell render for tree nodes
         devTree.setCellRenderer(new DefaultTreeCellRenderer() {
             @Override
