@@ -14,6 +14,7 @@ import model.EmailClient;
 import model.FTPclient;
 import model.FTPserver;
 import model.MyTelnetClient;
+import model.NetworkInterfaceManager;
 import model.TCPServer;
 import systemDefinitions.MyLogFiilter;
 import systemDefinitions.MyLogFormatter;
@@ -69,6 +70,7 @@ public class EmbeddedController {
     public static HomeScreen hs;
     public static DeviceManager DM;
     public static DeviceFinder DF;
+    public static NetworkInterfaceManager NIM;
     
     public static String DEF_LOOKANDFEEL ="Nimbus"; // this runs in all the platforms
   
@@ -77,7 +79,12 @@ public class EmbeddedController {
     public static void main(String[] args) {
         // create Logger 
         createLogger();
+
+        /*Get the information about the System*/
+        // check network interface
+        NIM = new NetworkInterfaceManager();
         
+      
         // Set the GUI look and Feel
         SetLookandFeel(DEF_LOOKANDFEEL);
         
